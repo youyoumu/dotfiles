@@ -1,0 +1,13 @@
+[user]
+	name = youyoumu
+	email = 19760884+youyoumu@users.noreply.github.com
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[pull]
+	rebase = false
+[safe]
+	directory = *
+[core]
+	editor = code --wait
