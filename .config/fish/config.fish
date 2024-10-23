@@ -7,3 +7,10 @@ end
 
 # start rbenv
 status --is-interactive; and rbenv init - fish | source
+
+# zoxide
+zoxide init fish | source
+alias cd="z"
+
+# eza
+alias ls="eza --long --icons --git --all --bytes --no-permissions --no-user --mounts --grid --group-directories-first"
