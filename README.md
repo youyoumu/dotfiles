@@ -29,4 +29,5 @@ ln -s -f .tmux/.tmux.conf
 - eza
 - zoxide
 - [nano-syntax-highlighting](https://archlinux.org/packages/?name=nano-syntax-highlighting)
+- [sesh](https://github.com/joshmedeski/sesh)
 ```

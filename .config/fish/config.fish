@@ -14,3 +14,6 @@ alias cd="z"
 
 # eza
 alias ls="eza --long --icons --git --all --bytes --no-permissions --no-user --mounts --grid --group-directories-first"
+
+# sesh
+alias s="sesh connect (sesh list | fzf)"
