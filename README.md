@@ -17,3 +17,16 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 # cp .tmux/.tmux.conf.local . # use .tmux.conf.local from dotfiles instead
 ```
+
+## dependencies
+
+```shell
+- fzf
+- bat
+- tmux
+- rbenv
+- ruby-build
+- eza
+- zoxide
+- [nano-syntax-highlighting](https://archlinux.org/packages/?name=nano-syntax-highlighting)
+```
