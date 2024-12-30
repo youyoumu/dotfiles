@@ -14,6 +14,10 @@ return {
           nvim_tree_api.tree.open()
           nvim_tree_api.tree.change_root(vim.fn.getcwd())
           nvim_tree_api.tree.reload()
+
+          -- Trigger LSP
+          vim.cmd "wincmd l"
+          vim.cmd "e"
         end,
       },
     },
