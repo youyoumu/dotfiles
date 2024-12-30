@@ -38,10 +38,15 @@ end)
 
 --------------------------------------------------------------------------------
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.svelte" },
-  command = "EslintFixAll",
-})
+require("lspconfig").eslint.setup {
+  --- ...
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+}
 
 vim.g.coc_global_extensions = { "coc-markdownlint" }
 vim.opt.scrolloff = 8
