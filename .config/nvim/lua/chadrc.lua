@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "everblush",
+  theme = "chadracula",
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -19,6 +19,9 @@ M.ui = {
     lazyload = false,
   },
   telescope = { style = "bordered" },
+  statusline = {
+    separator_style = "round",
+  },
 }
 
 M.nvdash = {

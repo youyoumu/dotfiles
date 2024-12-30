@@ -10,6 +10,14 @@ return {
         view = {
           width = 50,
         },
+        renderer = {
+          indent_markers = {
+            enable = true,
+          },
+        },
+        modified = {
+          enable = true,
+        },
         on_attach = function(bufnr)
           local api = require "nvim-tree.api"
 
