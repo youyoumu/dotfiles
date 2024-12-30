@@ -1,6 +1,10 @@
-font-family = Iosevka NF 
+font-family = Iosevka Term SS14
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-theme = ghostty
+window-decoration = false
 font-style = Medium 
-font-feature = ss14
 font-size = 12
 theme = Dracula
 selection-foreground = #002b36
