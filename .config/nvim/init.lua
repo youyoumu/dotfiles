@@ -44,4 +44,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.g.coc_global_extensions = { "coc-markdownlint" }
+vim.opt.scrolloff = 8
 -- vim.opt.relativenumber = true

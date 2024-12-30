@@ -18,6 +18,7 @@
   "lazygit.nvim": { "branch": "main", "commit": "77a0d42943d8265271e6e6beaed72da54eeb17e7" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
   "menu": { "branch": "main", "commit": "657bfc91382c0928453d9a4d0a10ec92db5de2bb" },
+  "mini.nvim": { "branch": "main", "commit": "1270c1d41502a16e5e648b9bbff8dde597bcdc98" },
   "minty": { "branch": "main", "commit": "6dce9f097667862537823d515a0250ce58faab05" },
   "nvim-autopairs": { "branch": "master", "commit": "b464658e9b880f463b9f7e6ccddd93fb0013f559" },
   "nvim-cmp": { "branch": "main", "commit": "b555203ce4bd7ff6192e759af3362f9d217e8c89" },
