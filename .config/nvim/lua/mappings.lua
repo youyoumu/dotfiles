@@ -4,7 +4,7 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("i", "<C-s>", "<Esc><cmd>w<CR>", { desc = "exit insert mode and save file" })
 
 map("n", "<leader>cc", function()
   require("tiny-code-action").code_action()
