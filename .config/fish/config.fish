@@ -17,3 +17,9 @@ alias ls="eza --long --icons --git --all --bytes --no-permissions --no-user --mo
 
 # sesh
 alias s="sesh connect (sesh list | fzf)"
+
+# lazygit
+alias lg="lazygit"
+
+# nvim
+alias n="nvim ."
