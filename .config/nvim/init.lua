@@ -43,4 +43,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = "EslintFixAll",
 })
 
+vim.g.coc_global_extensions = { "coc-markdownlint" }
 -- vim.opt.relativenumber = true
