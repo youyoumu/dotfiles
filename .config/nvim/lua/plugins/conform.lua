@@ -10,6 +10,7 @@ return {
         javascriptreact = { "prettier" },
         typescript = { "prettier" },
         typescriptreact = { "prettier" },
+        ruby = { "standardrb" },
       },
     },
   },
