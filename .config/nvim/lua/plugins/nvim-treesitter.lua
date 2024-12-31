@@ -25,6 +25,7 @@ return {
         "yaml",
         "toml",
         "markdown",
+        "hurl",
       },
     },
   },
