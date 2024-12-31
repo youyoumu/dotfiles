@@ -14,6 +14,13 @@ return {
           indent_markers = {
             enable = true,
           },
+          icons = {
+            glyphs = {
+              git = {
+                ignored = "",
+              },
+            },
+          },
         },
         modified = {
           enable = true,
@@ -21,6 +28,10 @@ return {
         hijack_directories = {
           enable = false,
         },
+        filters = {
+          git_ignored = false,
+        },
+
         on_attach = function(bufnr)
           local api = require "nvim-tree.api"
 
