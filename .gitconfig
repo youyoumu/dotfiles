@@ -10,4 +10,4 @@
 [safe]
 	directory = *
 [core]
-	editor = code --wait
+	editor = nvim
