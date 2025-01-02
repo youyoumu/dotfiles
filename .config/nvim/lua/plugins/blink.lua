@@ -3,7 +3,13 @@ return {
     "saghen/blink.cmp",
     optional = true,
     opts = {
-      sources = { default = { "luasnip" } },
+      sources = {
+        default = { "luasnip" },
+        cmdline = {
+          name = "cmdline",
+          module = "blink.cmp.sources.cmdline",
+        },
+      },
       snippets = {
         expand = function(snippet)
           require("luasnip").lsp_expand(snippet)
