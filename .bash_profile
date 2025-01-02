@@ -4,5 +4,6 @@ eval "$(rbenv init - bash)"
 
 if [ -r ~/.private.sh ]; then . ~/.private.sh; fi
 
-export EDITOR=micro
+export EDITOR=nvim
 export PATH="$HOME/script:$PATH"
+
