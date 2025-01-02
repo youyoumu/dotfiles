@@ -1,12 +1,9 @@
 return {
-
   {
     "saghen/blink.cmp",
-    version = "*",
-    -- !Important! Make sure you're using the latest release of LuaSnip
-    -- `main` does not work at the moment
-    dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
+    optional = true,
     opts = {
+      sources = { default = { "luasnip" } },
       snippets = {
         expand = function(snippet)
           require("luasnip").lsp_expand(snippet)
@@ -20,9 +17,6 @@ return {
         jump = function(direction)
           require("luasnip").jump(direction)
         end,
-      },
-      sources = {
-        default = { "lsp", "path", "luasnip", "buffer" },
       },
     },
   },
