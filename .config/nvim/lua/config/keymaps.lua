@@ -4,5 +4,5 @@
 
 local map = vim.keymap.set
 
-map("n", "[o", "o<Esc>k", { desc = "Add newline below" })
-map("n", "]o", "O<Esc>j", { desc = "Add newline above" })
+vim.keymap.set("n", "gO", "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
+vim.keymap.set("n", "go", "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
