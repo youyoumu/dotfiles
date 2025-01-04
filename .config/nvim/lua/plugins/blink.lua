@@ -5,6 +5,14 @@ return {
     opts = {
       sources = {
         default = { "luasnip" },
+        compat = { "supermaven" },
+        providers = {
+          supermaven = {
+            kind = "Supermaven",
+            score_offset = 100,
+            async = true,
+          },
+        },
         cmdline = {
           name = "cmdline",
           module = "blink.cmp.sources.cmdline",
