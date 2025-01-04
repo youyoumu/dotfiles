@@ -7,6 +7,4 @@ window-decoration = false
 font-style = Medium 
 font-size = 11
 theme = catppuccin-mocha
-selection-foreground = #002b36
-selection-background = #93a1a1
 gtk-single-instance = false 
