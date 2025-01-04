@@ -4,3 +4,7 @@
 
 vim.diagnostic.config({ virtual_text = false })
 vim.opt.relativenumber = false
+
+if vim.g.neovide then
+  vim.o.guifont = "Iosevka Term SS14:h11"
+end
