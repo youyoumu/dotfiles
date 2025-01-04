@@ -6,11 +6,11 @@ vim.diagnostic.config({ virtual_text = false })
 vim.opt.relativenumber = false
 vim.opt.list = false
 
-vim.g.neovide_padding_top = 10
-vim.g.neovide_padding_bottom = 10
-vim.g.neovide_padding_right = 10
-vim.g.neovide_padding_left = 10
-
 if vim.g.neovide then
   vim.o.guifont = "Iosevka Term SS14:h11"
+  vim.g.neovide_padding_top = 10
+  vim.g.neovide_padding_bottom = 10
+  vim.g.neovide_padding_right = 10
+  vim.g.neovide_padding_left = 10
+  vim.g.neovide_cursor_vfx_mode = "sonicboom"
 end
