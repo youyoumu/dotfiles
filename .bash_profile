@@ -9,3 +9,5 @@ export PATH="$HOME/script:$PATH"
 
 export NEOVIDE_FRAMELESS=true
 export NEOVIDE_FRAME=none
+
+export NAVI_PATH="~/dotfiles/navi"
