@@ -1,8 +1,8 @@
 if status is-interactive
-	# ctrl-delete
-	bind \e\[3\;5~ kill-word
-	# ctrl-backspace
-	bind \b backward-kill-word
+    # ctrl-delete
+    bind \e\[3\;5~ kill-word
+    # ctrl-backspace
+    bind \b backward-kill-word
 end
 
 # start rbenv
@@ -23,3 +23,4 @@ alias lg="lazygit"
 
 # nvim
 alias n="nvim ."
+alias nd="neovide . &"
