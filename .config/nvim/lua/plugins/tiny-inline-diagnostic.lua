@@ -8,8 +8,8 @@ return {
         preset = "powerline",
         options = {
           multilines = {
-            enabled = true,
-            always_show = true,
+            enabled = false,
+            always_show = false,
           },
         },
         virt_texts = {
