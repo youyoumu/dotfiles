@@ -6,3 +6,7 @@ local map = vim.keymap.set
 
 vim.keymap.set("n", "gO", "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
 vim.keymap.set("n", "go", "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
+
+vim.keymap.set("n", "<leader>dd", '"_d', { desc = "Delete to blackhole register" })
+vim.keymap.set("v", "<leader>dd", '"_d', { desc = "Delete to blackhole register" })
+vim.keymap.set("n", "<leader>dD", '"_D', { desc = "Delete to blackhole register (to end of line)" })
