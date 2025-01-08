@@ -10,3 +10,6 @@ vim.keymap.set("n", "go", "<Cmd>call append(line('.'),     repeat([''], v:count1
 vim.keymap.set("n", "<leader>dd", '"_d', { desc = "Delete to blackhole register" })
 vim.keymap.set("v", "<leader>dd", '"_d', { desc = "Delete to blackhole register" })
 vim.keymap.set("n", "<leader>dD", '"_D', { desc = "Delete to blackhole register (to end of line)" })
+
+vim.keymap.set("n", "<leader>k", "<cmd>Format<CR>", { desc = "Format code" })
+vim.keymap.set("v", "<leader>k", "<cmd>Format<CR>", { desc = "Format code" })
