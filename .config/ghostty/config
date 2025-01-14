@@ -7,4 +7,3 @@ window-decoration = false
 font-style = Medium 
 font-size = 11
 theme = catppuccin-mocha
-gtk-single-instance = false 
