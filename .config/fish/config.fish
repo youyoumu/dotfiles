@@ -1,3 +1,5 @@
+starship init fish | source
+
 if status is-interactive
     # ctrl-delete
     bind \e\[3\;5~ kill-word
