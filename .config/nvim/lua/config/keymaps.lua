@@ -13,3 +13,5 @@ vim.keymap.set("n", "<leader>dD", '"_D', { desc = "Delete to blackhole register 
 
 vim.keymap.set("n", "<leader>k", "<cmd>Format<CR>", { desc = "Format code" })
 vim.keymap.set("v", "<leader>k", "<cmd>Format<CR>", { desc = "Format code" })
+
+vim.keymap.set("n", "<leader>fd", "<cmd>FzfLua git_status<CR>", { desc = "Format code" })
