@@ -24,8 +24,8 @@ alias s="sesh connect (sesh list | fzf)"
 alias lg="lazygit"
 
 # nvim
-alias n="nvim ."
-alias nd="neovide . &"
+alias n="nvim"
+alias nd="neovide &"
 
 # yazi
 function y
