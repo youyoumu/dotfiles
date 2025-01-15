@@ -1,3 +1,4 @@
+local nvim_lsp = require("lspconfig")
 return {
   {
     "neovim/nvim-lspconfig",
@@ -14,7 +15,20 @@ return {
         rubocop = {
           enabled = false,
         },
+        denols = {
+          filetypes = { "typescript", "typescriptreact" },
+          root_dir = function(...)
+            return nvim_lsp.util.root_pattern("deno.jsonc", "deno.json")(...)
+          end,
+          keys = {
+            { "gd", vim.lsp.buf.definition },
+          },
+        },
+        vtsls = {
+          root_dir = nvim_lsp.util.root_pattern("package.json"),
+        },
       },
+
       inlay_hints = { enabled = false },
     },
   },
