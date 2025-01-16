@@ -10,6 +10,9 @@ end
 # start rbenv
 status --is-interactive; and rbenv init - fish | source
 
+# start pyenv
+pyenv init - fish | source
+
 # zoxide
 zoxide init fish | source
 #alias cd="z"
