@@ -5,13 +5,6 @@ return {
     priority = 1000, -- needs to be loaded in first
     config = function()
       require("tiny-inline-diagnostic").setup({
-        preset = "powerline",
-        options = {
-          multilines = {
-            enabled = false,
-            always_show = false,
-          },
-        },
         virt_texts = {
           priority = 2000,
         },
