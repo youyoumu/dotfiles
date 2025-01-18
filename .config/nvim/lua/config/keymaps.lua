@@ -14,3 +14,5 @@ vim.keymap.set("v", "<leader>k", "<cmd>Format<CR>", { desc = "Format code" })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+vim.keymap.set("t", "<C-x>", "<C-\\><C-N>")
