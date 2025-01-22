@@ -28,6 +28,16 @@ return {
           root_dir = nvim_lsp.util.root_pattern("package.json"),
         },
       },
+      setup = {
+        -- auto fix suddenlt stopped workin so i added this, check the issue later (today is 22 jan 2025)
+        -- https://github.com/LazyVim/LazyVim/discussions/402
+        eslint = function()
+          -- automatically fix linting errors on save (but otherwise do not format the document)
+          vim.cmd([[
+          autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+        ]])
+        end,
+      },
 
       inlay_hints = { enabled = false },
     },
