@@ -1,6 +1,7 @@
 return {
   {
     "ThePrimeagen/harpoon",
+    enabled = false,
 
     keys = function()
       local keys = {
