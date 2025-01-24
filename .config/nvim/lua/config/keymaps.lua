@@ -16,3 +16,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("t", "<C-x>", "<C-\\><C-N>")
+
+vim.keymap.set("n", "<leader>tm", require("treesj").toggle, { desc = "Toggle treesj" })
+vim.keymap.set("n", "<leader>ts", require("treesj").split, { desc = "Split treesj" })
+vim.keymap.set("n", "<leader>tj", require("treesj").join, { desc = "Join treesj" })
