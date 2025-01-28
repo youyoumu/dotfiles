@@ -22,3 +22,7 @@ vim.keymap.set("n", "<leader>ts", require("treesj").split, { desc = "Split trees
 vim.keymap.set("n", "<leader>tj", require("treesj").join, { desc = "Join treesj" })
 
 vim.keymap.set("i", "<C-o>", "<CR><ESC>kA", { desc = "Insert newline after cursor" })
+
+vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
