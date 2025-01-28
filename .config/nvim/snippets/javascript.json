@@ -36,12 +36,25 @@
   },
   "useState Hook": {
     "prefix": "ust",
-    "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = useState($2)$0"],
+    "body": ["const [$1, set$2] = useState($3)$0"],
     "description": "React useState hook"
   },
   "IIFE": {
     "prefix": "iife",
     "body": ["(() => {", "\t$1", "})()$0"],
     "description": "Immediately Invoked Function Expression"
+  },
+  "return": {
+    "prefix": "r",
+    "body": "return ${0}"
+  },
+  "import": {
+    "prefix": "i",
+    "body": "import ${0}"
+  },
+  "Try-Catch Statement": {
+    "prefix": "trycatch",
+    "body": ["try {", "\t$0", "} catch (${1}) {", "\t", "}"],
+    "description": "Try-Catch Statement"
   }
 }
