@@ -1,15 +1,35 @@
+vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#f9e2af" })
+
 return {
   {
     "snacks.nvim",
     opts = {
       scroll = { enabled = false },
       indent = {
-        enabled = false,
         indent = {
-          char = "╎",
+          char = "┊",
         },
         scope = {
           char = "╎",
+        },
+        chunk = {
+          enabled = true,
+          char = {
+            corner_top = "┌",
+            corner_bottom = "└",
+            -- corner_top = "╭",
+            -- corner_bottom = "╰",
+            horizontal = "─",
+            vertical = "│",
+            arrow = "─",
+          },
+        },
+        animate = {
+          easing = "outExpo",
+          duration = {
+            step = 100, -- ms per step
+            total = 500, -- maximum duration
+          },
         },
       },
       dashboard = {
