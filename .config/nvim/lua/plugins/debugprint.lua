@@ -4,6 +4,9 @@ local js_like = {
   mid_var = '", ',
   right_var = ")",
 }
+
+vim.api.nvim_set_hl(0, "DebugPrintLine", { bg = "#313244" })
+
 return {
   {
     "andrewferrier/debugprint.nvim",
@@ -19,6 +22,8 @@ return {
           variable_below = "<leader>v",
         },
       },
+      display_location = false,
+      print_tag = "DEBUG",
     },
   },
 }
