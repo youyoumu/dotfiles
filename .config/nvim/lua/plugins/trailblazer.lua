@@ -32,6 +32,12 @@ return {
           --     ...
           -- },
         },
+        trail_options = {
+          newest_mark_symbol = "", -- disable this mark symbol by setting its value to ""
+          cursor_mark_symbol = "", -- disable this mark symbol by setting its value to ""
+          next_mark_symbol = "", -- disable this mark symbol by setting its value to ""
+          previous_mark_symbol = "", -- disable this mark symbol by setting its value to ""
+        },
       })
     end,
   },
