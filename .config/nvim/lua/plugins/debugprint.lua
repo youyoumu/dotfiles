@@ -1,5 +1,5 @@
 local js_like = {
-  left = 'console.debug("',
+  left = 'console.log("',
   right = '")',
   mid_var = '", ',
   right_var = ")",
