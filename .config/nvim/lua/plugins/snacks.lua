@@ -4,6 +4,30 @@ return {
   {
     "snacks.nvim",
     opts = {
+      explorer = {
+        replace_netrw = true,
+      },
+      picker = {
+        explorer = { replace_netrw = true },
+        sources = {
+          explorer = {
+            hidden = true,
+            ignored = true,
+            layout = {
+              layout = {
+                width = 50,
+              },
+              preview = { main = true, enabled = false },
+            },
+          },
+        },
+        formatters = {
+          file = {
+            filename_first = true,
+            truncate = 9999,
+          },
+        },
+      },
       scroll = { enabled = false },
       indent = {
         indent = {
