@@ -18,6 +18,7 @@ return {
                 width = 50,
               },
               preview = { main = true, enabled = false },
+              auto_hide = { "input" },
             },
           },
         },
