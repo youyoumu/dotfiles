@@ -30,3 +30,6 @@
 	path = /home/yym/.config/delta/themes/catppuccin.gitconfig
 [delta]
 	features = catppuccin-mocha
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
