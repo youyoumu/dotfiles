@@ -1,6 +1,7 @@
 return {
   {
     "LeonHeidelbach/trailblazer.nvim",
+    enabled = false,
     config = function()
       require("trailblazer").setup({
         force_mappings = { -- rename this to "force_mappings" to completely override default mappings and not merge with them
