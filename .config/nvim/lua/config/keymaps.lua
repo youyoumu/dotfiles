@@ -26,3 +26,17 @@ vim.keymap.set("i", "<C-o>", "<CR><ESC>kA", { desc = "Insert newline after curso
 vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+
+vim.keymap.set("n", "<leader>e", function()
+  local explorer_pickers = Snacks.picker.get({ source = "explorer" })
+  for _, v in pairs(explorer_pickers) do
+    if v:is_focused() then
+      v:close()
+    else
+      v:focus()
+    end
+  end
+  if #explorer_pickers == 0 then
+    Snacks.picker.explorer()
+  end
+end, { desc = "Open, Focus, Close Snacks picker" })
