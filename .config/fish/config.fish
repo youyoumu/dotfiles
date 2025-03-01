@@ -30,6 +30,9 @@ alias lg="lazygit"
 alias n="nvim"
 alias nd="neovide &"
 
+# pnpm
+alias p="pnpm"
+
 # yazi
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
