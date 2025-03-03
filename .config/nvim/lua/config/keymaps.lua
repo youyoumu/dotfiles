@@ -27,6 +27,10 @@ vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<C
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 
+-- Only add the two specified commands with descriptions
+vim.keymap.set("n", "<leader>cM", "<cmd>TSToolsAddMissingImports<CR>", { desc = "Add missing imports" })
+vim.keymap.set("n", "<leader>cU", "<cmd>TSToolsRemoveUnusedImports<CR>", { desc = "Remove unused imports" })
+
 vim.keymap.set("n", "<leader>e", function()
   local explorer_pickers = Snacks.picker.get({ source = "explorer" })
   for _, v in pairs(explorer_pickers) do
