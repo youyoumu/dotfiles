@@ -41,7 +41,7 @@ button:hover {
 }
 
 #workspaces button {
-  padding: 0 0;
+  padding: 0 5px;
   background-color: @mantle;
   color: @text;
 }
@@ -50,6 +50,13 @@ button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
   background-image: linear-gradient(0deg, @surface1, @mantle);
+}
+
+#workspaces button.active {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background-image: linear-gradient(0deg, @surface1, @mantle);
+  padding: 0 5px;
 }
 
 #workspaces button.focused {
@@ -85,6 +92,7 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #mode,
+#custom-audio-output,
 #tray {
   padding: 0 10px;
   margin: 5px 1px;
@@ -164,6 +172,11 @@ label:focus {
 }
 
 #pulseaudio {
+  background-color: @yellow;
+  color: @mantle;
+}
+
+#custom-audio-output {
   background-color: @yellow;
   color: @mantle;
 }
