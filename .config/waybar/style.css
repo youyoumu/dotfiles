@@ -56,7 +56,8 @@ button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
   background-image: linear-gradient(0deg, @surface1, @mantle);
-  padding: 0 5px;
+  padding: 0px 5px;
+  border-bottom: 3px solid @blue;
 }
 
 #workspaces button.focused {
@@ -218,9 +219,8 @@ label:focus {
 }
 
 #idle_inhibitor {
-  background-color: @base;
-  color: @text;
-  font-family: Inter;
+  background-color: @red;
+  color: @mantle;
 }
 
 #idle_inhibitor.activated {
