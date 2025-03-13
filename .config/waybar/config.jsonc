@@ -9,20 +9,17 @@
     "modules-left": ["hyprland/workspaces", "tray", "hyprland/submap", "mpris"],
     "modules-center": ["sway/window"],
     "modules-right": [
+      "network",
       "disk#ssd",
       "temperature",
       "cpu",
       "memory",
-      "network",
       "custom/audio-output",
       "pulseaudio",
-      "clock",
+      "clock"
     ],
 
     "hyprland/workspaces": {
-      "disable-scroll": false,
-      "all-outputs": true,
-      "warp-on-scroll": false,
       "format": " {id} ",
       "format-icons": {
         //         "1": "",
@@ -30,14 +27,10 @@
         //         "3": "",
         //         "4": "",
         //         "5": "",
-        "urgent": "",
+        "urgent": ""
         //         "focused": "",
         //         "default": ""
-      },
-      // "persistent-workspaces": {
-      //   "HDMI-A-1": [1, 2, 3, 4, 5, 6, 7, 8, 9],
-      // },
-      // "ignore-workspaces": ["^1[1-9]$", "^2[1-9]$"],
+      }
     },
     "bluetooth": {
       "format-on": "bt ",
@@ -48,10 +41,10 @@
       "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
       "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
     "hyprland/submap": {
-      "format": "<span style=\"italic\">{}</span>",
+      "format": "<span style=\"italic\">{}</span>"
     },
     "mpris": {
       "interval": 15,
@@ -62,11 +55,11 @@
         "default": "▶",
         "firefox": "▶",
         "tidal-hifi": "🎵",
-        "cmus": "🎵",
+        "cmus": "🎵"
       },
       "status-icons": {
-        "paused": "⏸",
-      },
+        "paused": "⏸"
+      }
       // "ignored-players": ["cmus"]
     },
     "sway/scratchpad": {
@@ -74,24 +67,24 @@
       "show-empty": false,
       "format-icons": ["", ""],
       "tooltip": true,
-      "tooltip-format": "{app}: {title}",
+      "tooltip-format": "{app}: {title}"
     },
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
         "activated": "",
-        "deactivated": "",
-      },
+        "deactivated": ""
+      }
     },
     "tray": {
       "icon-size": 13,
-      "spacing": 10,
+      "spacing": 10
     },
     "clock": {
       "interval": 60,
-      "timezone": "Europe/Budapest",
-      "format": "{:%F %R }",
-      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "timezone": "Asia/Jakarta",
+      "format": "{:%a %d-%b-%y | %H:%M }",
+      "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "year",
         "mode-mon-col": 3,
@@ -103,21 +96,21 @@
           "days": "<span color='#cdd6f4'><b>{}</b></span>",
           "weeks": "<span color='#94e2d5'>W{}</span>",
           "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-          "today": "<span color='#f5e0dc'><b><u>{}</u></b></span>",
-        },
+          "today": "<span color='#f5e0dc'><b><u>{}</u></b></span>"
+        }
       },
       "actions": {
         "on-click-right": "mode",
         "on-click-forward": "tz_up",
         "on-click-backward": "tz_down",
         "on-scroll-up": "shift_up",
-        "on-scroll-down": "shift_down",
-      },
+        "on-scroll-down": "shift_down"
+      }
     },
     "cpu": {
       "interval": 3,
       "format": "{usage}% ",
-      "on-click": "foot --app-id htop htop",
+      "on-click": "foot --app-id htop htop"
     },
     "memory": {
       "interval": 3,
@@ -125,8 +118,8 @@
       "on-click": "foot --app-id htop htop",
       "tooltip-format": "Used: {used:0.1f}G/{total:0.1f}G. Swap: {swapUsed:0.1f}G/{swapTotal:0.1f}G",
       "states": {
-        "critical": 80,
-      },
+        "critical": 80
+      }
     },
     "temperature": {
       "interval": 3,
@@ -134,7 +127,7 @@
       "critical-threshold": 90,
       "format-critical": "{temperatureC}°C {icon}",
       "format": "{temperatureC}°C {icon}",
-      "format-icons": ["", "", ""],
+      "format-icons": ["", "", ""]
     },
     "disk#ssd": {
       "interval": 60,
@@ -142,33 +135,33 @@
       "path": "/",
       "tooltip": true,
       "warning": 80,
-      "critical": 90,
+      "critical": 90
     },
     "network": {
       "interval": 1,
       "interface-ethernet": "enp5s*",
       "interface-wifi": "wlan0",
-      "format-ethernet": "{bandwidthUpBits} {bandwidthDownBits} ",
+      "format-ethernet": "{bandwidthUpBytes} {bandwidthDownBytes} ",
       "format-wifi": "{essid} ({signalStrength}%) ",
       "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
       "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr} ",
       "format-linked": "(No IP) ",
-      "format-disconnected": "Disconnected ⚠",
+      "format-disconnected": "Disconnected ⚠"
     },
     "custom/weather": {
       "interval": 600,
       "exec": "~/.config/waybar/wittr.sh nyiregyhaza",
       "return-type": "json",
       "format": "{}",
-      "tooltip": true,
+      "tooltip": true
     },
     "custom/kernel": {
       "exec": "uname -r | sed -E 's/^([0-9]+\\.[0-9]+\\.[0-9]+)-.*-([a-zA-Z0-9]+)/\\1-\\2/'",
-      "format": "{} ",
+      "format": "{} "
     },
     "custom/audio-output": {
       "exec": "~/script/get-audio-device.sh",
-      "interval": 5,
+      "interval": 5
     },
     "pulseaudio": {
       "scroll-step": 2,
@@ -184,10 +177,10 @@
         "headset": "",
         "phone": "",
         "portable": "",
-        "car": "",
+        "car": ""
       },
-      "on-click": "pavucontrol",
-    },
+      "on-click": "pavucontrol"
+    }
   },
   {
     "output": "DP-3",
@@ -197,15 +190,9 @@
     "width": 1920,
     "modules-left": ["hyprland/workspaces"],
     "hyprland/workspaces": {
-      "disable-scroll": false,
-      "all-outputs": true,
-      "warp-on-scroll": false,
-      "format": " {id} ",
-      // "persistent-workspaces": {
-      //   "DP-3": [11, 12, 13, 14, 15, 16, 17, 18, 19],
-      // },
-      // "ignore-workspaces": ["^[1-9]$", "^2[1-9]$"],
-    },
+      "show-special": true,
+      "format": " {id} "
+    }
   },
   {
     "output": "DP-2",
@@ -215,14 +202,8 @@
     "width": 1920,
     "modules-left": ["hyprland/workspaces"],
     "hyprland/workspaces": {
-      "disable-scroll": false,
-      "all-outputs": true,
-      "warp-on-scroll": false,
-      "format": " {id} ",
-      // "persistent-workspaces": {
-      //   "DP-2": [21, 22, 23, 24, 25, 26, 27, 28, 29],
-      // },
-      // "ignore-workspaces": ["^[1-9]$", "^1[1-9]$"],
-    },
-  },
+      "show-special": true,
+      "format": " {id} "
+    }
+  }
 ]

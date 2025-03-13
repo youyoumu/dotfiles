@@ -1,14 +1,15 @@
 #!/bin/bash
-
-# Ensure an argument was provided
-if [ $# -ne 1 ]; then
-  echo "Error: Please provide a single workspace number (1-9)"
+# Ensure arguments were provided
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+  echo "Usage: $0 <workspace_number> [move]"
+  echo "  workspace_number: A digit between 1-9"
+  echo "  move: Optional. If 'move' is specified, moves the active window to the workspace"
   exit 1
 fi
 
 # Validate input is a number between 1-9
 if ! [[ "$1" =~ ^[1-9]$ ]]; then
-  echo "Error: Argument must be a single digit between 1-9"
+  echo "Error: First argument must be a single digit between 1-9"
   exit 1
 fi
 
@@ -37,5 +38,11 @@ esac
 # Calculate the target workspace
 TARGET_WORKSPACE=$((PREFIX + $1))
 
-# Switch to the target workspace
-hyprctl dispatch workspace $TARGET_WORKSPACE
+# Determine whether to switch to workspace or move window to workspace
+if [ "$2" = "move" ]; then
+  # Move the active window to the target workspace
+  hyprctl dispatch movetoworkspace $TARGET_WORKSPACE
+else
+  # Switch to the target workspace
+  hyprctl dispatch workspace $TARGET_WORKSPACE
+fi
