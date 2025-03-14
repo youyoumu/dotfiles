@@ -60,7 +60,8 @@
       },
       "status-icons": {
         "paused": "⏸"
-      }
+      },
+      "dynamic-len": 80
       // "ignored-players": ["cmus"]
     },
     "sway/scratchpad": {
