@@ -29,21 +29,21 @@ case "$MONITOR" in
   if [ "$TOGGLE_STATE" = "normal" ]; then
     PREFIX=0 # For monitor 1: workspaces 1-9
   else
-    PREFIX=40 # For monitor 1 alternate: workspaces 41-49
+    PREFIX=30 # For monitor 1 alternate: workspaces 41-49
   fi
   ;;
 "DP-3" | "monitor-2")
   if [ "$TOGGLE_STATE" = "normal" ]; then
     PREFIX=10 # For monitor 2: workspaces 11-19
   else
-    PREFIX=50 # For monitor 2 alternate: workspaces 51-59
+    PREFIX=40 # For monitor 2 alternate: workspaces 51-59
   fi
   ;;
 "DP-2" | "monitor-3")
   if [ "$TOGGLE_STATE" = "normal" ]; then
     PREFIX=20 # For monitor 3: workspaces 21-29
   else
-    PREFIX=60 # For monitor 3 alternate: workspaces 61-69
+    PREFIX=50 # For monitor 3 alternate: workspaces 61-69
   fi
   ;;
 *)
@@ -53,7 +53,7 @@ case "$MONITOR" in
   if [ "$TOGGLE_STATE" = "normal" ]; then
     PREFIX=$((MONITOR_ID * 10))
   else
-    PREFIX=$(((MONITOR_ID * 10) + 40))
+    PREFIX=$(((MONITOR_ID * 10) + 30))
   fi
   ;;
 esac
