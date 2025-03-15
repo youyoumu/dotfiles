@@ -13,25 +13,48 @@ if ! [[ "$1" =~ ^[1-9]$ ]]; then
   exit 1
 fi
 
+# Check the toggle state
+STATE_FILE="$HOME/.config/hypr/workspace_toggle_state"
+if [ ! -f "$STATE_FILE" ]; then
+  echo "normal" >"$STATE_FILE"
+fi
+TOGGLE_STATE=$(cat "$STATE_FILE")
+
 # Get the current monitor name
 MONITOR=$(hyprctl activeworkspace -j | jq -r '.monitor')
 
 # Determine the workspace prefix based on the monitor
 case "$MONITOR" in
 "HDMI-A-1" | "monitor-1")
-  PREFIX=0 # For monitor 1: workspaces 1-9
+  if [ "$TOGGLE_STATE" = "normal" ]; then
+    PREFIX=0 # For monitor 1: workspaces 1-9
+  else
+    PREFIX=40 # For monitor 1 alternate: workspaces 41-49
+  fi
   ;;
 "DP-3" | "monitor-2")
-  PREFIX=10 # For monitor 2: workspaces 11-19
+  if [ "$TOGGLE_STATE" = "normal" ]; then
+    PREFIX=10 # For monitor 2: workspaces 11-19
+  else
+    PREFIX=50 # For monitor 2 alternate: workspaces 51-59
+  fi
   ;;
 "DP-2" | "monitor-3")
-  PREFIX=20 # For monitor 3: workspaces 21-29
+  if [ "$TOGGLE_STATE" = "normal" ]; then
+    PREFIX=20 # For monitor 3: workspaces 21-29
+  else
+    PREFIX=60 # For monitor 3 alternate: workspaces 61-69
+  fi
   ;;
 *)
   # Default case - use the monitorID to determine prefix
   MONITOR_ID=$(hyprctl activeworkspace -j | jq '.monitorID')
   # monitorID is 0-indexed, but we want monitor 1 to have prefix 0
-  PREFIX=$((MONITOR_ID * 10))
+  if [ "$TOGGLE_STATE" = "normal" ]; then
+    PREFIX=$((MONITOR_ID * 10))
+  else
+    PREFIX=$(((MONITOR_ID * 10) + 40))
+  fi
   ;;
 esac
 

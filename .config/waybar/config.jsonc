@@ -10,6 +10,7 @@
     "modules-center": ["sway/window"],
     "modules-right": [
       "network",
+      "custom/workspaces-mode",
       "idle_inhibitor",
       "disk#ssd",
       "temperature",
@@ -161,9 +162,16 @@
       "exec": "uname -r | sed -E 's/^([0-9]+\\.[0-9]+\\.[0-9]+)-.*-([a-zA-Z0-9]+)/\\1-\\2/'",
       "format": "{} "
     },
+    "custom/workspaces-mode": {
+      "exec": "cat ~/.config/hypr/workspace_toggle_state | awk '{print toupper(substr($0,1,1)) substr($0,2)}'",
+      "interval": 1,
+      "format": "{} 󰕰",
+      "on-click": "~/script/workspace-toggle.sh"
+    },
     "custom/audio-output": {
       "exec": "~/script/get-audio-device.sh",
-      "interval": 5
+      "interval": 5,
+      "on-click": "~/script/audio-device-switch.sh"
     },
     "pulseaudio": {
       "scroll-step": 2,

@@ -94,6 +94,7 @@ button:hover {
 #scratchpad,
 #mode,
 #custom-audio-output,
+#custom-workspaces-mode,
 #tray {
   padding: 0 10px;
   margin: 5px 1px;
@@ -179,6 +180,11 @@ label:focus {
 
 #custom-audio-output {
   background-color: @yellow;
+  color: @mantle;
+}
+
+#custom-workspaces-mode {
+  background-color: @blue;
   color: @mantle;
 }
 
