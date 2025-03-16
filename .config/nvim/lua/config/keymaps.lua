@@ -44,3 +44,15 @@ vim.keymap.set("n", "<leader>e", function()
     Snacks.picker.explorer()
   end
 end, { desc = "Open, Focus, Close Snacks picker" })
+
+vim.keymap.set({ "v" }, "<leader>si", function()
+  require("grug-far").open({ visualSelectionUsage = "operate-within-range" })
+end, { desc = "grug-far: Search within range" })
+
+vim.keymap.set({ "v" }, "<leader>sf", function()
+  require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })
+end, { desc = "grug-far: Search within file" })
+
+vim.keymap.set({ "n" }, "<leader>sf", function()
+  require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+end, { desc = "grug-far: Search within file" })
