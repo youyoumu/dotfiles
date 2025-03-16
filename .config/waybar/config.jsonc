@@ -62,7 +62,7 @@
       "status-icons": {
         "paused": "⏸"
       },
-      "dynamic-len": 80
+      "dynamic-len": 60
       // "ignored-players": ["cmus"]
     },
     "sway/scratchpad": {
