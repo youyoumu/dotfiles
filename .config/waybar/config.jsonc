@@ -12,6 +12,7 @@
       "network",
       "custom/workspaces-mode",
       "idle_inhibitor",
+      "custom/updates",
       "disk#ssd",
       "temperature",
       "cpu",
@@ -172,6 +173,16 @@
       "exec": "~/script/get-audio-device.sh",
       "interval": 5,
       "on-click": "~/script/audio-device-switch.sh"
+    },
+    "custom/updates": {
+      "format": "{} {icon}",
+      "return-type": "json",
+      "format-icons": {
+        "has-updates": "󱍷",
+        "updated": "󰂪"
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
     },
     "pulseaudio": {
       "scroll-step": 2,

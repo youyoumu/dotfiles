@@ -95,6 +95,7 @@ button:hover {
 #mode,
 #custom-audio-output,
 #custom-workspaces-mode,
+#custom-updates,
 #tray {
   padding: 0 10px;
   margin: 5px 1px;
@@ -185,6 +186,11 @@ label:focus {
 
 #custom-workspaces-mode {
   background-color: @blue;
+  color: @mantle;
+}
+
+#custom-updates {
+  background-color: @teal;
   color: @mantle;
 }
 
