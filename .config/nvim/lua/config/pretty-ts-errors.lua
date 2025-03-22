@@ -113,8 +113,6 @@ function M.show_formatted_error()
     "# Loading TypeScript Error",
     "",
     "Please wait while the error is being formatted...",
-    "",
-    "Code: " .. (ts_diagnostics[1].code or "N/A"),
   })
 
   -- Configure initial floating window
@@ -160,50 +158,56 @@ function M.show_formatted_error()
     })
   end
 
-  -- Format the diagnostic asynchronously
-  format_error_async(ts_diagnostics[1], function(formatted)
-    -- This callback runs when the formatting is complete
-    vim.schedule(function()
-      -- Make sure window is still valid
-      if not api.nvim_win_is_valid(win) or not api.nvim_buf_is_valid(floating_buf) then
-        floating_win_visible = false
-        return
-      end
+  local contents = ""
 
-      if not formatted then
-        -- Update with error message instead
-        api.nvim_buf_set_lines(floating_buf, 0, -1, false, {
-          "# Error Formatting Failed",
-          "",
-          "Could not format TypeScript error.",
-          "",
-          "Code: " .. (ts_diagnostics[1].code or "N/A"),
+  local function update_buffer()
+    if api.nvim_buf_is_valid(floating_buf) then
+      api.nvim_set_option_value("modifiable", true, { buf = floating_buf })
+      api.nvim_buf_set_lines(floating_buf, 0, -1, false, vim.split(contents, "\n"))
+      api.nvim_set_option_value("modifiable", false, { buf = floating_buf })
+    end
+  end
+
+  for i, diagnostic in ipairs(ts_diagnostics) do
+    -- Format the diagnostic asynchronously
+    format_error_async(diagnostic, function(formatted)
+      -- This callback runs when the formatting is complete
+      vim.schedule(function()
+        -- Make sure window is still valid
+        if not api.nvim_win_is_valid(win) or not api.nvim_buf_is_valid(floating_buf) then
+          floating_win_visible = false
+          return
+        end
+
+        if formatted then
+          contents = contents .. formatted .. "\n\n"
+        else
+          contents = contents .. "Could not format this error.\n\n"
+        end
+
+        -- Update the buffer after each error is processed
+        update_buffer()
+
+        -- Recalculate window size for formatted content
+        local lines = vim.split(contents, "\n")
+        local width = 0
+        for _, line in ipairs(lines) do
+          width = math.max(width, #line)
+        end
+        width = math.min(width, M.config.float_opts.max_width)
+        local height = math.min(#lines, M.config.float_opts.max_height)
+
+        -- Resize the window with new content
+        api.nvim_win_set_config(win, {
+          relative = "cursor",
+          width = width,
+          height = height,
+          row = 1,
+          col = 0,
         })
-        return
-      end
-
-      -- Add formatted content to buffer
-      api.nvim_buf_set_lines(floating_buf, 0, -1, false, vim.split(formatted, "\n"))
-
-      -- Recalculate window size for formatted content
-      local lines = vim.split(formatted, "\n")
-      local width = 0
-      for _, line in ipairs(lines) do
-        width = math.max(width, #line)
-      end
-      width = math.min(width, M.config.float_opts.max_width)
-      local height = math.min(#lines, M.config.float_opts.max_height)
-
-      -- Resize the window with new content
-      api.nvim_win_set_config(win, {
-        relative = "cursor",
-        width = width,
-        height = height,
-        row = 1,
-        col = 0,
-      })
+      end)
     end)
-  end)
+  end
 
   return win, floating_buf
 end
