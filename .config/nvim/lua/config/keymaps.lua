@@ -27,6 +27,11 @@ vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<C
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 
+-- Toggle auto-display
+vim.keymap.set("n", "<leader>tt", function()
+  require("pretty-ts-errors").toggle_auto_open()
+end, { desc = "Toggle TS error auto-display" })
+
 -- Only add the two specified commands with descriptions
 vim.keymap.set("n", "<leader>cM", "<cmd>TSToolsAddMissingImports<CR>", { desc = "Add missing imports" })
 vim.keymap.set("n", "<leader>cU", "<cmd>TSToolsRemoveUnusedImports<CR>", { desc = "Remove unused imports" })
