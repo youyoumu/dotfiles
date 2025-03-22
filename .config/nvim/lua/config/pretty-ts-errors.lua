@@ -44,13 +44,10 @@ local function format_error_async(diagnostic, callback)
 
   -- Convert to JSON string and escape for shell
   local json_str = vim.fn.json_encode(lsp_data)
-  json_str = json_str:gsub('"', '\\"')
-
-  -- Build command
-  local cmd = M.config.executable .. ' -i "' .. json_str .. '"'
+  local cmd = M.config.executable
 
   -- Use jobstart to run command asynchronously
-  vim.fn.jobstart(cmd, {
+  local job_id = vim.fn.jobstart(cmd, {
     on_stdout = function(_, data)
       if not data or #data < 1 or (data[1] == "" and #data == 1) then
         return
@@ -81,6 +78,8 @@ local function format_error_async(diagnostic, callback)
       end
     end,
   })
+  vim.fn.chansend(job_id, json_str)
+  vim.fn.chanclose(job_id, "stdin")
 end
 
 local floating_win_visible = false
