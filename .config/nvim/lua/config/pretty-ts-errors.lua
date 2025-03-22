@@ -26,6 +26,14 @@ M.config = {
 
 local cache = {}
 
+local function update_buffer(buf, contents)
+  if api.nvim_buf_is_valid(buf) then
+    api.nvim_set_option_value("modifiable", true, { buf = buf })
+    api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(contents, "\n"))
+    api.nvim_set_option_value("modifiable", false, { buf = buf })
+  end
+end
+
 local function format_error_async(diagnostic, callback)
   -- Skip if not from tsserver
   if diagnostic.source ~= "tsserver" then
@@ -160,15 +168,7 @@ function M.show_formatted_error()
 
   local contents = ""
 
-  local function update_buffer()
-    if api.nvim_buf_is_valid(floating_buf) then
-      api.nvim_set_option_value("modifiable", true, { buf = floating_buf })
-      api.nvim_buf_set_lines(floating_buf, 0, -1, false, vim.split(contents, "\n"))
-      api.nvim_set_option_value("modifiable", false, { buf = floating_buf })
-    end
-  end
-
-  for i, diagnostic in ipairs(ts_diagnostics) do
+  for _, diagnostic in ipairs(ts_diagnostics) do
     -- Format the diagnostic asynchronously
     format_error_async(diagnostic, function(formatted)
       -- This callback runs when the formatting is complete
@@ -186,7 +186,7 @@ function M.show_formatted_error()
         end
 
         -- Update the buffer after each error is processed
-        update_buffer()
+        update_buffer(floating_buf, contents)
 
         -- Recalculate window size for formatted content
         local lines = vim.split(contents, "\n")
@@ -248,15 +248,6 @@ function M.open_all_errors()
   local processed_count = 0
   local contents = "# TypeScript Errors\n"
 
-  -- Function to update buffer content
-  local function update_buffer()
-    if api.nvim_buf_is_valid(buf) then
-      api.nvim_set_option_value("modifiable", true, { buf = buf })
-      api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(contents, "\n"))
-      api.nvim_set_option_value("modifiable", false, { buf = buf })
-    end
-  end
-
   -- Process each diagnostic asynchronously
   for i, diagnostic in ipairs(ts_diagnostics) do
     format_error_async(diagnostic, function(formatted)
@@ -276,7 +267,7 @@ function M.open_all_errors()
         end
 
         -- Update the buffer after each error is processed
-        update_buffer()
+        update_buffer(buf, contents)
 
         -- When all diagnostics are processed, finalize the buffer
         if processed_count == #ts_diagnostics then
