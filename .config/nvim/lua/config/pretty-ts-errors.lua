@@ -212,6 +212,7 @@ function M.show_formatted_error()
   return win, floating_buf
 end
 
+local error_buf = nil -- Store the buffer reference
 -- format all errors in the current buffer and open a full buffer window as split
 function M.open_all_errors()
   -- Get all diagnostics in the current buffer
@@ -230,7 +231,14 @@ function M.open_all_errors()
   end
 
   -- Create a new buffer
-  local buf = api.nvim_create_buf(true, true)
+  local buf
+  if error_buf then
+    buf = error_buf
+    api.nvim_buf_set_name(buf, "TypeScript-Errors")
+  else
+    buf = api.nvim_create_buf(true, true)
+  end
+
   api.nvim_set_option_value("filetype", "markdown", { buf = buf })
 
   -- Set initial content
@@ -240,9 +248,6 @@ function M.open_all_errors()
   api.nvim_command("vsplit")
   local win = api.nvim_get_current_win()
   api.nvim_win_set_buf(win, buf)
-
-  -- Set buffer name
-  api.nvim_buf_set_name(buf, "TypeScript-Errors")
 
   -- Process diagnostics asynchronously
   local processed_count = 0
