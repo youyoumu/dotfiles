@@ -175,22 +175,19 @@ function M.open_all_errors()
   api.nvim_buf_set_option(buf, "filetype", "markdown")
 
   -- Format and collect all errors
-  local contents = { "# TypeScript Errors\n" }
+  local contents = "# TypeScript Errors\n"
 
   for i, diagnostic in ipairs(ts_diagnostics) do
     local formatted = format_error(diagnostic)
     if formatted then
       local location = string.format("## Error %d (Line %d, Col %d)\n\n", i, diagnostic.lnum + 1, diagnostic.col + 1)
-      table.insert(contents, location)
-      for _, line in ipairs(vim.split(formatted, "\n")) do
-        table.insert(contents, line)
-      end
-      table.insert(contents, "\n---\n")
+      contents = contents .. location
+      contents = contents .. formatted .. "\n---\n"
     end
   end
 
   -- Set the buffer content
-  api.nvim_buf_set_lines(buf, 0, -1, false, contents)
+  api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(contents, "\n"))
 
   -- Open the buffer in a new window
   api.nvim_command("vsplit")
