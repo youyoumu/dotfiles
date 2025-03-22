@@ -133,6 +133,14 @@ function M.show_formatted_error()
   local win = api.nvim_open_win(floating_buf, false, opts)
   floating_win_visible = true
 
+  -- Set up an autocmd to reset `floating_win_visible` when the floating window is closed
+  api.nvim_create_autocmd("WinClosed", {
+    pattern = tostring(win), -- Trigger when this specific window is closed
+    callback = function()
+      floating_win_visible = false
+    end,
+  })
+
   -- Set up autocmds to close window
   local group = api.nvim_create_augroup("PrettyTsErrorsClose", { clear = true })
   for _, buf in ipairs({ floating_buf, main_buf }) do
