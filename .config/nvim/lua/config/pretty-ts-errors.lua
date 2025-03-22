@@ -66,6 +66,64 @@ local function format_error(diagnostic)
   return result
 end
 
+-- Modify your format_error function to be asynchronous
+local function format_error_async(diagnostic, callback)
+  -- Skip if not from tsserver
+  if diagnostic.source ~= "tsserver" then
+    callback(nil)
+    return
+  end
+
+  -- Check cache first
+  local cache_key = diagnostic.code .. diagnostic.message
+  if cache[cache_key] then
+    callback(cache[cache_key])
+    return
+  end
+
+  local lsp_data = diagnostic.user_data.lsp
+
+  -- Convert to JSON string and escape for shell
+  local json_str = vim.fn.json_encode(lsp_data)
+  json_str = json_str:gsub('"', '\\"')
+
+  -- Build command
+  local cmd = M.config.executable .. ' -i "' .. json_str .. '"'
+
+  -- Use jobstart to run command asynchronously
+  vim.fn.jobstart(cmd, {
+    on_stdout = function(_, data)
+      if not data or #data < 1 or (data[1] == "" and #data == 1) then
+        return
+      end
+
+      local result = table.concat(data, "\n")
+      -- Cache the result
+      cache[cache_key] = result
+      callback(result)
+    end,
+    on_stderr = function(_, data)
+      if not data or #data < 1 or (data[1] == "" and #data == 1) then
+        return
+      end
+
+      local error_msg = table.concat(data, "\n")
+      vim.schedule(function()
+        vim.notify("Error formatting TypeScript error: " .. error_msg, vim.log.levels.ERROR)
+      end)
+      callback(nil)
+    end,
+    on_exit = function(_, code)
+      if code ~= 0 then
+        vim.schedule(function()
+          vim.notify("Failed to format TypeScript error. Exit code: " .. code, vim.log.levels.ERROR)
+        end)
+        callback(nil)
+      end
+    end,
+  })
+end
+
 local floating_win_visible = false
 
 -- Create a floating window with formatted error
@@ -153,7 +211,7 @@ function M.show_formatted_error()
   end
 end
 
--- Function to open a full buffer with all TS errors
+-- Function to open a full buffer with all TS errors asynchronously
 function M.open_all_errors()
   -- Get all diagnostics in the current buffer
   local all_diagnostics = vim.diagnostic.get(0)
@@ -174,20 +232,8 @@ function M.open_all_errors()
   local buf = api.nvim_create_buf(true, true)
   api.nvim_buf_set_option(buf, "filetype", "markdown")
 
-  -- Format and collect all errors
-  local contents = "# TypeScript Errors\n"
-
-  for i, diagnostic in ipairs(ts_diagnostics) do
-    local formatted = format_error(diagnostic)
-    if formatted then
-      local location = string.format("## Error %d (Line %d, Col %d)\n\n", i, diagnostic.lnum + 1, diagnostic.col + 1)
-      contents = contents .. location
-      contents = contents .. formatted .. "\n---\n"
-    end
-  end
-
-  -- Set the buffer content
-  api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(contents, "\n"))
+  -- Set initial content
+  api.nvim_buf_set_lines(buf, 0, -1, false, { "# TypeScript Errors", "", "Loading errors..." })
 
   -- Open the buffer in a new window
   api.nvim_command("vsplit")
@@ -197,11 +243,52 @@ function M.open_all_errors()
   -- Set buffer name
   api.nvim_buf_set_name(buf, "TypeScript-Errors")
 
-  -- Make it read-only
-  api.nvim_buf_set_option(buf, "modifiable", false)
+  -- Process diagnostics asynchronously
+  local processed_count = 0
+  local contents = "# TypeScript Errors\n"
 
-  -- Add key mappings for the buffer
-  api.nvim_buf_set_keymap(buf, "n", "q", ":bdelete<CR>", { noremap = true, silent = true })
+  -- Function to update buffer content
+  local function update_buffer()
+    if api.nvim_buf_is_valid(buf) then
+      api.nvim_buf_set_option(buf, "modifiable", true)
+      api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(contents, "\n"))
+      api.nvim_buf_set_option(buf, "modifiable", false)
+    end
+  end
+
+  -- Process each diagnostic asynchronously
+  for i, diagnostic in ipairs(ts_diagnostics) do
+    format_error_async(diagnostic, function(formatted)
+      vim.schedule(function()
+        processed_count = processed_count + 1
+
+        if formatted then
+          local location =
+            string.format("## Error %d (Line %d, Col %d)\n\n", i, diagnostic.lnum + 1, diagnostic.col + 1)
+          contents = contents .. location
+          contents = contents .. formatted .. "\n\n---\n"
+        else
+          local location =
+            string.format("## Error %d (Line %d, Col %d)\n\n", i, diagnostic.lnum + 1, diagnostic.col + 1)
+          contents = contents .. location
+          contents = contents .. "Could not format this error.\n\n---\n"
+        end
+
+        -- Update the buffer after each error is processed
+        update_buffer()
+
+        -- When all diagnostics are processed, finalize the buffer
+        if processed_count == #ts_diagnostics then
+          vim.schedule(function()
+            if api.nvim_buf_is_valid(buf) then
+              -- Add key mappings for the buffer
+              api.nvim_buf_set_keymap(buf, "n", "q", ":bdelete<CR>", { noremap = true, silent = true })
+            end
+          end)
+        end
+      end)
+    end)
+  end
 
   return buf
 end
