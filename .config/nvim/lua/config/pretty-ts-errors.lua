@@ -23,7 +23,7 @@ M.config = {
     max_width = 80,
     max_height = 20,
   },
-  auto_open = false,
+  auto_open = true,
 }
 
 -- Cache for storing formatted messages
@@ -66,8 +66,14 @@ local function format_error(diagnostic)
   return result
 end
 
+local floating_win_visible = false
+
 -- Create a floating window with formatted error
 function M.show_formatted_error()
+  -- If we already have a floating window open, don't create another one
+  if floating_win_visible then
+    return
+  end
   -- Get diagnostics under cursor
   local line = api.nvim_win_get_cursor(0)[1] - 1
   local ts_diagnostics = {}
@@ -91,12 +97,12 @@ function M.show_formatted_error()
   end
 
   -- Create a scratch buffer for markdown
-  local mardown_buf = api.nvim_create_buf(false, true)
+  local floating_buf = api.nvim_create_buf(false, true)
   -- api.nvim_buf_set_option(buf, "filetype", "markdown")
-  api.nvim_set_option_value("filetype", "markdown", { buf = mardown_buf })
+  api.nvim_set_option_value("filetype", "markdown", { buf = floating_buf })
 
   -- Add content to buffer
-  api.nvim_buf_set_lines(mardown_buf, 0, -1, false, vim.split(formatted, "\n"))
+  api.nvim_buf_set_lines(floating_buf, 0, -1, false, vim.split(formatted, "\n"))
 
   -- Calculate window size
   local lines = vim.split(formatted, "\n")
@@ -121,27 +127,27 @@ function M.show_formatted_error()
 
   -- Open floating window
   local main_buf = api.nvim_get_current_buf()
-  local win = api.nvim_open_win(mardown_buf, false, opts)
+  local win = api.nvim_open_win(floating_buf, false, opts)
+  floating_win_visible = true
 
   -- Close window when cursor moves
   local group = api.nvim_create_augroup("PrettyTsErrorsClose", { clear = false })
-  for _, buf in ipairs({ mardown_buf, main_buf }) do
+  for _, buf in ipairs({ floating_buf, main_buf }) do
     api.nvim_create_autocmd({ "CursorMoved", "BufEnter", "InsertEnter" }, {
       buffer = buf,
       group = group,
       callback = function()
         local current_buf = api.nvim_get_current_buf()
-        log_to_file(main_buf .. " " .. mardown_buf .. " " .. current_buf)
 
-        if buf == mardown_buf and current_buf == mardown_buf then
+        if buf == floating_buf and current_buf == floating_buf then
           return
         end
 
         if api.nvim_win_is_valid(win) then
           api.nvim_win_close(win, true)
+          floating_win_visible = false
+          api.nvim_del_augroup_by_id(group)
         end
-
-        api.nvim_del_augroup_by_id(group)
       end,
     })
   end
