@@ -126,16 +126,15 @@ end
 
 local floating_win_visible = false
 
--- Create a floating window with formatted error
 function M.show_formatted_error()
   -- If we already have a floating window open, don't create another one
   if floating_win_visible then
     return
   end
+
   -- Get diagnostics under cursor
   local line = api.nvim_win_get_cursor(0)[1] - 1
   local ts_diagnostics = {}
-
   for _, diagnostic in ipairs(vim.diagnostic.get(0, { lnum = line })) do
     if diagnostic.source == "tsserver" then
       table.insert(ts_diagnostics, diagnostic)
@@ -147,60 +146,48 @@ function M.show_formatted_error()
     return
   end
 
-  -- Format the first diagnostic (or we could show all)
-  local formatted = format_error(ts_diagnostics[1])
-  if not formatted then
-    vim.notify("Could not format TypeScript error", vim.log.levels.ERROR)
-    return
-  end
+  -- Save current buffer for later reference
+  local main_buf = api.nvim_get_current_buf()
 
-  -- Create a scratch buffer for markdown
+  -- Create a scratch buffer for markdown with loading content
   local floating_buf = api.nvim_create_buf(false, true)
-  -- api.nvim_buf_set_option(buf, "filetype", "markdown")
   api.nvim_set_option_value("filetype", "markdown", { buf = floating_buf })
 
-  -- Add content to buffer
-  api.nvim_buf_set_lines(floating_buf, 0, -1, false, vim.split(formatted, "\n"))
+  -- Add loading content to buffer
+  api.nvim_buf_set_lines(floating_buf, 0, -1, false, {
+    "# Loading TypeScript Error",
+    "",
+    "Please wait while the error is being formatted...",
+    "",
+    "Code: " .. (ts_diagnostics[1].code or "N/A"),
+  })
 
-  -- Calculate window size
-  local lines = vim.split(formatted, "\n")
-  local width = 0
-  for _, line in ipairs(lines) do
-    width = math.max(width, #line)
-  end
-
-  width = math.min(width, M.config.float_opts.max_width)
-  local height = math.min(#lines, M.config.float_opts.max_height)
-
-  -- Configure floating window
+  -- Configure initial floating window
   local opts = {
     relative = "cursor",
-    width = width,
-    height = height,
+    width = 50,
+    height = 5,
     row = 1,
     col = 0,
     style = "minimal",
     border = M.config.float_opts.border,
   }
 
-  -- Open floating window
-  local main_buf = api.nvim_get_current_buf()
+  -- Open floating window immediately with loading message
   local win = api.nvim_open_win(floating_buf, false, opts)
   floating_win_visible = true
 
-  -- Close window when cursor moves
-  local group = api.nvim_create_augroup("PrettyTsErrorsClose", { clear = false })
+  -- Set up autocmds to close window
+  local group = api.nvim_create_augroup("PrettyTsErrorsClose", { clear = true })
   for _, buf in ipairs({ floating_buf, main_buf }) do
     api.nvim_create_autocmd({ "CursorMoved", "BufEnter", "InsertEnter" }, {
       buffer = buf,
       group = group,
       callback = function()
         local current_buf = api.nvim_get_current_buf()
-
         if buf == floating_buf and current_buf == floating_buf then
           return
         end
-
         if api.nvim_win_is_valid(win) then
           api.nvim_win_close(win, true)
           floating_win_visible = false
@@ -209,8 +196,54 @@ function M.show_formatted_error()
       end,
     })
   end
-end
 
+  -- Format the diagnostic asynchronously
+  format_error_async(ts_diagnostics[1], function(formatted)
+    -- This callback runs when the formatting is complete
+    vim.schedule(function()
+      -- Make sure window is still valid
+      if not api.nvim_win_is_valid(win) or not api.nvim_buf_is_valid(floating_buf) then
+        floating_win_visible = false
+        return
+      end
+
+      if not formatted then
+        -- Update with error message instead
+        api.nvim_buf_set_lines(floating_buf, 0, -1, false, {
+          "# Error Formatting Failed",
+          "",
+          "Could not format TypeScript error.",
+          "",
+          "Code: " .. (ts_diagnostics[1].code or "N/A"),
+        })
+        return
+      end
+
+      -- Add formatted content to buffer
+      api.nvim_buf_set_lines(floating_buf, 0, -1, false, vim.split(formatted, "\n"))
+
+      -- Recalculate window size for formatted content
+      local lines = vim.split(formatted, "\n")
+      local width = 0
+      for _, line in ipairs(lines) do
+        width = math.max(width, #line)
+      end
+      width = math.min(width, M.config.float_opts.max_width)
+      local height = math.min(#lines, M.config.float_opts.max_height)
+
+      -- Resize the window with new content
+      api.nvim_win_set_config(win, {
+        relative = "cursor",
+        width = width,
+        height = height,
+        row = 1,
+        col = 0,
+      })
+    end)
+  end)
+
+  return win, floating_buf
+end
 -- Function to open a full buffer with all TS errors asynchronously
 function M.open_all_errors()
   -- Get all diagnostics in the current buffer
