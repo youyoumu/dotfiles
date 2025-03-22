@@ -1,19 +1,17 @@
--- File: pretty-ts-errors.lua
 local M = {}
-
 local api = vim.api
-local fn = vim.fn
 
-local function log_to_file(msg)
-  local log_file = "/tmp/nvim_plugin.log" -- Change this path as needed
-  local file = io.open(log_file, "a") -- Open file in append mode
-  if file then
-    file:write(os.date("[%Y-%m-%d %H:%M:%S] ") .. msg .. "\n")
-    file:close()
-  else
-    vim.api.nvim_err_writeln("Failed to open log file: " .. log_file)
-  end
-end
+-- for debugging
+-- local function log_to_file(msg)
+--   local log_file = "/tmp/nvim_plugin.log" -- Change this path as needed
+--   local file = io.open(log_file, "a") -- Open file in append mode
+--   if file then
+--     file:write(os.date("[%Y-%m-%d %H:%M:%S] ") .. msg .. "\n")
+--     file:close()
+--   else
+--     vim.api.nvim_echo({ { "Failed to open log file: " .. log_file, "ErrorMsg" } }, true, {})
+--   end
+-- end
 
 -- Configure plugin options with defaults
 M.config = {
@@ -26,47 +24,8 @@ M.config = {
   auto_open = true,
 }
 
--- Cache for storing formatted messages
 local cache = {}
 
--- Execute external Node.js process to format error message
-local function format_error(diagnostic)
-  -- Skip if not from tsserver
-  if diagnostic.source ~= "tsserver" then
-    return nil
-  end
-
-  -- Check cache first
-  local cache_key = diagnostic.code .. diagnostic.message
-  if cache[cache_key] then
-    return cache[cache_key]
-  end
-
-  local lsp_data = diagnostic.user_data.lsp
-
-  -- Convert to JSON string and escape for shell
-  local json_str = vim.fn.json_encode(lsp_data)
-  json_str = json_str:gsub('"', '\\"')
-
-  -- Build command
-  local cmd = string.format('%s -i "%s"', M.config.executable, json_str)
-
-  -- Execute the command
-  local result = fn.system(cmd)
-
-  -- Check if command succeeded
-  if vim.v.shell_error ~= 0 then
-    vim.notify("Failed to format TypeScript error: " .. result, vim.log.levels.ERROR)
-    return nil
-  end
-
-  -- Cache the result
-  cache[cache_key] = result
-
-  return result
-end
-
--- Modify your format_error function to be asynchronous
 local function format_error_async(diagnostic, callback)
   -- Skip if not from tsserver
   if diagnostic.source ~= "tsserver" then
@@ -125,7 +84,7 @@ local function format_error_async(diagnostic, callback)
 end
 
 local floating_win_visible = false
-
+-- get errors under the cursor and show formatted error as floating window near the cursor
 function M.show_formatted_error()
   -- If we already have a floating window open, don't create another one
   if floating_win_visible then
@@ -133,9 +92,9 @@ function M.show_formatted_error()
   end
 
   -- Get diagnostics under cursor
-  local line = api.nvim_win_get_cursor(0)[1] - 1
+  local current_line = api.nvim_win_get_cursor(0)[1] - 1
   local ts_diagnostics = {}
-  for _, diagnostic in ipairs(vim.diagnostic.get(0, { lnum = line })) do
+  for _, diagnostic in ipairs(vim.diagnostic.get(0, { lnum = current_line })) do
     if diagnostic.source == "tsserver" then
       table.insert(ts_diagnostics, diagnostic)
     end
@@ -146,10 +105,7 @@ function M.show_formatted_error()
     return
   end
 
-  -- Save current buffer for later reference
   local main_buf = api.nvim_get_current_buf()
-
-  -- Create a scratch buffer for markdown with loading content
   local floating_buf = api.nvim_create_buf(false, true)
   api.nvim_set_option_value("filetype", "markdown", { buf = floating_buf })
 
@@ -244,7 +200,8 @@ function M.show_formatted_error()
 
   return win, floating_buf
 end
--- Function to open a full buffer with all TS errors asynchronously
+
+-- format all errors in the current buffer and open a full buffer window as split
 function M.open_all_errors()
   -- Get all diagnostics in the current buffer
   local all_diagnostics = vim.diagnostic.get(0)
@@ -263,7 +220,7 @@ function M.open_all_errors()
 
   -- Create a new buffer
   local buf = api.nvim_create_buf(true, true)
-  api.nvim_buf_set_option(buf, "filetype", "markdown")
+  api.nvim_set_option_value("filetype", "markdown", { buf = buf })
 
   -- Set initial content
   api.nvim_buf_set_lines(buf, 0, -1, false, { "# TypeScript Errors", "", "Loading errors..." })
@@ -283,9 +240,9 @@ function M.open_all_errors()
   -- Function to update buffer content
   local function update_buffer()
     if api.nvim_buf_is_valid(buf) then
-      api.nvim_buf_set_option(buf, "modifiable", true)
+      api.nvim_set_option_value("modifiable", true, { buf = buf })
       api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(contents, "\n"))
-      api.nvim_buf_set_option(buf, "modifiable", false)
+      api.nvim_set_option_value("modifiable", false, { buf = buf })
     end
   end
 
@@ -370,7 +327,6 @@ function M.setup(opts)
   -- Merge user options with defaults
   M.config = vim.tbl_deep_extend("force", M.config, opts or {})
 
-  -- Create commands
   api.nvim_create_user_command("PrettyTsError", function()
     M.show_formatted_error()
   end, {})
@@ -379,12 +335,10 @@ function M.setup(opts)
     M.open_all_errors()
   end, {})
 
-  -- Add the toggle command
   api.nvim_create_user_command("PrettyTsToggleAuto", function()
     M.toggle_auto_open()
   end, {})
 
-  -- Autocommands for auto-showing errors on hover (if enabled)
   if M.config.auto_open then
     M.enable_auto_open()
   end
