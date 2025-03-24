@@ -2,7 +2,9 @@ vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#f9e2af" })
 
 return {
   {
-    "snacks.nvim",
+    "folke/snacks.nvim",
+    url = "https://github.com/youyoumu/snacks.nvim.git",
+    branch = "add-modified-icon-to-picker",
     opts = {
       explorer = {
         replace_netrw = true,
