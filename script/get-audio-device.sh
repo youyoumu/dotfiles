@@ -49,7 +49,7 @@ fi
 # Find the index that matches our new active sink
 for sink_index in "${!sink_descriptions[@]}"; do
   if [[ "$sink_index" == "$active_sink_index" ]]; then
-    if [[ "${sink_descriptions[$sink_index]}" == "Family 17h (Models 00h-0fh) HD Audio Controller Digital Stereo (IEC958)" ]]; then
+    if [[ "${sink_descriptions[$sink_index]}" == "Starship/Matisse HD Audio Controller Digital Stereo (IEC958)" ]]; then
       echo "󰓃 Samsung Soundbar"
     else
       echo "󰓃 ${sink_descriptions[$sink_index]}"
