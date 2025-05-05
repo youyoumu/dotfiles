@@ -6,6 +6,12 @@ vim.diagnostic.config({ virtual_text = false })
 vim.opt.relativenumber = false
 vim.opt.list = false
 
+vim.filetype.add({
+  extension = {
+    hbs = "html",
+  },
+})
+
 vim.api.nvim_create_user_command("Format", function(args)
   local range = nil
   if args.count ~= -1 then
