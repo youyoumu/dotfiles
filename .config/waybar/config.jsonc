@@ -6,7 +6,7 @@
     "height": 30,
     "width": 1920,
     "spacing": 1,
-    "modules-left": ["hyprland/workspaces", "tray", "hyprland/submap", "mpris"],
+    "modules-left": ["hyprland/workspaces", "tray", "hyprland/submap"],
     "modules-center": ["sway/window"],
     "modules-right": [
       "network",
