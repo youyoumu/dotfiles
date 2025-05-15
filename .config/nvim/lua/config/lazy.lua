@@ -50,4 +50,7 @@ require("lazy").setup({
       },
     },
   },
+  dev = {
+    path = "~/repos/",
+  },
 })
