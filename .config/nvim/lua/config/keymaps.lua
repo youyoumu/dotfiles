@@ -36,19 +36,19 @@ end, { desc = "Toggle TS error auto-display" })
 vim.keymap.set("n", "<leader>cM", "<cmd>TSToolsAddMissingImports<CR>", { desc = "Add missing imports" })
 vim.keymap.set("n", "<leader>cU", "<cmd>TSToolsRemoveUnusedImports<CR>", { desc = "Remove unused imports" })
 
-vim.keymap.set("n", "<leader>e", function()
-  local explorer_pickers = Snacks.picker.get({ source = "explorer" })
-  for _, v in pairs(explorer_pickers) do
-    if v:is_focused() then
-      v:close()
-    else
-      v:focus()
-    end
-  end
-  if #explorer_pickers == 0 then
-    Snacks.picker.explorer()
-  end
-end, { desc = "Open, Focus, Close Snacks picker" })
+-- vim.keymap.set("n", "<leader>e", function()
+--   local explorer_pickers = Snacks.picker.get({ source = "explorer" })
+--   for _, v in pairs(explorer_pickers) do
+--     if v:is_focused() then
+--       v:close()
+--     else
+--       v:focus()
+--     end
+--   end
+--   if #explorer_pickers == 0 then
+--     Snacks.picker.explorer()
+--   end
+-- end, { desc = "Open, Focus, Close Snacks picker" })
 
 vim.keymap.set({ "v" }, "<leader>si", function()
   require("grug-far").open({ visualSelectionUsage = "operate-within-range" })
