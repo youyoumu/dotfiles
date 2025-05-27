@@ -2,13 +2,8 @@ fish_vi_key_bindings
 
 starship init fish | source
 
-# doesn't work with fish_vi_key_bindings
-# if status is-interactive
-#     # ctrl-delete
-#     bind \e\[3\;5~ kill-word
-#     # ctrl-backspace
-#     bind \b backward-kill-word
-# end
+# start fnm
+fnm env --use-on-cd --shell fish | source
 
 # start rbenv
 status --is-interactive; and rbenv init - fish | source
