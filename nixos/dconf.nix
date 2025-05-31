@@ -26,6 +26,28 @@ with lib.hm.gvariant;
       switch-to-workspace-9 = [ "<Super>9" ];
     };
 
+    "org/gnome/shell/keybindings" = {
+      switch-to-application-1 = [ ];
+      switch-to-application-2 = [ ];
+      switch-to-application-3 = [ ];
+      switch-to-application-4 = [ ];
+      switch-to-application-5 = [ ];
+      switch-to-application-6 = [ ];
+      switch-to-application-7 = [ ];
+      switch-to-application-8 = [ ];
+      switch-to-application-9 = [ ];
+      toggle-message-tray = [ ];
+    };
+
+    "org/gnome/desktop/peripherals/keyboard" = {
+      delay = mkUint32 300;
+      repeat-interval = mkUint32 20;
+    };
+
+    "org/gnome/mutter" = {
+      dynamic-workspaces = false;
+    };
+
     "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 9;
     };

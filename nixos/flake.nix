@@ -19,7 +19,7 @@
     }:
     {
 
-      nixosConfigurations.yym = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.chocola = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = { inherit self system; };
         modules = [

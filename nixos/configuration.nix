@@ -17,7 +17,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "yym"; # Define your hostname.
+  networking.hostName = "chocola"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -26,6 +26,15 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  networking.interfaces.eth0.ipv4.addresses = [
+    {
+      address = "192.168.1.100";
+      prefixLength = 24;
+    }
+  ];
+  networking.defaultGateway = "192.168.1.1";
+  networking.nameservers = [ "192.168.1.101" ];
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
@@ -181,10 +190,12 @@
     hypridle
     hyprcursor
     rofi
+    wl-clipboard
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.zed-mono
+    noto-fonts-cjk-sans
   ];
 
   programs.nix-ld.enable = true;
