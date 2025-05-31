@@ -13,6 +13,27 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
+  fileSystems."/mnt/HDD-1TB" = {
+    device = "/dev/disk/by-uuid/2393FC547EB4A8F5";
+    fsType = "auto";
+    options = [
+      "nosuid"
+      "nodev"
+      "nofail"
+      "x-gvfs-show"
+    ];
+  };
+  fileSystems."/mnt/SSD-1TB" = {
+    device = "/dev/disk/by-uuid/6C0ACF540ACF19CA";
+    fsType = "auto";
+    options = [
+      "nosuid"
+      "nodev"
+      "nofail"
+      "x-gvfs-show"
+    ];
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
