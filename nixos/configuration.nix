@@ -98,7 +98,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
+  programs.hyprland.enable = true; # enable Hyprland
   programs.nh = {
     enable = true;
     flake = "/home/yym/dotfiles/nixos";
@@ -175,11 +175,22 @@
     vlc
     gnome-tweaks
     bibata-cursors
+    waybar
+    swaynotificationcenter
+    hyprpaper
+    hypridle
+    hyprcursor
+    rofi
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.zed-mono
   ];
 
   programs.nix-ld.enable = true;
 
   environment.variables.EDITOR = "nvim";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

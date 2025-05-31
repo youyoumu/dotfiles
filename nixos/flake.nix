@@ -7,6 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-alien.url = "github:thiagokokada/nix-alien";
     thorium.url = "github:Rishabh5321/thorium_flake";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
   outputs =
@@ -38,6 +39,7 @@
               environment.systemPackages = [
                 self.inputs.nix-alien.packages.${system}.nix-alien
                 self.inputs.thorium.packages.${system}.thorium-avx2
+                self.inputs.hyprpanel.packages.${system}.default
               ];
             }
           )
