@@ -6,6 +6,7 @@ with lib.hm.gvariant;
 {
   dconf.settings = {
     "org/gnome/desktop/wm/keybindings" = {
+      close = [ "<Super>c" ];
       move-to-workspace-1 = [ "<Shift><Super>1" ];
       move-to-workspace-2 = [ "<Shift><Super>2" ];
       move-to-workspace-3 = [ "<Shift><Super>3" ];
@@ -15,6 +16,8 @@ with lib.hm.gvariant;
       move-to-workspace-7 = [ "<Shift><Super>7" ];
       move-to-workspace-8 = [ "<Shift><Super>8" ];
       move-to-workspace-9 = [ "<Shift><Super>9" ];
+      switch-applications = [ ];
+      switch-applications-backward = [ ];
       switch-to-workspace-1 = [ "<Super>1" ];
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
@@ -24,6 +27,8 @@ with lib.hm.gvariant;
       switch-to-workspace-7 = [ "<Super>7" ];
       switch-to-workspace-8 = [ "<Super>8" ];
       switch-to-workspace-9 = [ "<Super>9" ];
+      switch-windows = [ "<Alt>Tab" ];
+      switch-windows-backward = [ "<Shift><Alt>Tab" ];
     };
 
     "org/gnome/shell/keybindings" = {
