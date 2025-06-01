@@ -104,6 +104,38 @@
   # services.xserver.libinput.enable = true;
   #
   services.envfs.enable = true;
+  services.syncthing = {
+    enable = true;
+    # openDefaultPorts = true; # Open ports in the firewall for Syncthing
+  };
+  services.cloudflared = {
+    enable = true;
+    tunnels = {
+      "76d5646b-569c-4604-a15f-0b7a02b06252" = {
+        credentialsFile = "${config.users.users.yym.home}/.cloudflared/76d5646b-569c-4604-a15f-0b7a02b06252.json";
+        default = "http_status:404";
+      };
+    };
+  };
+  services.openssh = {
+    enable = true;
+    ports = [ 56789 ];
+    settings = {
+      PasswordAuthentication = false;
+      AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+    };
+  };
+  # Open ports in the firewall.
+  networking.firewall.allowedTCPPorts = [
+    56789
+    8800
+  ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -120,6 +152,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     packages = with pkgs; [
       #  thunderbird
@@ -135,6 +168,7 @@
     # clean.enable = true;
     # clean.extraArgs = "--keep-since 4d --keep 3";
   };
+  virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -164,7 +198,6 @@
     dust
     duf
     delta
-    docker
     cronie
     syncthing
     gcc
@@ -212,6 +245,11 @@
     hyprcursor
     rofi
     wl-clipboard
+    libsecret
+    lssecret
+    neovide
+    cloudflared
+    lazydocker
   ];
 
   fonts.packages = with pkgs; [
@@ -236,12 +274,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

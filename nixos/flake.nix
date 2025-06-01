@@ -8,23 +8,24 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
     thorium.url = "github:Rishabh5321/thorium_flake";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     {
       self,
-      nixpkgs,
-      home-manager,
       ...
     }:
     {
 
-      nixosConfigurations.chocola = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.chocola = self.inputs.nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = { inherit self system; };
         modules = [
           ./configuration.nix
-          home-manager.nixosModules.home-manager
+          self.inputs.home-manager.nixosModules.home-manager
+          self.inputs.sops-nix.nixosModules.sops
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
