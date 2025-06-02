@@ -272,6 +272,7 @@
     gst_all_1.gst-libav
     gst_all_1.gst-vaapi
     kooha
+    ripgrep
   ];
 
   fonts.packages = with pkgs; [
