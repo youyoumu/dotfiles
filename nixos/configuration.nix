@@ -11,8 +11,24 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  boot.loader.efi = {
+    canTouchEfiVariables = true;
+  };
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    devices = [ "nodev" ];
+    theme = pkgs.catppuccin-grub;
+    splashImage = null;
+    configurationName = "yym";
+    extraEntries = ''
+      menuentry "Windows 11" {
+        search --no-floppy --fs-uuid --set=root 58B1-0C54
+        chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+      }
+    '';
+  };
   boot.supportedFilesystems = [ "ntfs" ];
   fileSystems."/mnt/HDD-1TB" = {
     device = "/dev/disk/by-uuid/2393FC547EB4A8F5";
@@ -280,6 +296,8 @@
     btop
     jq
     cliphist
+    tree
+    efibootmgr
   ];
 
   fonts.packages = with pkgs; [
