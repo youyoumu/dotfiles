@@ -25,7 +25,7 @@ vim.api.nvim_create_user_command("Format", function(args)
 end, { range = true })
 
 if vim.g.neovide then
-  vim.o.guifont = "Iosevka Term SS14:h11.3"
+  vim.o.guifont = "Iosevka Term:h11.3"
   vim.g.neovide_padding_top = 10
   vim.g.neovide_padding_bottom = 10
   vim.g.neovide_padding_right = 10

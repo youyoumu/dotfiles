@@ -34,6 +34,9 @@
       "x-gvfs-show"
     ];
   };
+  hardware.graphics.extraPackages = with pkgs; [
+    rocmPackages.clr.icd
+  ];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -64,8 +67,11 @@
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
     enable = true;
-    type = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [ mozc ];
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-mozc
+    ];
+    # ibus.engines = with pkgs.ibus-engines; [ mozc ];
   };
 
   # Enable the X11 windowing system.
@@ -128,6 +134,7 @@
       PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
   };
+  services.flatpak.enable = true;
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     56789
@@ -169,6 +176,10 @@
     # clean.extraArgs = "--keep-since 4d --keep 3";
   };
   virtualisation.docker.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    # enableSSHSupport = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -250,6 +261,17 @@
     neovide
     cloudflared
     lazydocker
+    xdg-utils
+    gnomeExtensions.vitals
+    flatpak
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-libav
+    gst_all_1.gst-vaapi
+    kooha
   ];
 
   fonts.packages = with pkgs; [
@@ -265,11 +287,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

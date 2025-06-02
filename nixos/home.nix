@@ -5,6 +5,19 @@
 
   ];
 
+  xdg.desktopEntries.discord = {
+    name = "Discord";
+    genericName = "All-in-one cross-platform voice and text chat for gamers";
+    exec = "discord --ozone-playform-hint=auto --enable-wayland-ime --wayland-text-input-version=3";
+    icon = "discord";
+    type = "Application";
+    mimeType = [ "x-scheme-handler/discord" ];
+    categories = [
+      "Network"
+      "InstantMessaging"
+    ];
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.

@@ -62,6 +62,7 @@ with lib.hm.gvariant;
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
       ];
     };
 
@@ -81,6 +82,12 @@ with lib.hm.gvariant;
       binding = "<Super>e";
       command = "nautilus";
       name = "File Manager";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+      binding = "<Super>k";
+      command = "/home/yym/open-keepassxc.sh";
+      name = "KeepassXC";
     };
 
   };
