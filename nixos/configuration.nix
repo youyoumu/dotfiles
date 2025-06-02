@@ -254,6 +254,7 @@
     hyprpaper
     hypridle
     hyprcursor
+    hyprshot
     rofi
     wl-clipboard
     libsecret
@@ -277,11 +278,16 @@
     pavucontrol
     kdePackages.qt6ct
     btop
+    jq
+    cliphist
   ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
     nerd-fonts.jetbrains-mono
+    nerd-fonts.symbols-only
+    noto-fonts
+    noto-fonts-color-emoji
     noto-fonts-cjk-sans
     font-awesome
   ];

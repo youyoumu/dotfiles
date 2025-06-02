@@ -31,6 +31,7 @@ elif [[ ("$theme" == *'type-2'*) || ("$theme" == *'type-4'*) ]]; then
   win_width='670px'
 fi
 
+# copy fonts from git repo and put it to .local/share/fonts
 # Options
 layout=$(cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2)
 if [[ "$layout" == 'NO' ]]; then
