@@ -80,6 +80,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  programs.hyprland.enable = true; # enable Hyprland
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -168,7 +169,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  programs.hyprland.enable = true; # enable Hyprland
   programs.nh = {
     enable = true;
     flake = "/home/yym/dotfiles/nixos";
@@ -273,18 +273,24 @@
     gst_all_1.gst-vaapi
     kooha
     ripgrep
+    pulseaudioFull
+    pavucontrol
+    kdePackages.qt6ct
+    btop
   ];
 
   fonts.packages = with pkgs; [
-    nerd-fonts.zed-mono
+    nerd-fonts.iosevka
+    nerd-fonts.jetbrains-mono
     noto-fonts-cjk-sans
+    font-awesome
   ];
 
   programs.nix-ld.enable = true;
 
   environment.variables.EDITOR = "nvim";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.variables.GST_PLUGIN_SYSTEM_PATH_1_0 = pkgs.lib.mkForce (
+  environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = pkgs.lib.mkForce (
     pkgs.lib.concatStringsSep ":" [
       "${pkgs.gst_all_1.gstreamer}/lib/gstreamer-1.0"
       "${pkgs.gst_all_1.gst-plugins-base}/lib/gstreamer-1.0"
