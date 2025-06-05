@@ -53,6 +53,7 @@
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
   ];
+  hardware.uinput.enable = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -179,6 +180,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "uinput"
     ];
     packages = with pkgs; [
       #  thunderbird
@@ -197,6 +199,13 @@
   programs.gnupg.agent = {
     enable = true;
     # enableSSHSupport = true;
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
   # List packages installed in system profile. To search, run:
@@ -273,6 +282,7 @@
     hypridle
     hyprcursor
     hyprshot
+    hyprlock
     rofi
     wl-clipboard
     libsecret
@@ -300,6 +310,7 @@
     cliphist
     tree
     efibootmgr
+    mpv
   ];
 
   fonts.packages = with pkgs; [
