@@ -2,11 +2,7 @@
 
 * {
   border: none;
-  border-radius: 1px;
-  font-family:
-    Iosevka Nerd Font,
-    JetBrainsMono Nerd Font,
-    Font Awesome;
+  font-family: Iosevka Nerd Font;
   font-size: 13px;
   min-height: 0;
 }
@@ -14,10 +10,6 @@
 window#waybar {
   background-color: @mantle;
   color: @text;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
 }
 
 tooltip {
@@ -29,53 +21,24 @@ tooltip label {
   color: @text;
 }
 
-button {
-  box-shadow: inset 0 -3px transparent;
-  border: none;
-  border-radius: 1;
-}
-
-button:hover {
-  background: inherit;
-  box-shadow: inset 0 -3px @text;
-}
-
 #workspaces button {
+  border-radius: 0;
   padding: 0 5px;
   background-color: @mantle;
   color: @text;
 }
 
 #workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
   background-image: linear-gradient(0deg, @surface1, @mantle);
 }
 
 #workspaces button.active {
-  box-shadow: inherit;
-  text-shadow: inherit;
   background-image: linear-gradient(0deg, @surface1, @mantle);
-  padding: 0px 5px;
   border-bottom: 3px solid @blue;
-}
-
-#workspaces button.focused {
-  background-image: linear-gradient(0deg, @mauve, @surface1);
-  box-shadow: inset 0 -3px @text;
 }
 
 #workspaces button.urgent {
   background-image: linear-gradient(0deg, @red, @mantle);
-}
-
-#taskbar button.active {
-  background-image: linear-gradient(0deg, @surface1, @mantle);
-}
-
-#mode {
-  background-color: @base;
-  box-shadow: inset 0 -2px @text;
 }
 
 #mpris,
@@ -97,49 +60,16 @@ button:hover {
 #custom-workspaces-mode,
 #custom-updates,
 #tray {
-  padding: 0 10px;
-  margin: 5px 1px;
+  border-radius: 2px;
+  padding: 0 5px;
+  margin: 4px 1px;
   color: @text;
 }
 
-#window,
-#workspaces {
-  margin: 0 4px;
-}
-
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-#custom-weather {
-  background-color: @teal;
-  color: @mantle;
-  margin-right: 5px;
-}
-
-#custom-kernel {
+#clock {
   background-color: @rosewater;
   color: @mantle;
-}
-
-#clock {
-  background-color: @green;
-  color: @mantle;
-}
-
-@keyframes blink {
-  to {
-    background-color: @mantle;
-    color: @text;
-  }
-}
-
-label:focus {
-  background-color: @mantle;
+  margin-right: 2px;
 }
 
 #cpu {
@@ -180,17 +110,12 @@ label:focus {
 }
 
 #custom-audio-output {
-  background-color: @yellow;
+  background-color: @pink;
   color: @mantle;
 }
 
 #custom-workspaces-mode {
   background-color: @blue;
-  color: @mantle;
-}
-
-#custom-updates {
-  background-color: @teal;
   color: @mantle;
 }
 
@@ -238,13 +163,4 @@ label:focus {
 #idle_inhibitor.activated {
   background-color: @text;
   color: @base;
-}
-
-#scratchpad {
-  background-color: @base;
-  color: @text;
-}
-
-#scratchpad.empty {
-  background-color: transparent;
 }
