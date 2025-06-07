@@ -311,6 +311,7 @@
     tree
     efibootmgr
     mpv
+    walker
   ];
 
   fonts.packages = with pkgs; [
