@@ -2,7 +2,7 @@ app_launch_prefix = ""
 terminal_title_flag = ""
 locale = ""
 close_when_open = false
-theme = "default"
+theme = "catppuccin-mocha"
 monitor = ""
 hotreload_theme = false
 as_window = false
@@ -131,7 +131,7 @@ name = "clipboard"
 avoid_line_breaks = true
 placeholder = "Clipboard"
 image_height = 300
-max_entries = 10
+max_entries = 50
 switcher_only = true
 
 [builtins.commands]
@@ -249,3 +249,64 @@ icon = "accessories-dictionary"
 placeholder = "Translation"
 switcher_only = true
 provider = "googlefree"
+
+[[plugins]]
+name = "power"
+switcher_only = true
+recalculate_score = true
+show_icon_when_single = true
+
+[[plugins.entries]]
+label = "Shutdown"
+exec = "systemctl poweroff"
+icon = "system-shutdown"
+
+[[plugins.entries]]
+label = "Reboot"
+exec = "systemctl reboot"
+icon = "system-reboot"
+
+[[plugins.entries]]
+label = "Sleep"
+exec = "systemctl suspend"
+icon = "sleep"
+
+[[plugins.entries]]
+label = "Lock Screen"
+exec = "hyprlock"
+icon = "system-lock-screen"
+
+[[plugins.entries]]
+label = "Logout"
+exec = "hyprctl dispatch exit"
+icon = "system-log-out"
+
+[[plugins.entries]]
+label = "Hibernate"
+exec = "systemctl hibernate"
+icon = "system-suspend-hibernate"
+
+[[plugins]]
+name = "screenshots"
+switcher_only = true
+show_icon_when_single = true
+
+[[plugins.entries]]
+label = "Screenshot Monitor"
+exec = "hyprshot -m output"
+
+[[plugins.entries]]
+label = "Screenshot Region"
+exec = "hyprshot -m region"
+
+[[plugins.entries]]
+label = "Screenshot Window"
+exec = "hyprshot -m window"
+
+[[plugins.entries]]
+label = "Screenshot Region Delay 3s"
+exec = "sleep 3 && hyprshot -m region --freeze"
+
+[[plugins.entries]]
+label = "Screenshot Region Clipboard Only"
+exec = "hyprshot -m region --clipboard-only"
