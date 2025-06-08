@@ -312,6 +312,7 @@
     efibootmgr
     mpv
     walker
+    libnotify
   ];
 
   fonts.packages = with pkgs; [
