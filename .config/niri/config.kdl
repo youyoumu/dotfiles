@@ -275,9 +275,11 @@ spawn-at-startup "waybar" "-c" "/home/yym/.config/waybar/config.chocola.niri.jso
 spawn-at-startup "swaync" "-s" "/home/yym/.config/swaync/mocha.css" "-c" "/home/yym/.config/swaync/config.json"
 spawn-at-startup "walker" "--gapplication-service"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--daemonize" "--components=ssh,secrets"
+spawn-at-startup "xwayland-satellite"
 
 environment {
   SSH_AUTH_SOCK "/run/user/1000/keyring/ssh"
+  DISPLAY ":0"
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -587,9 +589,10 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    // Print { screenshot; }
+    // Ctrl+Print { screenshot-screen; }
+    // Alt+Print { screenshot-window; }
+    Print { spawn "walker" "-m" "screenshots"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

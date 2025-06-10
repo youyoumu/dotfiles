@@ -59,6 +59,7 @@ tooltip label {
 #custom-audio-output,
 #custom-workspaces-mode,
 #custom-updates,
+#custom-gpu-screen-recorder,
 #tray {
   border-radius: 2px;
   padding: 0 5px;
@@ -115,6 +116,11 @@ tooltip label {
 }
 
 #custom-workspaces-mode {
+  background-color: @blue;
+  color: @mantle;
+}
+
+#custom-gpu-screen-recorder {
   background-color: @blue;
   color: @mantle;
 }

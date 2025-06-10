@@ -9,9 +9,9 @@
     "modules-left": ["niri/workspaces", "tray"],
     "modules-right": [
       "network",
-      "custom/workspaces-mode",
       "idle_inhibitor",
       "disk#ssd",
+      "custom/gpu-screen-recorder",
       "temperature",
       "cpu",
       "memory",
@@ -133,12 +133,6 @@
       "format-linked": "(No IP) ",
       "format-disconnected": "Disconnected ⚠"
     },
-    "custom/workspaces-mode": {
-      "exec": "cat ~/.config/hypr/workspace_toggle_state | awk '{print toupper(substr($0,1,1)) substr($0,2)}'",
-      "interval": 1,
-      "format": "{} 󰕰 ",
-      "on-click": "~/script/workspace-toggle.sh"
-    },
     "custom/audio-output": {
       "exec": "~/script/get-audio-device.sh",
       "interval": 5,
@@ -161,6 +155,14 @@
         "car": ""
       },
       "on-click": "pavucontrol"
+    },
+    "custom/gpu-screen-recorder": {
+      "format": "{}",
+      "return-type": "json",
+      "exec": "~/script/gpu-screen-recorder-status.sh",
+      "interval": 1,
+      "on-click": "~/script/gpu-screen-recorder.sh",
+      "on-click-right": "~/script/gpu-screen-recorder.sh --audio"
     }
   },
   {
