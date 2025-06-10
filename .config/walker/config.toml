@@ -293,20 +293,16 @@ show_icon_when_single = true
 
 [[plugins.entries]]
 label = "Screenshot Monitor"
-exec = "hyprshot -m output"
+exec = "~/script/screenshot.sh monitor"
 
 [[plugins.entries]]
 label = "Screenshot Region"
-exec = "hyprshot -m region"
+exec = "~/script/screenshot.sh region"
 
 [[plugins.entries]]
 label = "Screenshot Window"
-exec = "hyprshot -m window"
+exec = "~/script/screenshot.sh window"
 
 [[plugins.entries]]
 label = "Screenshot Region Delay 3s"
-exec = "sleep 3 && hyprshot -m region --freeze"
-
-[[plugins.entries]]
-label = "Screenshot Region Clipboard Only"
-exec = "hyprshot -m region --clipboard-only"
+exec = "~/script/screenshot.sh region-delay"
