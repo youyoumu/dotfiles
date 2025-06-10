@@ -306,3 +306,7 @@ exec = "~/script/screenshot.sh window"
 [[plugins.entries]]
 label = "Screenshot Region Delay 3s"
 exec = "~/script/screenshot.sh region-delay"
+
+[[plugins.entries]]
+label = "Screenshot Region Annotate"
+exec = "~/script/screenshot.sh region-annotate"

@@ -50,8 +50,11 @@ take_screenshot() {
       sleep 3
       niri msg action screenshot
       ;;
+    "region-annotate")
+      grim -g "$(slurp -o)" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+      ;;
     *)
-      echo "Usage: $0 {monitor|region|window|region-delay}"
+      echo "Usage: $0 {monitor|region|window|region-delay|region-annotate}"
       exit 1
       ;;
     esac
@@ -70,8 +73,11 @@ take_screenshot() {
     "region-delay")
       sleep 3 && hyprshot -m region --freeze
       ;;
+    "region-annotate")
+      grim -g "$(slurp -o)" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+      ;;
     *)
-      echo "Usage: $0 {monitor|region|window|region-delay}"
+      echo "Usage: $0 {monitor|region|window|region-delay|region-annotate}"
       exit 1
       ;;
     esac

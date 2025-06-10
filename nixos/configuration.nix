@@ -316,6 +316,8 @@
     libnotify
     xwayland-satellite
     slurp
+    satty
+    grim
   ];
 
   fonts.packages = with pkgs; [
