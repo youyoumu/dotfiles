@@ -278,7 +278,7 @@ icon = "system-lock-screen"
 
 [[plugins.entries]]
 label = "Logout"
-exec = "hyprctl dispatch exit"
+exec = "~/script/logout.sh"
 icon = "system-log-out"
 
 [[plugins.entries]]
