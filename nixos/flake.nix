@@ -10,6 +10,7 @@
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    oklch-color-picker.url = "path:./packages/oklch-color-picker";
   };
 
   outputs =
@@ -41,6 +42,7 @@
                 self.inputs.nix-alien.packages.${system}.nix-alien
                 self.inputs.thorium.packages.${system}.thorium-avx2
                 self.inputs.hyprpanel.packages.${system}.default
+                # self.inputs.oklch-color-picker.packages.${system}.default
               ];
             }
           )

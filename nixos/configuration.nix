@@ -330,7 +330,14 @@
     font-awesome
   ];
 
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      wayland
+      libxkbcommon
+      libGL
+    ];
+  };
 
   environment.variables.EDITOR = "nvim";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

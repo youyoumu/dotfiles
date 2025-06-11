@@ -148,7 +148,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 1.0; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -283,6 +283,7 @@ spawn-at-startup "hypridle" "-c" "/home/yym/.config/hypr/hypridle.niri.conf"
 environment {
   SSH_AUTH_SOCK "/run/user/1000/keyring/ssh"
   DISPLAY ":0"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -376,6 +377,7 @@ binds {
     Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "nautilus"; }
     Mod+W hotkey-overlay-title="Run an Application: google-chrome-stable" { spawn "google-chrome-stable"; }
     Ctrl+Shift+I { spawn "/home/yym/script/toggle-fcitx5.sh"; }
+    Ctrl+Shift+K { spawn "/home/yym/open-keepassxc.sh"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -596,6 +598,8 @@ binds {
     // Print { screenshot; }
     // Ctrl+Print { screenshot-screen; }
     // Alt+Print { screenshot-window; }
+
+    Shift+Print { spawn "/home/yym/script/gpu-screen-recorder.sh"; }
     Print { spawn "walker" "-m" "screenshots"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
@@ -623,7 +627,7 @@ cursor {
 }
 
 overview {
-    backdrop-color "#313244	"
+    backdrop-color "#313244"
 }
 
 hotkey-overlay {

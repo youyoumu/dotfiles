@@ -3,7 +3,10 @@
     "ags": {
       "inputs": {
         "astal": "astal",
-        "nixpkgs": ["hyprpanel", "nixpkgs"]
+        "nixpkgs": [
+          "hyprpanel",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1736090999,
@@ -21,7 +24,11 @@
     },
     "astal": {
       "inputs": {
-        "nixpkgs": ["hyprpanel", "ags", "nixpkgs"]
+        "nixpkgs": [
+          "hyprpanel",
+          "ags",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1735172721,
@@ -54,7 +61,9 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": ["nixpkgs"]
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1749526396,
@@ -111,7 +120,10 @@
     },
     "nix-index-database": {
       "inputs": {
-        "nixpkgs": ["nix-alien", "nixpkgs"]
+        "nixpkgs": [
+          "nix-alien",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1746934494,
@@ -177,6 +189,22 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1749285348,
+        "narHash": "sha256-frdhQvPbmDYaScPFiCnfdh3B/Vh81Uuoo0w5TkWmmjU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "3e3afe5174c561dee0df6f2c2b2236990146329f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1748460289,
         "narHash": "sha256-7doLyJBzCllvqX4gszYtmZUToxKvMUrg45EUWaUYmBg=",
         "owner": "nixos",
@@ -191,19 +219,36 @@
         "type": "github"
       }
     },
+    "oklch-color-picker": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "path": "./packages/oklch-color-picker",
+        "type": "path"
+      },
+      "original": {
+        "path": "./packages/oklch-color-picker",
+        "type": "path"
+      },
+      "parent": []
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "hyprpanel": "hyprpanel",
         "nix-alien": "nix-alien",
         "nixpkgs": "nixpkgs_3",
+        "oklch-color-picker": "oklch-color-picker",
         "sops-nix": "sops-nix",
         "thorium": "thorium"
       }
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": ["nixpkgs"]
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1747603214,
@@ -221,7 +266,7 @@
     },
     "thorium": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1748609072,
