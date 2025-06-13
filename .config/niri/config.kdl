@@ -354,6 +354,35 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+  match app-id="Anki" at-startup=true
+  open-on-workspace "3B"
+}
+window-rule {
+  match app-id="discord" at-startup=true
+  open-on-workspace "1A"
+}
+
+workspace "1A" {
+  open-on-output "DP-3"
+}
+
+workspace "1B" {
+  open-on-output "HDMI-A-1"
+}
+workspace "2B" {
+  open-on-output "HDMI-A-1"
+}
+workspace "3B" {
+  open-on-output "HDMI-A-1"
+}
+
+workspace "1C" {
+  open-on-output "DP-2"
+}
+
+spawn-at-startup "/home/yym/script/delayed-autostart.sh"
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -378,6 +407,7 @@ binds {
     Mod+W hotkey-overlay-title="Run an Application: google-chrome-stable" { spawn "google-chrome-stable"; }
     Ctrl+Shift+I { spawn "/home/yym/script/toggle-fcitx5.sh"; }
     Ctrl+Shift+K { spawn "/home/yym/open-keepassxc.sh"; }
+    Ctrl+Shift+O { spawn "/home/yym/script/audio-device-switch.sh"; }
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -579,8 +609,8 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    // Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+V       { toggle-window-floating; }
+    // Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
