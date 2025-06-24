@@ -335,6 +335,7 @@
     grim
     adw-gtk3
     amdgpu_top
+    spotify
   ];
 
   fonts.packages = with pkgs; [
