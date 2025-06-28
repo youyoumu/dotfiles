@@ -5,7 +5,7 @@ return {
   keys = {
     -- One handed keymap recommended, you will be using the mouse
     {
-      "<leader>mc",
+      "<leader>cp",
       function()
         require("oklch-color-picker").pick_under_cursor()
       end,

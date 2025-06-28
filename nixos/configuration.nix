@@ -336,6 +336,7 @@
     adw-gtk3
     amdgpu_top
     spotify
+    ollama
   ];
 
   fonts.packages = with pkgs; [

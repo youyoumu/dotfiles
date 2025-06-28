@@ -28,5 +28,8 @@ return {
       icon = {},
       indent = {},
     },
+    source_selector = {
+      winbar = true,
+    },
   },
 }
