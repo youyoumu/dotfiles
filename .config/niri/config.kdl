@@ -275,13 +275,11 @@ layout {
 spawn-at-startup "waybar" "-c" "/home/yym/.config/waybar/config.chocola.niri.jsonc"
 spawn-at-startup "swaync" "-s" "/home/yym/.config/swaync/mocha.css" "-c" "/home/yym/.config/swaync/config.json"
 spawn-at-startup "walker" "--gapplication-service"
-spawn-at-startup "gnome-keyring-daemon" "--start" "--daemonize" "--components=ssh,secrets"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "hypridle" "-c" "/home/yym/.config/hypr/hypridle.niri.conf"
 
 environment {
-  SSH_AUTH_SOCK "/run/user/1000/keyring/ssh"
   DISPLAY ":0"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
