@@ -48,6 +48,7 @@
   "pretty-ts-errors.nvim": { "branch": "main", "commit": "2f7295ba6620f1a9c169f5baafdafd204313e9a4" },
   "render-markdown.nvim": { "branch": "main", "commit": "24aacee83544ca113055564ed22be7852067c342" },
   "scrollEOF.nvim": { "branch": "master", "commit": "2575109749b4bf3a0bf979a17947b3c1e8c5137e" },
+  "smartyank.nvim": { "branch": "master", "commit": "c4e53e0d9316ca790a6f5d78aad73206a763873b" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "supermaven-nvim": { "branch": "main", "commit": "07d20fce48a5629686aefb0a7cd4b25e33947d50" },
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "727f8fa12fe693e478015c00072a56fbe4558cf5" },
