@@ -409,6 +409,7 @@ binds {
     Mod+A hotkey-overlay-title="Run an Application: walker applications" { spawn "walker" "-m" "applications"; }
     Mod+M hotkey-overlay-title="Run an Application: walker power" { spawn "walker" "-m" "power"; }
     Mod+V hotkey-overlay-title="Run an Application: walker clipboard" { spawn "walker" "-m" "clipboard"; }
+    Mod+N hotkey-overlay-title="Run an Application: walker emojis" { spawn "walker" "-m" "emojis"; }
     Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "nautilus"; }
     Mod+W hotkey-overlay-title="Run an Application: google-chrome-stable" { spawn "google-chrome-stable" "--disable-features=GlobalShortcutsPortal"; }
     Ctrl+Shift+I { spawn "/home/yym/script/toggle-fcitx5.sh"; }
