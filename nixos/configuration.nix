@@ -78,14 +78,40 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  networking.interfaces.eth0.ipv4.addresses = [
-    {
-      address = "192.168.1.100";
-      prefixLength = 24;
-    }
-  ];
-  networking.defaultGateway = "192.168.1.1";
-  networking.nameservers = [ "192.168.1.101" ];
+  # use network manager instead of this
+  # networking.interfaces.eth0.ipv4.addresses = [
+  #   {
+  #     address = "192.168.1.100";
+  #     prefixLength = 24;
+  #   }
+  # ];
+  # networking.defaultGateway = "192.168.1.1";
+  # networking.nameservers = [ "192.168.1.101" ];
+
+  networking.networkmanager.ensureProfiles.profiles = {
+    Ethernet = {
+      connection = {
+        id = "Ethernet";
+        type = "ethernet";
+        interface-name = "enp5s0";
+        autoconnect-priority = -999;
+        uuid = "2f2c196e-9337-3fc7-957d-3a57694699ad";
+        timestamp = "1751628497";
+      };
+      ethernet = { };
+      ipv4 = {
+        method = "manual";
+        addresses = "192.168.1.100/24";
+        gateway = "192.168.1.1";
+        dns = "192.168.1.101";
+      };
+      ipv6 = {
+        method = "auto";
+        addr-gen-mode = "default";
+      };
+      proxy = { };
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
@@ -170,6 +196,9 @@
   networking.firewall.allowedTCPPorts = [
     56789
     8800
+
+    57621 # for spotify
+    5353 # for spotify
   ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
