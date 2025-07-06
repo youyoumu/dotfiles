@@ -138,6 +138,15 @@
   programs.hyprland.enable = true; # enable Hyprland
   programs.niri.enable = true;
 
+  systemd.tmpfiles.rules =
+    let
+      monitorsXmlContent = import ./monitors.xml.nix;
+      monitorsXml = pkgs.writeText "monitors.xml" monitorsXmlContent;
+    in
+    [
+      "L /run/gdm/.config/monitors.xml - - - - ${monitorsXml}"
+    ];
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
