@@ -1,8 +1,17 @@
-{ config, pkgs, ... }:
+{
+  lib,
+  config,
+  options,
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 
 {
   imports = [
     ./hardware-configuration.nix
+    ./packages.nix
   ];
 
   # Bootloader.
@@ -256,124 +265,6 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
   programs.gpu-screen-recorder.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    neovim
-    git
-    fastfetch
-    dconf-editor
-    dconf2nix
-    kitty
-    stow
-    tmux
-    age
-    fzf
-    lazygit
-    fish
-    starship
-    yazi
-    eza
-    zoxide
-    navi
-    sesh
-    bat
-    fd
-    dust
-    duf
-    delta
-    cronie
-    syncthing
-    gcc
-    pyenv
-    rbenv
-    nodejs
-    go
-    ruby
-    python3
-    unzip
-    luajitPackages.luarocks_bootstrap
-    wget
-    cargo
-    zulu
-    python312Packages.pip
-    gnumake
-    iosevka-bin
-    pnpm
-    fnm
-    vscode
-    nixfmt-rfc-style
-    just
-    dpkg
-    mission-center
-    google-chrome
-    discord
-    prismlauncher
-    obsidian
-    obs-studio
-    anki-bin
-    antimicrox
-    handbrake
-    qbittorrent
-    keepassxc
-    gimp3-with-plugins
-    papirus-icon-theme
-    shotcut
-    vlc
-    gnome-tweaks
-    bibata-cursors
-    waybar
-    swaynotificationcenter
-    hyprpaper
-    hypridle
-    hyprcursor
-    hyprshot
-    hyprlock
-    rofi
-    wl-clipboard
-    libsecret
-    lssecret
-    neovide
-    cloudflared
-    lazydocker
-    xdg-utils
-    gnomeExtensions.vitals
-    flatpak
-    gst_all_1.gstreamer
-    gst_all_1.gst-plugins-base
-    gst_all_1.gst-plugins-good
-    gst_all_1.gst-plugins-bad
-    gst_all_1.gst-plugins-ugly
-    gst_all_1.gst-libav
-    gst_all_1.gst-vaapi
-    kooha
-    ripgrep
-    pulseaudioFull
-    pavucontrol
-    kdePackages.qt6ct
-    btop
-    jq
-    cliphist
-    tree
-    efibootmgr
-    mpv
-    walker
-    libnotify
-    xwayland-satellite
-    slurp
-    satty
-    grim
-    adw-gtk3
-    amdgpu_top
-    spotify
-    ollama
-    microsoft-edge
-    ffmpeg
-    audacity
-  ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka

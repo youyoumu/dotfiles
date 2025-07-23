@@ -12,34 +12,23 @@
 
   outputs =
     {
-      self,
       ...
-    }:
+    }@inputs:
     {
-
-      nixosConfigurations.chocola = self.inputs.nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        specialArgs = { inherit self system; };
-        modules = [
-          ./hosts/chocola/configuration.nix
-          self.inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.yym = ./home.nix;
-          }
-          (
-            { self, system, ... }:
+      nixosConfigurations = {
+        chocola = inputs.nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs system; };
+          modules = [
+            ./hosts/chocola/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
             {
-              environment.systemPackages = [
-                self.inputs.nix-alien.packages.${system}.nix-alien
-                self.inputs.thorium.packages.${system}.thorium-avx2
-                # self.inputs.oklch-color-picker.packages.${system}.default
-              ];
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.yym = ./home.nix;
             }
-          )
-        ];
+          ];
+        };
       };
-
     };
 }
