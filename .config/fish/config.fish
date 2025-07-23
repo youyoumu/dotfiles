@@ -42,3 +42,12 @@ function y
     end
     rm -f -- "$tmp"
 end
+
+switch (hostname)
+    case chocola
+        source ~/.config/fish/hosts/chocola.fish
+    case vanilla
+        source ~/.config/fish/hosts/vanilla.fish
+    case yym4
+        source ~/.config/fish/hosts/vanilla.fish
+end
