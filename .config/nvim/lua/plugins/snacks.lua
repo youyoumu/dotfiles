@@ -5,14 +5,11 @@ return {
   -- url = "https://github.com/youyoumu/snacks.nvim.git",
   -- branch = "add-modified-icon-to-picker",
   opts = {
-    explorer = {
-      replace_netrw = true,
-    },
     picker = {
-      explorer = {
-        replace_netrw = true,
-      },
       sources = {
+        projects = {
+          dev = { "~/repos" },
+        },
         explorer = {
           hidden = true,
           ignored = true,
@@ -83,13 +80,21 @@ return {
     dashboard = {
       preset = {
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          -- { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          -- { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
         },
       },
       sections = {
         { section = "header" },
-        { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1, limit = 10 },
+        {
+          pane = 1,
+          icon = " ",
+          title = "Projects",
+          section = "projects",
+          indent = 2,
+          padding = 1,
+          limit = 10,
+        },
         {
           pane = 1,
           icon = " ",
@@ -99,7 +104,7 @@ return {
           padding = 1,
           limit = 3,
         },
-        { section = "keys", gap = 1, padding = 1, pane = 1 },
+        -- { section = "keys", gap = 1, padding = 1, pane = 1 },
         { section = "startup" },
       },
     },
