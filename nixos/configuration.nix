@@ -375,6 +375,9 @@
     amdgpu_top
     spotify
     ollama
+    microsoft-edge
+    ffmpeg
+    audacity
   ];
 
   fonts.packages = with pkgs; [
