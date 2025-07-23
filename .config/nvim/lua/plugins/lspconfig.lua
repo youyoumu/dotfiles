@@ -27,6 +27,23 @@ return {
         enabled = false,
         root_dir = nvim_lsp.util.root_pattern("package.json"),
       },
+      nil_ls = {
+        enabled = false,
+      },
+      nixd = {
+        settings = {
+          nixd = {
+            diagnostic = {
+              suppress = {
+                -- "sema-unused-def-lambda-noarg-formal",
+              },
+            },
+            formatting = {
+              command = { "nixfmt" },
+            },
+          },
+        },
+      },
     },
     setup = {
       -- auto fix suddenlt stopped workin so i added this, check the issue later (today is 22 jan 2025)
