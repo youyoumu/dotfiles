@@ -1,6 +1,4 @@
-#!/bin/bash
-# start rbenv
-eval "$(rbenv init - bash)"
+#!/bin/env bash
 
 if [ -r ~/.private.sh ]; then . ~/.private.sh; fi
 
@@ -13,3 +11,15 @@ export NEOVIDE_FRAMELESS=true
 export NEOVIDE_FRAME=none
 
 export NAVI_PATH="~/dotfiles/navi"
+
+case "$(hostname)" in
+chocola)
+  source ~/hosts/chocola/.bash_profile
+  ;;
+vanilla)
+  source ~/hosts/chocola/.bash_profile
+  ;;
+yym4)
+  source ~/hosts/chocola/.bash_profile
+  ;;
+esac
