@@ -12,9 +12,15 @@
   imports = [
     ./hardware-configuration.nix
     ./packages.nix
+    ./disks.nix
   ];
 
-  # Bootloader.
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nixpkgs.config.allowUnfree = true;
+
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi = {
     canTouchEfiVariables = true;
@@ -34,64 +40,17 @@
     '';
   };
   boot.supportedFilesystems = [ "ntfs" ];
-  fileSystems."/mnt/HDD-1TB" = {
-    device = "/dev/disk/by-uuid/2393FC547EB4A8F5";
-    fsType = "auto";
-    options = [
-      "nosuid" # Prevents execution of set-user-identifier (SUID) or set-group-identifier (SGID) binaries.
-      "nodev" # Blocks interpretation of device files (like /dev/sda, /dev/null) on that filesystem.
-      "nofail" # Don't fail the boot if the filesystem is missing or cannot be mounted.
-      "x-gvfs-show" # A special flag for GNOME and other GVFS-based file managers (like Nautilus).
-    ];
-  };
-  fileSystems."/mnt/SSD-1TB" = {
-    device = "/dev/disk/by-uuid/6C0ACF540ACF19CA";
-    fsType = "auto";
-    options = [
-      "nosuid"
-      "nodev"
-      "nofail"
-      "x-gvfs-show"
-    ];
-  };
-  fileSystems."/mnt/SSD-1TB-128GB" = {
-    device = "/dev/disk/by-uuid/9947e5d5-57da-4bec-9351-4c56c0745d77";
-    fsType = "auto";
-    options = [
-      "nosuid"
-      "nodev"
-      "nofail"
-      "x-gvfs-show"
-    ];
-  };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
   ];
   hardware.uinput.enable = true;
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking.hostName = "chocola"; # Define your hostname.
+  networking.hostName = "chocola";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
-
-  # use network manager instead of this
-  # networking.interfaces.eth0.ipv4.addresses = [
-  #   {
-  #     address = "192.168.1.100";
-  #     prefixLength = 24;
-  #   }
-  # ];
-  # networking.defaultGateway = "192.168.1.1";
-  # networking.nameservers = [ "192.168.1.101" ];
-
   networking.networkmanager.ensureProfiles.profiles = {
     Ethernet = {
       connection = {
@@ -117,10 +76,14 @@
     };
   };
 
-  # Set your time zone.
-  time.timeZone = "Asia/Jakarta";
+  networking.firewall.allowedTCPPorts = [
+    56789
+    8800
+  ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # networking.firewall.enable = false;
 
-  # Select internationalisation properties.
+  time.timeZone = "Asia/Jakarta";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
     enable = true;
@@ -133,10 +96,7 @@
     # ibus.engines = with pkgs.ibus-engines; [ mozc ];
   };
 
-  # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
   programs.hyprland.enable = true; # enable Hyprland
@@ -151,16 +111,12 @@
       "L /run/gdm/.config/monitors.xml - - - - ${monitorsXml}"
     ];
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
-  # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -168,17 +124,12 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  #
   services.envfs.enable = true;
   services.syncthing = {
     enable = true;
@@ -205,25 +156,6 @@
     };
   };
   services.flatpak.enable = true;
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    56789
-    8800
-
-    57621 # for spotify
-    5353 # for spotify
-  ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.yym = {
@@ -303,10 +235,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -315,5 +243,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
