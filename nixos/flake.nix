@@ -7,9 +7,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-alien.url = "github:thiagokokada/nix-alien";
     thorium.url = "github:Rishabh5321/thorium_flake";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     oklch-color-picker.url = "path:./packages/oklch-color-picker";
   };
 
@@ -26,7 +23,6 @@
         modules = [
           ./configuration.nix
           self.inputs.home-manager.nixosModules.home-manager
-          self.inputs.sops-nix.nixosModules.sops
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -41,7 +37,6 @@
               environment.systemPackages = [
                 self.inputs.nix-alien.packages.${system}.nix-alien
                 self.inputs.thorium.packages.${system}.thorium-avx2
-                self.inputs.hyprpanel.packages.${system}.default
                 # self.inputs.oklch-color-picker.packages.${system}.default
               ];
             }
