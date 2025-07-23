@@ -4,7 +4,6 @@
   system,
   ...
 }:
-
 {
   environment.systemPackages = with pkgs; [
     vim
@@ -120,6 +119,7 @@
     microsoft-edge
     ffmpeg
     audacity
+    nixd
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.thorium.packages.${system}.thorium-avx2
   ];
