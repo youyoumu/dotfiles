@@ -27,6 +27,7 @@
   ];
   nixpkgs.config.allowUnfree = true;
 
+  hardware.keyboard.qmk.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
   ];

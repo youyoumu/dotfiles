@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 vim.diagnostic.config({ virtual_text = false })
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.list = false
 
 vim.filetype.add({
