@@ -37,16 +37,18 @@
   services.envfs.enable = true;
   services.syncthing = {
     enable = true;
-    openDefaultPorts = true; # Open ports in the firewall for Syncthing
+    user = "yym";
+    dataDir = "/home/yym"; # default location for new folders
+    # openDefaultPorts = true; # Open ports in the firewall for Syncthing
   };
   services.cloudflared = {
     enable = true;
-    # tunnels = {
-    #   "76d5646b-569c-4604-a15f-0b7a02b06252" = {
-    #     credentialsFile = "${config.users.users.yym.home}/.cloudflared/76d5646b-569c-4604-a15f-0b7a02b06252.json";
-    #     default = "http_status:404";
-    #   };
-    # };
+    tunnels = {
+      "f14135e3-03af-4f23-9493-e4d0a169a232" = {
+        credentialsFile = "${config.users.users.yym.home}/.cloudflared/f14135e3-03af-4f23-9493-e4d0a169a232.json";
+        default = "http_status:404";
+      };
+    };
   };
   services.openssh = {
     enable = true;

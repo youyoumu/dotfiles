@@ -19,6 +19,7 @@
     ./packages.nix
     ./fonts.nix
     ./environment.nix
+    ../../secrets/default.nix
   ];
 
   nix.settings.experimental-features = [
