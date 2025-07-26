@@ -29,6 +29,19 @@
             }
           ];
         };
+        vanilla = inputs.nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs system; };
+          modules = [
+            ./hosts/vanilla/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.yym = ./home.nix;
+            }
+          ];
+        };
       };
     };
 }

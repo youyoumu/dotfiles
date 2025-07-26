@@ -1,0 +1,16 @@
+{
+  lib,
+  config,
+  options,
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
+{
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi = {
+    canTouchEfiVariables = true;
+  };
+  boot.supportedFilesystems = [ "ntfs" ];
+}
