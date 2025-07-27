@@ -37,6 +37,8 @@
 
   networking.firewall.allowedTCPPorts = [
   ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [
+    34197
+  ];
   # networking.firewall.enable = false;
 }

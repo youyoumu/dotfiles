@@ -62,4 +62,20 @@
       PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
     };
   };
+
+  systemd.services.pm2 = {
+    enable = true;
+    description = "pm2";
+    unitConfig = {
+      Type = "simple";
+    };
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      User = "yym";
+      Environment = "HOME=/home/yym";
+      ExecStart = "${pkgs.nodePackages_latest.pm2}/bin/pm2 resurrect";
+      ExecReload = "${pkgs.nodePackages_latest.pm2}/bin/pm2 reload all";
+      ExecStop = "${pkgs.nodePackages_latest.pm2}/bin/pm2 kill";
+    };
+  };
 }
