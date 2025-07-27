@@ -1,3 +1,2 @@
-#!/bin/sh
-# https://unix.stackexchange.com/questions/476107/how-to-use-fish-on-remote-servers-that-have-it-installed-without-changing-login
-ssh "$@" -t "sh -c 'if which fish >/dev/null ; then exec fish -li; else exec \$SHELL -li; fi'"
+#!/bin/env bash
+SSH_PREFER_FISH=1 ssh -o SendEnv=SSH_PREFER_FISH "$@"
