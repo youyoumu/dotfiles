@@ -6,3 +6,5 @@ clean:
   nh clean all
 stow:
   stow .
+submodules:
+  git submodule update --init --recursive
