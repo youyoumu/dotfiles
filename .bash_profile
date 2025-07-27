@@ -17,9 +17,6 @@ chocola)
   source ~/hosts/chocola/.bash_profile
   ;;
 vanilla)
-  source ~/hosts/chocola/.bash_profile
-  ;;
-yym4)
-  source ~/hosts/chocola/.bash_profile
+  source ~/hosts/vanilla/.bash_profile
   ;;
 esac

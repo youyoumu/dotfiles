@@ -1,0 +1,63 @@
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [
+    wget
+    neovim
+    git
+    fastfetch
+    kitty
+    stow
+    tmux
+    age
+    fzf
+    lazygit
+    fish
+    starship
+    yazi
+    eza
+    zoxide
+    navi
+    sesh
+    bat
+    fd
+    dust
+    duf
+    delta
+    cronie
+    syncthing
+    gcc
+    pyenv
+    rbenv
+    nodejs
+    go
+    ruby
+    python3
+    unzip
+    luajitPackages.luarocks_bootstrap
+    cargo
+    zulu
+    python312Packages.pip
+    gnumake
+    pnpm
+    fnm
+    nixfmt-rfc-style
+    just
+    keepassxc
+    cloudflared
+    lazydocker
+    ripgrep
+    btop
+    jq
+    tree
+    nixd
+    keychain
+    pm2
+    inputs.nix-alien.packages.${system}.nix-alien
+    inputs.agenix.packages.${system}.default
+  ];
+}
