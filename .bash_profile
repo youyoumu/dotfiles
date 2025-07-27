@@ -20,3 +20,7 @@ vanilla)
   source ~/hosts/vanilla/.bash_profile
   ;;
 esac
+
+if [ "$SSH_PREFER_FISH" = "1" ] && command -v fish >/dev/null 2>&1; then
+  exec fish -li
+fi
