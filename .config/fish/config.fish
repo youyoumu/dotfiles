@@ -33,6 +33,9 @@ alias nd="neovide &"
 # pnpm
 alias p="pnpm"
 
+# just
+alias j="just"
+
 # yazi
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
@@ -47,7 +50,5 @@ switch (hostname)
     case chocola
         source ~/.config/fish/hosts/chocola.fish
     case vanilla
-        source ~/.config/fish/hosts/vanilla.fish
-    case yym4
         source ~/.config/fish/hosts/vanilla.fish
 end
