@@ -99,10 +99,10 @@ output "HDMI-A-1" {
     mode "1920x1080"
     position x=1920 y=0
 }
-output "DP-2" {
-    mode "1920x1080"
-    position x=3840 y=0
-}
+// output "DP-2" {
+//     mode "1920x1080"
+//     position x=3840 y=0
+// }
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
@@ -324,9 +324,9 @@ workspace "2B" {
 workspace "3B" {
     open-on-output "HDMI-A-1"
 }
-workspace "1C" {
-    open-on-output "DP-2"
-}
+// workspace "1C" {
+//     open-on-output "DP-2"
+// }
 spawn-at-startup "/home/yym/script/delayed-autostart.sh"
 window-rule {
     match app-id="discord"

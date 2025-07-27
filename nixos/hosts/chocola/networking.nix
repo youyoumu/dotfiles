@@ -27,7 +27,7 @@
         method = "manual";
         addresses = "192.168.1.100/24";
         gateway = "192.168.1.1";
-        dns = "192.168.1.101";
+        dns = "1.1.1.1";
       };
       ipv6 = {
         method = "auto";
