@@ -10,6 +10,7 @@
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     thorium.url = "github:Rishabh5321/thorium_flake";
     oklch-color-picker.url = "path:./packages/oklch-color-picker";
+    "nixpkgs.nixos-25.05".url = "github:NixOS/nixpkgs/nixos-25.05";
   };
 
   outputs =

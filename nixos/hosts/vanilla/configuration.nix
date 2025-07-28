@@ -19,6 +19,7 @@
     ./packages.nix
     ./fonts.nix
     ./environment.nix
+    ./overlays.nix
     ../../secrets/default.nix
   ];
 
