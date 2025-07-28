@@ -42,6 +42,7 @@
     ];
     packages = [
     ];
+    linger = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are

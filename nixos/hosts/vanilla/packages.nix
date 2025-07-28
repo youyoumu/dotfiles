@@ -58,6 +58,7 @@
     keychain
     pm2
     systemd-lsp
+    rcon-cli
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
   ];
