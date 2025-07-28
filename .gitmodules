@@ -1,3 +1,6 @@
 [submodule "submodules/oh-my-tmux"]
 	path = submodules/oh-my-tmux
 	url = https://github.com/gpakosz/.tmux.git
+[submodule "nix/nix-secrets"]
+	path = nix/nix-secrets
+	url = git@github.com:youyoumu/nix-secrets.git

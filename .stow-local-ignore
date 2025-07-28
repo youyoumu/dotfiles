@@ -26,4 +26,5 @@ Justfile
 nixos
 nix
 navi
+submodules
 
