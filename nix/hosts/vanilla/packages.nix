@@ -61,6 +61,6 @@
     rcon-cli
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
-    inputs."nixpkgs.nixos-25.05".legacyPackages.${system}.isd
+    inputs.pinned-textual-nixpkgs.legacyPackages.${system}.isd
   ];
 }

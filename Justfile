@@ -5,7 +5,9 @@ update:
 rebuild:
   sudo nixos-rebuild switch --flake ./nix?submodules=1#
 clean:
-  nh clean all
+ sudo nh clean all
+meta:
+  nix flake metadata ./nix?submodules=1#
 stow:
   stow .
 submodules:

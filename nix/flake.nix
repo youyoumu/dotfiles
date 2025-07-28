@@ -3,14 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    "nixpkgs.nixos-25.05".url = "github:NixOS/nixpkgs/nixos-25.05";
+    pinned-textual-nixpkgs.url = "github:nixos/nixpkgs/9b008d60392981ad674e04016d25619281550a9d";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-alien.url = "github:thiagokokada/nix-alien";
+    nix-alien.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     thorium.url = "github:Rishabh5321/thorium_flake";
+    thorium.inputs.nixpkgs.follows = "nixpkgs";
     oklch-color-picker.url = "path:./packages/oklch-color-picker";
+    oklch-color-picker.inputs.nixpkgs.follows = "nixpkgs";
     nix-secrets.url = "path:./nix-secrets";
   };
 

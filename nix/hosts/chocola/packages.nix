@@ -118,10 +118,10 @@
     ollama
     microsoft-edge
     ffmpeg
-    audacity
     nixd
     kdlfmt
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.thorium.packages.${system}.thorium-avx2
+    inputs.pinned-textual-nixpkgs.legacyPackages.${system}.audacity
   ];
 }
