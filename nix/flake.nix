@@ -18,32 +18,29 @@
     {
       ...
     }@inputs:
+    let
+      shared = import ./shared;
+    in
     {
       nixosConfigurations = {
         chocola = inputs.nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs system; };
+          specialArgs = {
+            inherit inputs system shared;
+          };
           modules = [
             ./hosts/chocola/configuration.nix
             inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.yym = ./home.nix;
-            }
           ];
         };
         vanilla = inputs.nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs system; };
+          specialArgs = {
+            inherit inputs system shared;
+          };
           modules = [
             ./hosts/vanilla/configuration.nix
             inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.yym = ./home.nix;
-            }
             inputs.agenix.nixosModules.default
             inputs.nix-secrets.nixosModules.vanilla
           ];

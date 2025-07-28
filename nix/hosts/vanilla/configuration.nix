@@ -20,6 +20,7 @@
     ./fonts.nix
     ./environment.nix
     ./overlays.nix
+    ./home-manager
   ];
 
   nix.settings.experimental-features = [

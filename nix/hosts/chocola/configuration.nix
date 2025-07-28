@@ -19,6 +19,7 @@
     ./packages.nix
     ./fonts.nix
     ./environment.nix
+    ./home-manager
   ];
 
   nix.settings.experimental-features = [
