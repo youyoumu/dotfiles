@@ -45,8 +45,7 @@
     enable = true;
     tunnels = {
       "f14135e3-03af-4f23-9493-e4d0a169a232" = {
-        credentialsFile =
-          config.age.secrets."vanilla.cloudfalred.f14135e3-03af-4f23-9493-e4d0a169a232.json".path;
+        credentialsFile = config.age.secrets."cloudflared.vanilla-tunnel.json".path;
         default = "http_status:404";
       };
     };

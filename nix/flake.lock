@@ -142,6 +142,17 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "locked": {
+        "path": "./nix-secrets",
+        "type": "path"
+      },
+      "original": {
+        "path": "./nix-secrets",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1751984180,
@@ -241,6 +252,7 @@
         "agenix": "agenix",
         "home-manager": "home-manager_2",
         "nix-alien": "nix-alien",
+        "nix-secrets": "nix-secrets",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs.nixos-25.05": "nixpkgs.nixos-25.05",
         "oklch-color-picker": "oklch-color-picker",

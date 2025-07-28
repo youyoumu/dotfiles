@@ -1,9 +1,9 @@
 default:
-  nh os switch ./nix
+  nh os switch ./nix?submodules=1#
 update:
-  nix flake update --flake ./nix
+  nix flake update --flake ./nix?submodules=1#
 rebuild:
-  sudo nixos-rebuild switch --flake ./nix
+  sudo nixos-rebuild switch --flake ./nix?submodules=1#
 clean:
   nh clean all
 stow:

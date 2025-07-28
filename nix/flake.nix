@@ -11,6 +11,7 @@
     thorium.url = "github:Rishabh5321/thorium_flake";
     oklch-color-picker.url = "path:./packages/oklch-color-picker";
     "nixpkgs.nixos-25.05".url = "github:NixOS/nixpkgs/nixos-25.05";
+    nix-secrets.url = "path:./nix-secrets";
   };
 
   outputs =
@@ -44,6 +45,7 @@
               home-manager.users.yym = ./home.nix;
             }
             inputs.agenix.nixosModules.default
+            inputs.nix-secrets.nixosModules.vanilla
           ];
         };
       };

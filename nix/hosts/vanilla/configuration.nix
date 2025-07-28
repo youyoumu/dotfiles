@@ -20,7 +20,6 @@
     ./fonts.nix
     ./environment.nix
     ./overlays.nix
-    ../../nix-secrets/default.nix
   ];
 
   nix.settings.experimental-features = [
