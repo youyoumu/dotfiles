@@ -12,7 +12,7 @@
   programs.niri.enable = true;
   programs.nh = {
     enable = true;
-    flake = "/home/yym/dotfiles/nixos";
+    flake = "/home/yym/dotfiles/nix";
     # clean.enable = true;
     # clean.extraArgs = "--keep-since 4d --keep 3";
   };
