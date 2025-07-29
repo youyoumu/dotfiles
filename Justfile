@@ -1,5 +1,7 @@
 default:
   nh os switch ./nix?submodules=1#
+azuki:
+  nix-on-droid switch --flake ./nix?submodules=1#azuki
 update:
   nix flake update --flake ./nix?submodules=1#
 rebuild:
