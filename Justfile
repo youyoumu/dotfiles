@@ -9,7 +9,7 @@ hostname := `
 `
 
 default:
-    #!/bin/env bash
+    #!/usr/bin/env bash
     if [[ "{{ hostname }}" == "azuki" ]]; then
       nix-on-droid switch --flake ./nix?submodules=1#azuki;
     else
