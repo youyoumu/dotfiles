@@ -104,3 +104,6 @@ local typos = {
 }
 
 add_abbreviations(typos)
+
+local hostname = vim.g.current_hostname
+pcall(require, "hosts." .. hostname .. ".config.keymaps")

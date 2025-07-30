@@ -14,12 +14,21 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Detect hostname
+local hostname = vim.g.current_hostname
+local host_path = "hosts." .. hostname
+local host_spec = {}
+if vim.loop.fs_stat(vim.fn.stdpath("config") .. "/lua/hosts/" .. hostname) then
+  table.insert(host_spec, { import = host_path .. ".plugins" })
+end
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
+    host_spec,
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

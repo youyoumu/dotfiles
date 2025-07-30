@@ -59,8 +59,8 @@
     pm2
     systemd-lsp
     rcon-cli
+    isd
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
-    inputs.pinned-textual-nixpkgs.legacyPackages.${system}.isd
   ];
 }

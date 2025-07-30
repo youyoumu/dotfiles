@@ -3,15 +3,13 @@
 
 palette = "catppuccin_mocha"
 
-# Starship modules
 [character]
-# Note the use of Catppuccin color 'peach'
-success_symbol = "[[🔥](green) ❯](peach)"
-error_symbol = "[[🔥](red) ❯](peach)"
-vimcmd_symbol = "[🔥 ❮](subtext1)"                # For use with vi-mode
-vimcmd_replace_one_symbol = "[🔥 ❮](bold purple)"
-vimcmd_replace_symbol = "[🔥 ❮](bold purple)"
-vimcmd_visual_symbol = "[🔥 ❮](bold yellow)"
+success_symbol = "[[❄️](green) ❯](peach)"
+error_symbol = "[[❄️](red) ❯](peach)"
+vimcmd_symbol = "[❄️ ❮](subtext1)"
+vimcmd_replace_one_symbol = "[❄️ ❮](bold purple)"
+vimcmd_replace_symbol = "[❄️ ❮](bold purple)"
+vimcmd_visual_symbol = "[❄️ ❮](bold yellow)"
 
 [git_branch]
 style = "bold mauve"

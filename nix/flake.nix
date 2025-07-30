@@ -3,7 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    pinned-textual-nixpkgs.url = "github:nixos/nixpkgs/9b008d60392981ad674e04016d25619281550a9d";
+    nix-on-droid.url = "github:nix-community/nix-on-droid";
+    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-alien.url = "github:thiagokokada/nix-alien";
@@ -18,9 +19,7 @@
   };
 
   outputs =
-    inputs@{
-      ...
-    }:
+    inputs@{ ... }:
     let
       shared = import ./shared;
       hosts = import ./hosts;
@@ -48,6 +47,15 @@
             inputs.agenix.nixosModules.default
             inputs.nix-secrets.nixosModules.vanilla
           ];
+        };
+      };
+      nixOnDroidConfigurations = {
+        azuki = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+          pkgs = import inputs.nixpkgs { system = "aarch64-linux"; };
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          modules = [ hosts.azuki ];
         };
       };
     };

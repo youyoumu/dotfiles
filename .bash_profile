@@ -19,6 +19,13 @@ chocola)
 vanilla)
   source ~/hosts/vanilla/.bash_profile
   ;;
+localhost)
+  case "$HOSTNAME" in
+  azuki)
+    source ~/hosts/azuki/.bash_profile
+    ;;
+  esac
+  ;;
 esac
 
 if [ "$SSH_PREFER_FISH" = "1" ] && command -v fish >/dev/null 2>&1; then

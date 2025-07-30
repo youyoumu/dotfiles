@@ -4,15 +4,6 @@ set -g fish_greeting
 
 starship init fish | source
 
-# start fnm
-fnm env --use-on-cd --shell fish | source
-
-# start rbenv
-status --is-interactive; and rbenv init - fish | source
-
-# start pyenv
-pyenv init - fish | source
-
 # zoxide
 zoxide init fish | source
 #alias cd="z"
@@ -51,4 +42,9 @@ switch (hostname)
         source ~/.config/fish/hosts/chocola.fish
     case vanilla
         source ~/.config/fish/hosts/vanilla.fish
+    case localhost
+        switch $HOSTNAME
+            case azuki
+                source ~/.config/fish/hosts/azuki.fish
+        end
 end
