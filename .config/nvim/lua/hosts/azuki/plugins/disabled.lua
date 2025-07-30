@@ -11,6 +11,7 @@ local disabled_plugins = {
   "ibhagwan/smartyank.nvim",
   "Wansmer/treesj",
   "pmizio/typescript-tools.nvim",
+  "eero-lehtinen/oklch-color-picker.nvim",
 }
 
 return vim.tbl_map(function(repo)
