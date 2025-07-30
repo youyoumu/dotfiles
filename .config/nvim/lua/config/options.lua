@@ -49,3 +49,6 @@ if vim.g.neovide then
   vim.g.terminal_color_14 = "#94e2d5"
   vim.g.terminal_color_15 = "#a6adc8"
 end
+
+local hostname = vim.g.current_hostname
+pcall(require, "hosts." .. hostname .. ".config.options")

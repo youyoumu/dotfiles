@@ -20,3 +20,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
     })
   end,
 })
+
+local hostname = vim.g.current_hostname
+pcall(require, "hosts." .. hostname .. ".config.autocmds")

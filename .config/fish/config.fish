@@ -42,4 +42,9 @@ switch (hostname)
         source ~/.config/fish/hosts/chocola.fish
     case vanilla
         source ~/.config/fish/hosts/vanilla.fish
+    case localhost
+        switch $HOSTNAME
+            case azuki
+                source ~/.config/fish/hosts/azuki.fish
+        end
 end
