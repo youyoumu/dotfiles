@@ -1,16 +1,38 @@
+set shell := ["bash", "-uc"]
+
+hostname := `
+  if [[ "$(hostname)" == "localhost" ]] && [[ -n "$HOSTNAME" ]]; 
+    then echo "$HOSTNAME"; 
+  else 
+    hostname; 
+  fi
+`
+
 default:
-  nh os switch ./nix?submodules=1#
-azuki:
-  nix-on-droid switch --flake ./nix?submodules=1#azuki
+    #!/usr/bin/env bash
+    if [[ "{{ hostname }}" == "azuki" ]]; then
+      nix-on-droid switch --flake ./nix?submodules=1#azuki;
+    else
+      nh os switch ./nix?submodules=1#;
+    fi
+
 update:
-  nix flake update --flake ./nix?submodules=1#
+    nix flake update --flake ./nix?submodules=1#
+
 rebuild:
-  sudo nixos-rebuild switch --flake ./nix?submodules=1#
+    sudo nixos-rebuild switch --flake ./nix?submodules=1#
+
 clean:
- sudo nh clean all
+    sudo nh clean all
+
 meta:
-  nix flake metadata ./nix?submodules=1#
+    nix flake metadata ./nix?submodules=1#
+
 stow:
-  stow .
+    stow .
+
 submodules:
-  git submodule update --init --recursive
+    git submodule update --init --recursive
+
+keychain:
+    keychain ~/.ssh/{{ hostname }}
