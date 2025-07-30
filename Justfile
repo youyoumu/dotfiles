@@ -1,7 +1,7 @@
 set shell := ["bash", "-uc"]
 
 hostname := `
-  if [ "$(hostname)" = "localhost" ] && [ -n "$HOSTNAME" ]; 
+  if [[ "$(hostname)" == "localhost" ]] && [[ -n "$HOSTNAME" ]]; 
     then echo "$HOSTNAME"; 
   else 
     hostname; 
@@ -9,10 +9,12 @@ hostname := `
 `
 
 default:
-    nh os switch ./nix?submodules=1#
-
-azuki:
-    nix-on-droid switch --flake ./nix?submodules=1#azuki
+    #!/bin/env bash
+    if [[ "{{ hostname }}" == "azuki" ]]; then
+      nix-on-droid switch --flake ./nix?submodules=1#azuki;
+    else
+      nh os switch ./nix?submodules=1#;
+    fi
 
 update:
     nix flake update --flake ./nix?submodules=1#
