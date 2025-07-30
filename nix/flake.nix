@@ -3,10 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-nixos-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs-nixos-25-05.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
-    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs-nixos-24-05";
+    nix-on-droid.url = "github:nix-community/nix-on-droid";
+    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-alien.url = "github:thiagokokada/nix-alien";
@@ -53,7 +51,7 @@
       };
       nixOnDroidConfigurations = {
         azuki = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = import inputs.nixpkgs-nixos-24-05 { system = "aarch64-linux"; };
+          pkgs = import inputs.nixpkgs { system = "aarch64-linux"; };
           extraSpecialArgs = {
             inherit inputs;
           };

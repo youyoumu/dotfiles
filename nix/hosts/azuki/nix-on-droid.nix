@@ -28,6 +28,8 @@
     xz
     zip
     unzip
+    gawk
+    ncurses
     git
     fish
     zoxide
@@ -64,7 +66,7 @@
     lua
     jq
     tree
-    inputs.nixpkgs-nixos-25-05.legacyPackages.aarch64-linux.neovim
+    neovim
     # luajitPackages.luarocks_bootstrap
   ];
 
@@ -74,7 +76,6 @@
   # Read the changelog before changing this value
   system.stateVersion = "24.05";
 
-  nix.package = inputs.nixpkgs-nixos-25-05.legacyPackages.aarch64-linux.nix;
   # Set up nix for flakes
   nix.extraOptions = ''
     experimental-features = nix-command flakes
@@ -82,4 +83,10 @@
 
   # Set your time zone
   time.timeZone = "Asia/Jakarta";
+
+  user.userName = "yym";
+
+  environment.sessionVariables = {
+    HOSTNAME = "azuki";
+  };
 }
