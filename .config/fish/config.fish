@@ -6,10 +6,18 @@ starship init fish | source
 
 # zoxide
 zoxide init fish | source
-#alias cd="z"
 
 # eza
-alias ls="eza --long --icons --git --all --binary --no-permissions --no-user --mounts --grid --group-directories-first"
+alias list="command ls"
+alias ls="eza --long --icons --git --all --header --binary --no-permissions \
+              --no-user --mounts --grid --group-directories-first"
+alias lsl="eza --long --icons --header --all --binary --mounts --group-directories-first \
+               --group"
+alias lt="eza --tree --icons --all --group-directories-first"
+alias lt2="eza --tree --level=2 --icons --all --group-directories-first"
+alias lt3="eza --tree --level=3 --icons --all --group-directories-first"
+alias lt4="eza --tree --level=4 --icons --all --group-directories-first"
+alias lt5="eza --tree --level=5 --icons --all --group-directories-first"
 
 # sesh
 alias s="sesh connect (sesh list | fzf)"
