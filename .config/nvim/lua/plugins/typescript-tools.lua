@@ -1,6 +1,7 @@
 return {
   "pmizio/typescript-tools.nvim",
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  lazy = false,
   opts = {},
   keys = {
     { "<leader>cM", "<cmd>TSToolsAddMissingImports<CR>", desc = "Add missing imports" },
