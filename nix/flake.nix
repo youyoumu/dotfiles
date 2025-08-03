@@ -34,6 +34,8 @@
           modules = [
             hosts.chocola
             inputs.home-manager.nixosModules.home-manager
+            inputs.agenix.nixosModules.default
+            inputs.nix-secrets.nixosModules.chocola
           ];
         };
         vanilla = inputs.nixpkgs.lib.nixosSystem rec {
@@ -48,7 +50,7 @@
             inputs.nix-secrets.nixosModules.vanilla
           ];
         };
-coconut = inputs.nixpkgs.lib.nixosSystem rec {
+        coconut = inputs.nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs system shared;

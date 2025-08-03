@@ -38,7 +38,6 @@
     ruby
     python3
     unzip
-    luajitPackages.luarocks_bootstrap
     cargo
     zulu
     python312Packages.pip
@@ -53,7 +52,6 @@
     ripgrep
     btop
     jq
-    tree
     nixd
     keychain
     pm2

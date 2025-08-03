@@ -43,13 +43,15 @@
   services.envfs.enable = true;
   services.syncthing = {
     enable = true;
+    user = "yym";
+    dataDir = "/home/yym"; # default location for new folders
     # openDefaultPorts = true; # Open ports in the firewall for Syncthing
   };
   services.cloudflared = {
     enable = true;
     tunnels = {
       "76d5646b-569c-4604-a15f-0b7a02b06252" = {
-        credentialsFile = "${config.users.users.yym.home}/.cloudflared/76d5646b-569c-4604-a15f-0b7a02b06252.json";
+        credentialsFile = config.age.secrets."cloudflared.chocola-tunnel.json".path;
         default = "http_status:404";
       };
     };

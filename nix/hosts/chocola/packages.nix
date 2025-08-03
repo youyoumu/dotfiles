@@ -11,8 +11,6 @@
     neovim
     git
     fastfetch
-    dconf-editor
-    dconf2nix
     kitty
     stow
     tmux
@@ -41,13 +39,10 @@
     ruby
     python3
     unzip
-    luajitPackages.luarocks_bootstrap
-    wget
     cargo
     zulu
     python312Packages.pip
     gnumake
-    iosevka-bin
     pnpm
     fnm
     vscode
@@ -86,7 +81,6 @@
     cloudflared
     lazydocker
     xdg-utils
-    gnomeExtensions.vitals
     flatpak
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-base
@@ -103,8 +97,6 @@
     btop
     jq
     cliphist
-    tree
-    efibootmgr
     mpv
     walker
     libnotify
@@ -120,7 +112,9 @@
     ffmpeg
     nixd
     kdlfmt
+    gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
+    inputs.agenix.packages.${system}.default
     inputs.thorium.packages.${system}.thorium-avx2
   ];
 }
