@@ -50,6 +50,8 @@ switch (hostname)
         source ~/.config/fish/hosts/chocola.fish
     case vanilla
         source ~/.config/fish/hosts/vanilla.fish
+    case coconut
+        source ~/.config/fish/hosts/coconut.fish
     case localhost
         switch $HOSTNAME
             case azuki

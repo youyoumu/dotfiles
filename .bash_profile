@@ -19,6 +19,9 @@ chocola)
 vanilla)
   source ~/hosts/vanilla/.bash_profile
   ;;
+coconut)
+  source ~/hosts/coconut/.bash_profile
+  ;;
 localhost)
   case "$HOSTNAME" in
   azuki)

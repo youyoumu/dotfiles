@@ -48,6 +48,17 @@
             inputs.nix-secrets.nixosModules.vanilla
           ];
         };
+coconut = inputs.nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs system shared;
+          };
+          modules = [
+            hosts.coconut
+            inputs.home-manager.nixosModules.home-manager
+          ];
+        };
+
       };
       nixOnDroidConfigurations = {
         azuki = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
