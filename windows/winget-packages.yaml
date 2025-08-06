@@ -1,0 +1,46 @@
+packages:
+  # Essential CLI tools
+  - eza-community.eza
+  - sharkdp.fd
+  - BurntSushi.ripgrep.MSVC
+  - ajeetdsouza.zoxide
+  - junegunn.fzf
+  - Starship.Starship
+  - sxyazi.yazi
+
+  # Development tools
+  - Git.Git
+  - GoLang.Go
+  - OpenJS.NodeJS.LTS
+  - Python.Python.3.9
+  - JesseDuffield.lazygit
+  - Neovim.Neovim
+  - Neovide.Neovide
+
+  # System utilities
+  - 7zip.7zip
+  - CPUID.CPU-Z
+  - Microsoft.PowerShell
+  - Microsoft.WindowsTerminal
+  - Fastfetch-cli.Fastfetch
+
+  # Browsers
+  - Google.Chrome.EXE
+  - Mozilla.Firefox
+
+  # Productivity
+  - KeePassXCTeam.KeePassXC
+
+  # Multimedia
+  - Audacity.Audacity
+
+  # Gaming / streaming
+  - Valve.Steam
+  - LizardByte.Sunshine
+
+  # Communication
+  - Discord.Discord
+
+  # Syncing
+  - BillStewart.SyncthingWindowsSetup
+  - Martchus.syncthingtray
