@@ -11,25 +11,26 @@
 	directory = *
 [core]
 	editor = nvim
-[core]
-    pager = delta
+  pager = delta
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [delta]
-    navigate = true    # use n and N to move between diff sections
-
-    # delta detects terminal colors automatically; set one of these to disable auto-detection
-    # dark = true
-    # light = true
+  navigate = true
+	features = catppuccin-mocha
+  # delta detects terminal colors automatically; set one of these to disable auto-detection
+  # dark = true
+  # light = true
 
 [merge]
-    conflictstyle = zdiff3
-[include]
-	path = /home/yym/.config/delta/themes/catppuccin.gitconfig
-[delta]
-	features = catppuccin-mocha
+  conflictstyle = zdiff3
 
-[url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
+[includeIf "gitdir:C:/Users/yym/"]
+  path = ~/.gitconfig.windows
+
+[includeIf "gitdir:/home/yym/"]
+	path = /home/yym/.config/delta/themes/catppuccin.gitconfig
+
