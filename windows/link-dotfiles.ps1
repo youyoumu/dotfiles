@@ -13,6 +13,10 @@ $links = @(
         Source = "$dotfiles\.gitconfig"
         Target = "$env:USERPROFILE\.gitconfig"
     }
+    @{
+        Source = "$dotfiles\windows\windows-terminal\settings.json"
+        Target = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+    }
 )
 
 foreach ($link in $links) {
