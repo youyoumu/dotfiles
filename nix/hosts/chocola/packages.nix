@@ -41,7 +41,6 @@
     unzip
     cargo
     zulu
-    python312Packages.pip
     gnumake
     pnpm
     fnm
@@ -112,6 +111,7 @@
     ffmpeg
     nixd
     kdlfmt
+    devenv
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default

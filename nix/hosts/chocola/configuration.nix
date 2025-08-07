@@ -26,6 +26,10 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.trusted-users = [
+    "root"
+    "yym"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   hardware.keyboard.qmk.enable = true;
