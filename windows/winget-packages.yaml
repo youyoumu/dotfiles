@@ -23,7 +23,9 @@ packages:
   - CPUID.CPU-Z
   - Microsoft.PowerShell
   - Microsoft.WindowsTerminal
+  - Google.JapaneseIME
   - Fastfetch-cli.Fastfetch
+  - Rufus.Rufus
 
   # Browsers
   - Google.Chrome.EXE
@@ -31,9 +33,13 @@ packages:
 
   # Productivity
   - KeePassXCTeam.KeePassXC
+  - Microsoft.PowerToys
 
   # Multimedia
+  - VideoLAN.VLC
+  - HandBrake.HandBrake
   - Audacity.Audacity
+  - qBittorrent.qBittorrent
 
   # Gaming / streaming
   - Valve.Steam
