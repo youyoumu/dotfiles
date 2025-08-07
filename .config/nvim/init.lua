@@ -1,4 +1,4 @@
-local hostname = vim.fn.hostname():lower():gsub("%W", "-")
+local hostname = vim.uv.os_gethostname()
 if hostname == "localhost" then
   hostname = os.getenv("HOSTNAME") or "localhost"
 end

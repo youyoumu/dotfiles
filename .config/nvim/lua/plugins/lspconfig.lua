@@ -44,6 +44,7 @@ return {
           },
         },
       },
+      powershell_es = {},
     },
     -- https://github.com/LazyVim/LazyVim/issues/5861#issuecomment-2816353352
     -- today is 31 July 2025
