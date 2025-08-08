@@ -112,6 +112,7 @@
     nixd
     kdlfmt
     devenv
+    chezmoi
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
