@@ -15,9 +15,11 @@ packages:
   - GoLang.Go
   - OpenJS.NodeJS.LTS
   - Python.Python.3.9
+  - Rustlang.Rust.GNU
   - JesseDuffield.lazygit
   - Neovim.Neovim
   - Neovide.Neovide
+  - MartinStorsjo.LLVM-MinGW.MSVCRT
 
   # System utilities
   - 7zip.7zip
