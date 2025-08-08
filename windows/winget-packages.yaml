@@ -11,6 +11,7 @@ packages:
 
   # Development tools
   - Git.Git
+  - dandavison.delta
   - GoLang.Go
   - OpenJS.NodeJS.LTS
   - Python.Python.3.9
