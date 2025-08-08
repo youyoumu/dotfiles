@@ -1,0 +1,13 @@
+{{ template "config.kdl" }}
+
+{{ if eq .chezmoi.hostname "chocola" }}
+{{ template "hosts/chocola/config.kdl" }}
+{{ end }}
+
+binds {
+  {{ template "binds.kdl" }}
+
+  {{ if eq .chezmoi.hostname "chocola" }}
+  {{ template "hosts/chocola/binds.kdl" }}
+  {{ end }}
+}
