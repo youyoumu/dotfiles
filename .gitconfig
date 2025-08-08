@@ -32,5 +32,6 @@
   path = ~/.gitconfig.windows
 
 [includeIf "gitdir:/home/yym/"]
+  path = ~/.gitconfig.linux
 	path = /home/yym/.config/delta/themes/catppuccin.gitconfig
 

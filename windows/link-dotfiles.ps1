@@ -21,6 +21,10 @@ $links = @(
     Source = "$dotfiles\.gitconfig.windows"
     Target = "$env:USERPROFILE\.gitconfig.windows"
   }
+  @{
+    Source = "$dotfiles\.gitconfig.linux"
+    Target = "$env:USERPROFILE\.gitconfig.linux"
+  }
 )
 
 foreach ($link in $links)
