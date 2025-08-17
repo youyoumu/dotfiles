@@ -31,8 +31,6 @@
     cronie
     syncthing
     gcc
-    pyenv
-    rbenv
     nodejs
     go
     ruby
@@ -43,7 +41,6 @@
     python312Packages.pip
     gnumake
     pnpm
-    fnm
     nixfmt-rfc-style
     just
     keepassxc
@@ -60,5 +57,6 @@
     isd
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
+    inputs.fhs.packages.${system}.default
   ];
 }

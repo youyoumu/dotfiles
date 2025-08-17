@@ -32,8 +32,6 @@
     cronie
     syncthing
     gcc
-    pyenv
-    rbenv
     nodejs
     go
     ruby
@@ -42,7 +40,6 @@
     cargo
     gnumake
     pnpm
-    fnm
     vscode
     nixfmt-rfc-style
     just
@@ -110,5 +107,6 @@
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.thorium.packages.${system}.thorium-avx2
+    inputs.fhs.packages.${system}.default
   ];
 }

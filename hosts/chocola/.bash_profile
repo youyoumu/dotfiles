@@ -1,3 +1,3 @@
 #!/bin/env bash
 
-eval "$(rbenv init - bash)"
+# eval "$(rbenv init - bash)"

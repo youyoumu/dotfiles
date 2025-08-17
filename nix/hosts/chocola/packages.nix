@@ -32,8 +32,6 @@
     cronie
     syncthing
     gcc
-    pyenv
-    rbenv
     nodejs
     go
     ruby
@@ -43,7 +41,6 @@
     zulu
     gnumake
     pnpm
-    fnm
     vscode
     nixfmt-rfc-style
     just
@@ -118,5 +115,6 @@
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
     inputs.thorium.packages.${system}.thorium-avx2
+    inputs.fhs.packages.${system}.default
   ];
 }

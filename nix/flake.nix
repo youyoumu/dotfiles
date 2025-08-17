@@ -13,8 +13,11 @@
     agenix.inputs.nixpkgs.follows = "nixpkgs";
     thorium.url = "github:Rishabh5321/thorium_flake";
     thorium.inputs.nixpkgs.follows = "nixpkgs";
+
     oklch-color-picker.url = "path:./packages/oklch-color-picker";
     oklch-color-picker.inputs.nixpkgs.follows = "nixpkgs";
+    fhs.url = "path:./packages/fhs";
+    fhs.inputs.nixpkgs.follows = "nixpkgs";
     nix-secrets.url = "path:./nix-secrets";
   };
 

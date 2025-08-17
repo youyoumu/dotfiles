@@ -51,7 +51,7 @@
   "oklch-color-picker.nvim": { "branch": "master", "commit": "292b381fa7eb2dcd3ebd22d817e4bb5fd75f9ccc" },
   "persistence.nvim": { "branch": "main", "commit": "166a79a55bfa7a4db3e26fc031b4d92af71d0b51" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
-  "pretty-ts-errors.nvim": { "branch": "main", "commit": "2f7295ba6620f1a9c169f5baafdafd204313e9a4" },
+  "pretty-ts-errors.nvim": { "branch": "main", "commit": "3c896bbd9d0cecab151e33ddd10b8b43993b5ef0" },
   "render-markdown.nvim": { "branch": "main", "commit": "24aacee83544ca113055564ed22be7852067c342" },
   "scrollEOF.nvim": { "branch": "master", "commit": "2575109749b4bf3a0bf979a17947b3c1e8c5137e" },
   "smartyank.nvim": { "branch": "master", "commit": "c4e53e0d9316ca790a6f5d78aad73206a763873b" },

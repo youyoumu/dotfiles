@@ -45,6 +45,22 @@
         "type": "github"
       }
     },
+    "fhs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./packages/fhs",
+        "type": "path"
+      },
+      "original": {
+        "path": "./packages/fhs",
+        "type": "path"
+      },
+      "parent": []
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1747046372,
@@ -332,6 +348,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "fhs": "fhs",
         "home-manager": "home-manager_2",
         "nix-alien": "nix-alien",
         "nix-on-droid": "nix-on-droid",
