@@ -22,6 +22,7 @@
       wayland
       libxkbcommon
       libGL
+      icu
     ];
   };
   virtualisation.docker = {
