@@ -9,6 +9,7 @@ vim.opt.list = false
 vim.filetype.add({
   extension = {
     hbs = "html",
+    svg = "xml",
   },
 })
 
@@ -49,6 +50,32 @@ if vim.g.neovide then
   vim.g.terminal_color_14 = "#94e2d5"
   vim.g.terminal_color_15 = "#a6adc8"
 end
+
+vim.opt.spelllang = { "en", "en_us", "en_gb", "id" }
+vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/custom.utf-8.add"
+-- Ensure that the binary spl file is up-to-date with the source add file
+local function update_spell()
+  local config_path = vim.fn.stdpath("config") .. "/spell"
+
+  -- List of base names (without encoding extension)
+  local langs = { "custom", "en", "id" }
+
+  for _, lang in ipairs(langs) do
+    local add_file = string.format("%s/%s.utf-8.add", config_path, lang)
+    local spl_file = string.format("%s/%s.utf-8.add.spl", config_path, lang)
+
+    if vim.fn.filereadable(add_file) == 1 then
+      local add_mtime = vim.fn.getftime(add_file)
+      local spl_mtime = vim.fn.getftime(spl_file) -- this is -1 if file doesn't exist
+
+      -- Run mkspell! only if .add is newer than .add.spl or .add.spl doesn't exist
+      if add_mtime > spl_mtime or spl_mtime == -1 then
+        vim.cmd(string.format("silent! mkspell! %s %s", spl_file, add_file))
+      end
+    end
+  end
+end
+update_spell()
 
 local hostname = vim.g.current_hostname
 pcall(require, "hosts." .. hostname .. ".config.options")
