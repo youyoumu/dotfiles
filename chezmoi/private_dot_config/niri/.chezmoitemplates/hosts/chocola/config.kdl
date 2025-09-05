@@ -30,20 +30,20 @@ workspace "1C" {
 window-rule {
     match app-id="Anki" at-startup=true
     open-on-workspace "3B"
+    open-maximized true
 }
 window-rule {
     match app-id="discord" at-startup=true
     open-on-workspace "1A"
+    open-maximized true
 }
 window-rule {
     match app-id="discord"
     match app-id="google-chrome"
     match app-id="neovide"
-    match app-id="Anki"
     match app-id="microsoft-edge"
-    default-column-width {
-        proportion 1.0
-    }
+    match app-id="thorium-browser"
+    open-maximized true
 }
 //
 spawn-at-startup "/home/yym/script/delayed-autostart.sh"
