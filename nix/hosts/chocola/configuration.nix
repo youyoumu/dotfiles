@@ -60,6 +60,7 @@
       "wheel"
       "docker"
       "uinput"
+      "adbuser"
     ];
     packages = [
     ];
