@@ -64,9 +64,7 @@
     bibata-cursors
     waybar
     swaynotificationcenter
-    hyprpaper
     hypridle
-    hyprcursor
     hyprshot
     hyprlock
     rofi
@@ -111,6 +109,7 @@
     devenv
     chezmoi
     deno
+    wpaperd
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
