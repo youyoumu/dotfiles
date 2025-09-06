@@ -5,7 +5,7 @@ set -euo pipefail
 WALLPAPER_DIR="$HOME/Pictures/wallpaper"
 mkdir -p "$WALLPAPER_DIR"
 
-OUT="$WALLPAPER_DIR/current.png"
+OUT="$WALLPAPER_DIR/bing-wallpaper.jpg"
 
 # Bing API (en-US, you can change "en-US" to another locale)
 URL_JSON="https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US"
