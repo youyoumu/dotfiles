@@ -27,4 +27,6 @@ restart computer
 
 ```
 Install-Module -Name AudioDeviceCmdlets
+Install-Module PSReadLine -Repository PSGallery -Scope CurrentUser -AllowPrerelease -Force
+Install-Module -Name PSFzf
 ```

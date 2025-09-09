@@ -14,6 +14,10 @@ foreach ($p in $pathsToAdd)
   }
 }
 
+
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+
 # Simple override for `ls`
 Remove-Alias -Name ls
 Set-Alias list Get-ChildItem
