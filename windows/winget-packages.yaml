@@ -48,6 +48,7 @@ packages:
   - Anki.Anki
   - LGUG2Z.komorebi
   - LGUG2Z.whkd
+  - AmN.yasb
 
   # Multimedia
   - VideoLAN.VLC

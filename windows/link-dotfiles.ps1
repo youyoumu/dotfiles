@@ -41,6 +41,10 @@ $links = @(
     Source = "$dotfiles\windows\whkdrc\whkdrc"
     Target = "$env:USERPROFILE\.config\whkdrc"
   }
+  @{
+    Source = "$dotfiles\windows\yasb"
+    Target = "$env:USERPROFILE\.config\yasb"
+  }
 )
 
 foreach ($link in $links)

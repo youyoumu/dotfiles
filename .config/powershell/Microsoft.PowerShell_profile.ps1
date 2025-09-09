@@ -67,3 +67,21 @@ function realpath
     Resolve-Path -LiteralPath $p | ForEach-Object { $_.Path }
   }
 }
+
+
+function which
+{
+  param(
+    [Parameter(Mandatory = $true, ValueFromRemainingArguments = $true)]
+    [string[]] $Name
+  )
+
+  foreach ($n in $Name)
+  {
+    $cmd = Get-Command $n -ErrorAction SilentlyContinue
+    if ($cmd)
+    {
+      $cmd.Path
+    }
+  }
+}

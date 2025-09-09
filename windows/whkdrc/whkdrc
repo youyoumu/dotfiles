@@ -79,6 +79,6 @@ win + shift + 8         : komorebic move-to-workspace 7
 
 win + q                 : wt
 win + w                 : start msedge
-ctrl + shift + o        : powershell.exe -ExecutionPolicy Bypass -c "audio-device-switch.ps1"
+ctrl + shift + o        : pwsh.exe -c audio-device-switch.ps1
 ctrl + shift + k        : keepassxc
 

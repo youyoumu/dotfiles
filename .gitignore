@@ -2,6 +2,7 @@ workspace_toggle_state
 gpu-screen-recoder.pid
 .config/fish/fish_variables
 .config/environment.d/10-home-manager.conf
-windows/winget-packages.json
 .config/nvim/spell/*.spl
 .config/nvim/spell/*.sug
+windows/winget-packages.json
+windows/yasb/yasb.log
