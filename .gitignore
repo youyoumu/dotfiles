@@ -4,3 +4,4 @@ gpu-screen-recoder.pid
 .config/environment.d/10-home-manager.conf
 windows/winget-packages.json
 .config/nvim/spell/*.spl
+.config/nvim/spell/*.sug

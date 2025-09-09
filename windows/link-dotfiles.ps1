@@ -25,6 +25,22 @@ $links = @(
     Source = "$dotfiles\.gitconfig.linux"
     Target = "$env:USERPROFILE\.gitconfig.linux"
   }
+  @{
+    Source = "$dotfiles\windows\chezmoi\chezmoi.toml"
+    Target = "$env:USERPROFILE\.config\chezmoi\chezmoi.toml"
+  }
+  @{
+    Source = "$dotfiles\windows\komorebi\komorebi.json"
+    Target = "$env:USERPROFILE\komorebi.json"
+  }
+  @{
+    Source = "$dotfiles\windows\komorebi\komorebi.bar.json"
+    Target = "$env:USERPROFILE\komorebi.bar.json"
+  }
+  @{
+    Source = "$dotfiles\windows\whkdrc\whkdrc"
+    Target = "$env:USERPROFILE\.config\whkdrc"
+  }
 )
 
 foreach ($link in $links)
