@@ -14,7 +14,7 @@ foreach ($p in $pathsToAdd)
   }
 }
 
-
+Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
@@ -47,18 +47,10 @@ function lt5
 { eza.exe --tree --level=5 --icons --all --group-directories-first 
 }
 
-function lg
-{ lazygit.exe 
-}
-function n
-{ nvim.exe 
-}
-function p
-{ pnpm.exe 
-}
-function j
-{ just.exe 
-}
+Set-Alias lg lazygit.exe
+Set-Alias n nvim.exe
+Set-Alias j just.exe
+Set-Alias p pnpm.exe
 
 function realpath
 {
