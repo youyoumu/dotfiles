@@ -14,7 +14,6 @@
     "unfocused_border": "Base03",
     "bar_accent": "Base0D"
   },
-
   "monitors": [
     {
       "workspaces": [
@@ -89,6 +88,13 @@
           "layout": "VerticalStack"
         }
       ]
+    }
+  ],
+  "ignore_rules": [
+    {
+      "kind": "Exe",
+      "id": "amachoco.exe",
+      "matching_strategy": "Equals"
     }
   ]
 }

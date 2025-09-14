@@ -4,5 +4,6 @@ gpu-screen-recoder.pid
 .config/environment.d/10-home-manager.conf
 .config/nvim/spell/*.spl
 .config/nvim/spell/*.sug
+.config/lazygit/state.yml
 windows/winget-packages.json
 windows/yasb/yasb.log

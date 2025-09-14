@@ -10,6 +10,10 @@ $links = @(
     Target = "$env:LOCALAPPDATA\nvim"
   },
   @{
+    Source = "$dotfiles\.config\lazygit"
+    Target = "$env:LOCALAPPDATA\lazygit"
+  },
+  @{
     Source = "$dotfiles\.gitconfig"
     Target = "$env:USERPROFILE\.gitconfig"
   }

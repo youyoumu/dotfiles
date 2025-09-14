@@ -20,21 +20,32 @@ win + h                 : komorebic focus left
 win + j                 : komorebic focus down
 win + k                 : komorebic focus up
 win + l                 : komorebic focus right
+win + left              : komorebic focus left
+win + down              : komorebic focus down
+win + up                : komorebic focus up
+win + right             : komorebic focus right
+
 win + shift + oem_4     : komorebic cycle-focus previous # oem_4 is [
 win + shift + oem_6     : komorebic cycle-focus next # oem_6 is ]
 
+# Focus Monitors
+win + shift + h         : komorebic cycle-monitor previous
+win + shift + l         : komorebic cycle-monitor next
+win + shift + left      : komorebic cycle-monitor previous
+win + shift + right     : komorebic cycle-monitor next
+
 # Move windows
-win + shift + h         : komorebic move left
-win + shift + j         : komorebic move down
-win + shift + k         : komorebic move up
-win + shift + l         : komorebic move right
-win + shift + return    : komorebic promote
+win + ctrl + h         : komorebic move left
+win + ctrl + j         : komorebic move down
+win + ctrl + k         : komorebic move up
+win + ctrl + l         : komorebic move right
+win + ctrl + return    : komorebic promote
 
 # Stack windows
-win + left              : komorebic stack left
-win + down              : komorebic stack down
-win + up                : komorebic stack up
-win + right             : komorebic stack right
+# win + left              : komorebic stack left
+# win + down              : komorebic stack down
+# win + up                : komorebic stack up
+# win + right             : komorebic stack right
 win + oem_1             : komorebic unstack # oem_1 is ;
 win + oem_4             : komorebic cycle-stack previous # oem_4 is [
 win + oem_6             : komorebic cycle-stack next # oem_6 is ]
@@ -68,14 +79,14 @@ win + 7                 : komorebic focus-workspace 6
 win + 8                 : komorebic focus-workspace 7
 
 # Move windows across workspaces
-win + shift + 1         : komorebic move-to-workspace 0
-win + shift + 2         : komorebic move-to-workspace 1
-win + shift + 3         : komorebic move-to-workspace 2
-win + shift + 4         : komorebic move-to-workspace 3
-win + shift + 5         : komorebic move-to-workspace 4
-win + shift + 6         : komorebic move-to-workspace 5
-win + shift + 7         : komorebic move-to-workspace 6
-win + shift + 8         : komorebic move-to-workspace 7
+win + ctrl + 1         : komorebic move-to-workspace 0
+win + ctrl + 2         : komorebic move-to-workspace 1
+win + ctrl + 3         : komorebic move-to-workspace 2
+win + ctrl + 4         : komorebic move-to-workspace 3
+win + ctrl + 5         : komorebic move-to-workspace 4
+win + ctrl + 6         : komorebic move-to-workspace 5
+win + ctrl + 7         : komorebic move-to-workspace 6
+win + ctrl + 8         : komorebic move-to-workspace 7
 
 win + q                 : wt
 win + w                 : start msedge

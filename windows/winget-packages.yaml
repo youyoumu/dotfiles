@@ -59,6 +59,7 @@ packages:
   # Gaming / streaming
   - Valve.Steam
   - LizardByte.Sunshine
+  - Blinue.Magpie
 
   # Communication
   - Discord.Discord
