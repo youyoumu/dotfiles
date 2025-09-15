@@ -8,6 +8,7 @@ packages:
   - Starship.Starship
   - sxyazi.yazi
   - Casey.Just
+  - twpayne.chezmoi
 
   # Development tools
   - Git.Git
@@ -20,6 +21,10 @@ packages:
   - Neovim.Neovim
   - Neovide.Neovide
   - MartinStorsjo.LLVM-MinGW.MSVCRT
+  - pnpm.pnpm
+  - astral-sh.uv
+  - Microsoft.VisualStudio.2022.BuildTools
+  - Microsoft.VisualStudio.2022.Community
 
   # System utilities
   - 7zip.7zip
@@ -29,6 +34,9 @@ packages:
   - Google.JapaneseIME
   - Fastfetch-cli.Fastfetch
   - Rufus.Rufus
+  - Cloudflare.Warp
+  - ShareX.ShareX
+  - NirSoft.NirCmd
 
   # Browsers
   - Google.Chrome.EXE
@@ -37,6 +45,10 @@ packages:
   # Productivity
   - KeePassXCTeam.KeePassXC
   - Microsoft.PowerToys
+  - Anki.Anki
+  - LGUG2Z.komorebi
+  - LGUG2Z.whkd
+  - AmN.yasb
 
   # Multimedia
   - VideoLAN.VLC
@@ -47,6 +59,7 @@ packages:
   # Gaming / streaming
   - Valve.Steam
   - LizardByte.Sunshine
+  - Blinue.Magpie
 
   # Communication
   - Discord.Discord

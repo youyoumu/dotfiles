@@ -10,6 +10,10 @@ $links = @(
     Target = "$env:LOCALAPPDATA\nvim"
   },
   @{
+    Source = "$dotfiles\.config\lazygit"
+    Target = "$env:LOCALAPPDATA\lazygit"
+  },
+  @{
     Source = "$dotfiles\.gitconfig"
     Target = "$env:USERPROFILE\.gitconfig"
   }
@@ -24,6 +28,26 @@ $links = @(
   @{
     Source = "$dotfiles\.gitconfig.linux"
     Target = "$env:USERPROFILE\.gitconfig.linux"
+  }
+  @{
+    Source = "$dotfiles\windows\chezmoi\chezmoi.toml"
+    Target = "$env:USERPROFILE\.config\chezmoi\chezmoi.toml"
+  }
+  @{
+    Source = "$dotfiles\windows\komorebi\komorebi.json"
+    Target = "$env:USERPROFILE\komorebi.json"
+  }
+  @{
+    Source = "$dotfiles\windows\komorebi\komorebi.bar.json"
+    Target = "$env:USERPROFILE\komorebi.bar.json"
+  }
+  @{
+    Source = "$dotfiles\windows\whkdrc\whkdrc"
+    Target = "$env:USERPROFILE\.config\whkdrc"
+  }
+  @{
+    Source = "$dotfiles\windows\yasb"
+    Target = "$env:USERPROFILE\.config\yasb"
   }
 )
 

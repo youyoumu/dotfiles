@@ -1,12 +1,22 @@
 Invoke-Expression (&starship init powershell)
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
-
-$sevenZipPath = "C:\Program Files\7-Zip"
-if (-not ($env:Path -split ";" | Where-Object { $_ -eq $sevenZipPath }))
+$pathsToAdd = @(
+  "C:\Program Files\7-Zip",
+  "C:\Program Files\KeePassXC",
+  "$env:USERPROFILE\dotfiles\windows\script"
+)
+foreach ($p in $pathsToAdd)
 {
-  $env:Path = "$sevenZipPath;$env:Path"
+  if (-not ($env:Path -split ";" | Where-Object { $_ -eq $p }))
+  {
+    $env:Path = "$p;$env:Path"
+  }
 }
+
+Set-PSReadlineKeyHandler -Key ctrl+d -Function DeleteCharOrExit
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 
 # Simple override for `ls`
 Remove-Alias -Name ls
@@ -37,15 +47,37 @@ function lt5
 { eza.exe --tree --level=5 --icons --all --group-directories-first 
 }
 
-function lg
-{ lazygit.exe 
+Set-Alias lg lazygit.exe
+Set-Alias n nvim.exe
+Set-Alias j just.exe
+Set-Alias p pnpm.exe
+
+function realpath
+{
+  param(
+    [Parameter(Mandatory=$true, ValueFromRemainingArguments=$true)]
+    [string[]]$Paths
+  )
+  foreach ($p in $Paths)
+  {
+    Resolve-Path -LiteralPath $p | ForEach-Object { $_.Path }
+  }
 }
-function n
-{ nvim.exe 
-}
-function p
-{ pnpm.exe 
-}
-function j
-{ just.exe 
+
+
+function which
+{
+  param(
+    [Parameter(Mandatory = $true, ValueFromRemainingArguments = $true)]
+    [string[]] $Name
+  )
+
+  foreach ($n in $Name)
+  {
+    $cmd = Get-Command $n -ErrorAction SilentlyContinue
+    if ($cmd)
+    {
+      $cmd.Path
+    }
+  }
 }
