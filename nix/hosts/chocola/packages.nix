@@ -110,10 +110,15 @@
     chezmoi
     deno
     wpaperd
+    uv
+    protonup-qt
+    bottles
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
     inputs.thorium.packages.${system}.thorium-avx2
     inputs.fhs.packages.${system}.default
+    inputs.noctalia.packages.${system}.default
+    inputs.quickshell.packages.${system}.default
   ];
 }

@@ -16,8 +16,8 @@ default:
       nh os switch ./nix?submodules=1#;
     fi
 
-update:
-    nix flake update --flake ./nix?submodules=1#
+update one:
+    nix flake update {{ one }} --flake ./nix?submodules=1#
 
 rebuild:
     sudo nixos-rebuild switch --flake ./nix?submodules=1#

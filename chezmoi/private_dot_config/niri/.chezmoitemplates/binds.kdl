@@ -16,22 +16,22 @@ Mod+Shift+Slash {
 Mod+Q hotkey-overlay-title="Open a Terminal: kitty" {
     spawn "kitty"
 }
-Mod+A hotkey-overlay-title="Run an Application: walker applications" {
-    spawn "walker" "-m" "applications"
+Mod+A hotkey-overlay-title="Applications launcher" {
+    spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"
 }
-Mod+M hotkey-overlay-title="Run an Application: walker power" {
-    spawn "walker" "-m" "power"
+Mod+M hotkey-overlay-title="Power menu" {
+    spawn "noctalia-shell" "ipc" "call" "powerPanel" "toggle"
 }
-Mod+V hotkey-overlay-title="Run an Application: walker clipboard" {
-    spawn "walker" "-m" "clipboard"
+Mod+V hotkey-overlay-title="Clipboard" {
+    spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"
 }
 Mod+N hotkey-overlay-title="Run an Application: walker emojis" {
     spawn "walker" "-m" "emojis"
 }
-Mod+E hotkey-overlay-title="Run an Application: nautilus" {
+Mod+E hotkey-overlay-title="Nautilus" {
     spawn "nautilus"
 }
-Mod+W hotkey-overlay-title="Run an Application: microsoft-edge" {
+Mod+W hotkey-overlay-title="Browser" {
     spawn "microsoft-edge"
 }
 Mod+Shift+W hotkey-overlay-title="Run an Application: google-chrome-stable" {
