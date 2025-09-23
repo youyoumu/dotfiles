@@ -5,7 +5,7 @@ end
 vim.g.current_hostname = hostname
 
 function _G.log_to_file(msg)
-  local log_file = "/tmp/nvim_plugin.log" -- Change this path as needed
+  local log_file = "/tmp/nvim_debug.log" -- Change this path as needed
   local file = io.open(log_file, "a") -- Open file in append mode
   if file then
     local formatted_msg
