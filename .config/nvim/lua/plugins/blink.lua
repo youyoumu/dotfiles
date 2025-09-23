@@ -3,8 +3,11 @@ return {
   opts = {
 
     keymap = {
-      preset = "default",
-      ["<S-CR>"] = { "select_and_accept" },
+      ["<C-j>"] = {
+        function(cmp)
+          cmp.show({ providers = { "snippets" } })
+        end,
+      },
     },
   },
 }

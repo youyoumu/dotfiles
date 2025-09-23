@@ -7,6 +7,26 @@
     ],
     "description": "Console log statement"
   },
+  "Function": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "fun",
+    "body": [
+      "function $1($2) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Regular function"
+  },
+  "Async Function": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "afun",
+    "body": [
+      "async function $1($2) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Async function"
+  },
   "Anonymous Function": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
     "prefix": "anfn",
@@ -25,6 +45,28 @@
     ],
     "description": "Anonymous arrow function"
   },
+  "If Statement": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "if",
+    "body": [
+      "if ($1) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "If statement"
+  },
+  "If Else Statement": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "ifel",
+    "body": [
+      "if ($1) {",
+      "\t$2",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "If-Else statement"
+  },
   "Export Default Function": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
     "prefix": "edfn",
@@ -34,6 +76,56 @@
       "}"
     ],
     "description": "Export default function"
+  },
+  "For Loop": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "for",
+    "body": [
+      "for (let $1 = 0; $1 < $2; $1++) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Classic for loop"
+  },
+  "For Of Loop": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "forof",
+    "body": [
+      "for (const $1 of $2) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "For...of loop"
+  },
+  "For In Loop": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "forin",
+    "body": [
+      "for (const $1 in $2) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "For...in loop"
+  },
+  "While Loop": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "while",
+    "body": [
+      "while ($1) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "While loop"
+  },
+  "Do While Loop": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",
+    "prefix": "dowhile",
+    "body": [
+      "do {",
+      "\t$0",
+      "} while ($1);"
+    ],
+    "description": "Do...while loop"
   },
   "useEffect Hook": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact, svelte",

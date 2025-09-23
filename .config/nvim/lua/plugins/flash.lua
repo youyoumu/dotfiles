@@ -4,12 +4,11 @@ return {
     search = {
       multi_window = false,
     },
-    -- modes = {
-    --   char = {
-    --     highlight = {
-    --       backdrop = false,
-    --     },
-    --   },
-    -- },
+    modes = {
+      treesitter = {
+        labels = "abefhijklmnoqrstuvwxz",
+        label = { before = true, after = false, style = "eol" },
+      },
+    },
   },
 }

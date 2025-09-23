@@ -47,5 +47,9 @@ window-rule {
 }
 //
 spawn-at-startup "/home/yym/script/delayed-autostart.sh"
- // spawn-at-startup "waybar" "-c" "/home/yym/.config/waybar/config.chocola.niri.jsonc"
+// spawn-at-startup "waybar" "-c" "/home/yym/.config/waybar/config.chocola.niri.jsonc"
+window-rule {
+    match app-id="seruni"
+    open-on-workspace "1C"
+}
 

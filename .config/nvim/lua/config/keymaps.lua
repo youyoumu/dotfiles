@@ -19,39 +19,10 @@ vim.keymap.set("t", "<C-x>", "<C-\\><C-N>")
 
 vim.keymap.set("i", "<C-o>", "<CR><ESC>kA", { desc = "Insert newline after cursor" })
 
--- Create a function to add multiple abbreviations with custom triggers
-local function add_abbreviations_with_triggers(abbreviations)
-  for trigger, replacement in pairs(abbreviations) do
-    vim.keymap.set("i", trigger, replacement, { noremap = true })
-  end
-end
-
--- Define your mappings with triggers
-local mappings = {
-  [",r"] = "return",
-  [",f"] = "filter",
-  [",c"] = "const",
-  -- Add more as needed
-}
-
-add_abbreviations_with_triggers(mappings)
-
--- Create a function to add multiple abbreviations
-local function add_abbreviations(abbreviations)
-  for wrong, right in pairs(abbreviations) do
-    vim.cmd(string.format("iabbrev %s %s", wrong, right))
-  end
-end
-
--- Define your common typos
-local typos = {
-  fitler = "filter",
-  reutrn = "return",
-  fitlered = "filtered",
-  -- Add more as needed
-}
-
-add_abbreviations(typos)
+---- Auto indent on empty line.
+vim.keymap.set("n", "i", function()
+  return string.match(vim.api.nvim_get_current_line(), "%g") == nil and "cc" or "i"
+end, { expr = true, noremap = true })
 
 local hostname = vim.g.current_hostname
 pcall(require, "hosts." .. hostname .. ".config.keymaps")

@@ -3,5 +3,4 @@ Description=Fetch Bing daily wallpaper
 
 [Service]
 Type=oneshot
-Environment="PATH=%h/script:/run/current-system/sw/bin"
-ExecStart=/run/current-system/sw/bin/bash -c 'fetch-bing-wallpaper.sh'
+ExecStart=/run/current-system/sw/bin/bash -c 'echo $PATH'

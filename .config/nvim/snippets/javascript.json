@@ -4,6 +4,16 @@
     "body": ["console.log($1)$0"],
     "description": "Console log statement"
   },
+  "Function": {
+    "prefix": "fun",
+    "body": ["function $1($2) {", "\t$0", "}"],
+    "description": "Regular function"
+  },
+  "Async Function": {
+    "prefix": "afun",
+    "body": ["async function $1($2) {", "\t$0", "}"],
+    "description": "Async function"
+  },
   "Anonymous Function": {
     "prefix": "anfn",
     "body": ["($1) => {", "\t$0", "}"],
@@ -14,11 +24,62 @@
     "body": ["($1) => $0"],
     "description": "Anonymous arrow function"
   },
+  "If Statement": {
+    "prefix": "if",
+    "body": ["if ($1) {", "\t$0", "}"],
+    "description": "If statement"
+  },
+  "If Else Statement": {
+    "prefix": "ifel",
+    "body": ["if ($1) {", "\t$2", "} else {", "\t$0", "}"],
+    "description": "If-Else statement"
+  },
+  "Export Function": {
+    "prefix": "efn",
+    "body": ["export function $1($2) {", "\t$0", "}"],
+    "description": "Export function"
+  },
   "Export Default Function": {
     "prefix": "edfn",
     "body": ["export default function $1($2) {", "\t$0", "}"],
     "description": "Export default function"
   },
+  "For Loop": {
+    "prefix": "for",
+    "body": ["for (let $1 = 0; $1 < $2; $1++) {", "\t$0", "}"],
+    "description": "Classic for loop"
+  },
+  "For Of Loop": {
+    "prefix": "forof",
+    "body": ["for (const $1 of $2) {", "\t$0", "}"],
+    "description": "For...of loop"
+  },
+  "For In Loop": {
+    "prefix": "forin",
+    "body": ["for (const $1 in $2) {", "\t$0", "}"],
+    "description": "For...in loop"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": ["while ($1) {", "\t$0", "}"],
+    "description": "While loop"
+  },
+  "Do While Loop": {
+    "prefix": "dowhile",
+    "body": ["do {", "\t$0", "} while ($1);"],
+    "description": "Do...while loop"
+  },
+  "IIFE": {
+    "prefix": "iife",
+    "body": ["(() => {", "\t$1", "})()$0"],
+    "description": "Immediately Invoked Function Expression"
+  },
+  "Try-Catch Statement": {
+    "prefix": "trycatch",
+    "body": ["try {", "\t$0", "} catch (${1}) {", "\t", "}"],
+    "description": "Try-Catch Statement"
+  },
+
   "useEffect Hook": {
     "prefix": "uef",
     "body": ["useEffect(() => {", "\t$1", "}, [$2])$0"],
@@ -38,23 +99,5 @@
     "prefix": "ust",
     "body": ["const [$1, set$2] = useState($3)$0"],
     "description": "React useState hook"
-  },
-  "IIFE": {
-    "prefix": "iife",
-    "body": ["(() => {", "\t$1", "})()$0"],
-    "description": "Immediately Invoked Function Expression"
-  },
-  "return": {
-    "prefix": "r",
-    "body": "return ${0}"
-  },
-  "import": {
-    "prefix": "i",
-    "body": "import ${0}"
-  },
-  "Try-Catch Statement": {
-    "prefix": "trycatch",
-    "body": ["try {", "\t$0", "} catch (${1}) {", "\t", "}"],
-    "description": "Try-Catch Statement"
   }
 }
