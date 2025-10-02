@@ -19,6 +19,12 @@ default:
 update one:
     nix flake update {{ one }} --flake ./nix?submodules=1#
 
+update-all:
+    nix flake update --flake ./nix?submodules=1#
+
+update-lock input commit:
+    nix flake lock --override-input {{ input }} {{ commit }}
+
 rebuild:
     sudo nixos-rebuild switch --flake ./nix?submodules=1#
 

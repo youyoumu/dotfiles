@@ -4,7 +4,8 @@ return {
     require("nvim-surround").setup({
       -- Configuration here, or leave empty to use defaults
       keymaps = {
-        visual_line = "m",
+        visual = "m",
+        visual_line = "M",
       },
     })
   end,

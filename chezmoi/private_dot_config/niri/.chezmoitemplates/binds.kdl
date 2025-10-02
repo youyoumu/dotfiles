@@ -32,7 +32,7 @@ Mod+E hotkey-overlay-title="Nautilus" {
     spawn "nautilus"
 }
 Mod+W hotkey-overlay-title="Browser" {
-    spawn "microsoft-edge"
+    spawn "microsoft-edge" "--disable-features=GlobalShortcutsPortal"
 }
 Mod+Shift+W hotkey-overlay-title="Run an Application: google-chrome-stable" {
     spawn "google-chrome-stable" "--disable-features=GlobalShortcutsPortal"
