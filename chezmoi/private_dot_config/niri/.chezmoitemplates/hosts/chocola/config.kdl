@@ -61,4 +61,9 @@ window-rule {
         off
     }
 }
+window-rule {
+    match app-id="steam_proton"
+    geometry-corner-radius 0
+    open-floating true
+}
 

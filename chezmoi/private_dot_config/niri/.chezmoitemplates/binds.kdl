@@ -20,7 +20,7 @@ Mod+A hotkey-overlay-title="Applications launcher" {
     spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"
 }
 Mod+M hotkey-overlay-title="Power menu" {
-    spawn "noctalia-shell" "ipc" "call" "powerPanel" "toggle"
+    spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"
 }
 Mod+V hotkey-overlay-title="Clipboard" {
     spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"
