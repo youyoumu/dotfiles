@@ -1,5 +1,5 @@
 #!/bin/env bash
-SSH_PREFER_FISH=1 DISPLAY=0 ssh \
+SSH_PREFER_FISH=1 DISPLAY=:0 ssh \
   -o SendEnv=SSH_PREFER_FISH \
   -o SendEnv=DISPLAY \
   "$@"
