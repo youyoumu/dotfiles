@@ -21,5 +21,25 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+-- if vim.fn.argc() == 0 then
+--   vim.defer_fn(function()
+--     -- require("neo-tree.command").execute({
+--     --   toggle = true,
+--     --   source = "filesystem",
+--     --   position = "left",
+--     -- })
+--     vim.cmd("Neotree show")
+--   end, 0)
+-- end
+
+vim.api.nvim_create_autocmd({
+  "BufNewFile",
+  "BufReadPost",
+}, {
+  callback = vim.schedule_wrap(function()
+    vim.cmd("Neotree show")
+  end),
+})
+
 local hostname = vim.g.current_hostname
 pcall(require, "hosts." .. hostname .. ".config.autocmds")

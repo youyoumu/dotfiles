@@ -65,7 +65,7 @@
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
-      AcceptEnv = "SSH_PREFER_FISH DISPLAY";
+      AcceptEnv = "SSH_PREFER_FISH";
     };
   };
   services.flatpak.enable = true;
