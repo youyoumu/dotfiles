@@ -3,8 +3,9 @@ return {
   -- enabled = false,
   opts = {
     options = {
-      -- always_show_bufferline = true,
-      separator_style = "slant",
+      mode = "tabs",
+      show_buffer_close_icons = false,
+      show_close_icon = false,
     },
   },
 }
