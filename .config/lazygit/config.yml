@@ -1,6 +1,6 @@
 git:
-  paging:
-    externalDiffCommand: difft --color=always --syntax-highlight=on
+  pagers:
+    - externalDiffCommand: difft --color=always --syntax-highlight=on
 # git:
 #   paging:
 #     externalDiffCommand: difft --color=always --display=inline --syntax-highlight=on --tab-width=2
@@ -27,5 +27,5 @@ gui:
     # searchingActiveBorderColor:
     #   - "#f9e2af"
 
-  # authorColors:
-  #   "*": "#b4befe"
+# authorColors:
+#   "*": "#b4befe"

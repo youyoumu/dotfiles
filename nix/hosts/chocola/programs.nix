@@ -9,6 +9,7 @@
 }:
 {
   programs.niri.enable = true;
+  programs.niri.useNautilus = true;
   programs.nh = {
     enable = true;
     flake = "/home/yym/dotfiles/nix";

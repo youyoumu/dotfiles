@@ -25,6 +25,8 @@ vim.api.nvim_create_user_command("Format", function(args)
   require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
 
+vim.g.lazyvim_python_lsp = "basedpyright"
+
 if vim.g.neovide then
   vim.o.guifont = "IosevkaTerm Nerd Font:h11"
   vim.g.neovide_padding_top = 10

@@ -222,7 +222,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "swaync" "-s" "/home/yym/.config/swaync/mocha.css" "-c" "/home/yym/.config/swaync/config.json"
 spawn-at-startup "walker" "--gapplication-service"
-spawn-at-startup "noctalia-shell"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "xwayland-satellite"
 // spawn-at-startup "wpaperd" "-d"
 spawn-at-startup "hypridle" "-c" "/home/yym/.config/hypr/hypridle.niri.conf"
@@ -295,9 +295,6 @@ cursor {
     xcursor-size 24
     xcursor-theme "Bibata-Modern-Ice"
 }
-overview {
-    backdrop-color "#313244"
-}
 hotkey-overlay {
     skip-at-startup
 }
@@ -305,11 +302,9 @@ hotkey-overlay {
 debug {
     honor-xdg-activation-with-invalid-serial
 }
+// Set the overview wallpaper on the backdrop.
 layer-rule {
-    match namespace="^quickshell-wallpaper$"
-}
-layer-rule {
-    match namespace="^quickshell-overview$"
+    match namespace="^noctalia-overview*"
     place-within-backdrop true
 }
 

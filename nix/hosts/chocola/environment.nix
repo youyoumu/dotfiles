@@ -10,6 +10,7 @@
 {
   environment.variables.EDITOR = "nvim";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.ANKI_WAYLAND = "1";
   environment.sessionVariables.GST_PLUGIN_SYSTEM_PATH_1_0 = pkgs.lib.mkForce (
     pkgs.lib.concatStringsSep ":" [
       "${pkgs.gst_all_1.gstreamer}/lib/gstreamer-1.0"
