@@ -29,6 +29,4 @@
   };
   boot.supportedFilesystems = [ "ntfs" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.plymouth.enable = true;
-
 }

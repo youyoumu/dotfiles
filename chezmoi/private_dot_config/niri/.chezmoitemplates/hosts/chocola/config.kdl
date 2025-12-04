@@ -28,26 +28,39 @@ workspace "1C" {
 }
 //
 window-rule {
-    match app-id="Anki" at-startup=true
+    match app-id="microsoft-edge" at-startup=true
+    open-on-workspace "1B"
+    open-maximized true
+    open-focused false
+}
+window-rule {
+    match app-id="anki" at-startup=true
     open-on-workspace "3B"
     open-maximized true
+    open-focused false
 }
 window-rule {
     match app-id="discord" at-startup=true
     open-on-workspace "1A"
     open-maximized true
+    open-focused false
 }
+window-rule {
+    match app-id="kitty" at-startup=true
+    open-on-workspace "1C"
+    open-focused false
+}
+//
 window-rule {
     match app-id="discord"
     match app-id="google-chrome"
     match app-id="neovide"
     match app-id="microsoft-edge"
     match app-id="thorium-browser"
+    match app-id="spotify"
     open-maximized true
 }
 //
-spawn-at-startup "/home/yym/script/delayed-autostart.sh"
-// spawn-at-startup "waybar" "-c" "/home/yym/.config/waybar/config.chocola.niri.jsonc"
 window-rule {
     match app-id="seruni"
     open-on-workspace "1C"
@@ -66,4 +79,6 @@ window-rule {
     geometry-corner-radius 0
     open-floating true
 }
+//
+spawn-at-startup "/home/yym/script/delayed-autostart.sh"
 

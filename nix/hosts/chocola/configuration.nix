@@ -45,10 +45,7 @@
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-mozc-ut
-      fcitx5-gtk
     ];
-    fcitx5.waylandFrontend = true;
-    # ibus.engines = with pkgs.ibus-engines; [ mozc ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
