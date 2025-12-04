@@ -28,7 +28,6 @@
     fd
     dust
     duf
-    delta
     cronie
     syncthing
     gcc
@@ -49,7 +48,7 @@
     prismlauncher
     obsidian
     obs-studio
-    anki-bin
+    anki
     antimicrox
     handbrake
     qbittorrent
@@ -60,14 +59,10 @@
     vlc
     gnome-tweaks
     bibata-cursors
-    waybar
-    swaynotificationcenter
     hyprpaper
     hypridle
     hyprcursor
     hyprshot
-    hyprlock
-    rofi
     wl-clipboard
     libsecret
     lssecret
@@ -104,6 +99,7 @@
     ffmpeg
     nixd
     kdlfmt
+    difftastic
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.thorium.packages.${system}.thorium-avx2

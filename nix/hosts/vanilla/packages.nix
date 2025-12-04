@@ -27,7 +27,6 @@
     fd
     dust
     duf
-    delta
     cronie
     syncthing
     gcc
@@ -55,6 +54,7 @@
     systemd-lsp
     rcon-cli
     isd
+    difftastic
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
     inputs.fhs.packages.${system}.default

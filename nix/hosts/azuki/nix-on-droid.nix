@@ -49,7 +49,6 @@
     fd
     dust
     duf
-    delta
     just
     openssh
     gcc
@@ -67,6 +66,7 @@
     jq
     tree
     neovim
+    difftastic
     # luajitPackages.luarocks_bootstrap
   ];
 

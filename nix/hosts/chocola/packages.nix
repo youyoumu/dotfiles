@@ -28,7 +28,6 @@
     fd
     dust
     duf
-    delta
     cronie
     syncthing
     gcc
@@ -51,7 +50,7 @@
     prismlauncher
     obsidian
     obs-studio
-    anki-bin
+    anki
     antimicrox
     handbrake
     qbittorrent
@@ -62,12 +61,8 @@
     vlc
     gnome-tweaks
     bibata-cursors
-    waybar
-    swaynotificationcenter
     hypridle
     hyprshot
-    hyprlock
-    rofi
     wl-clipboard
     libsecret
     lssecret
@@ -83,7 +78,6 @@
     gst_all_1.gst-plugins-ugly
     gst_all_1.gst-libav
     gst_all_1.gst-vaapi
-    kooha
     ripgrep
     pulseaudioFull
     pavucontrol
@@ -109,7 +103,6 @@
     devenv
     chezmoi
     deno
-    wpaperd
     uv
     protonup-qt
     bottles
