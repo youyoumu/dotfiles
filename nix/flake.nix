@@ -19,11 +19,8 @@
     thorium.url = "github:Rishabh5321/thorium_flake";
     thorium.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
-    quickshell.url = "github:outfoxxed/quickshell";
-    quickshell.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia.inputs.quickshell.follows = "quickshell";
     # ================================================================
     oklch-color-picker.url = "path:./packages/oklch-color-picker";
     oklch-color-picker.inputs.nixpkgs.follows = "nixpkgs";
