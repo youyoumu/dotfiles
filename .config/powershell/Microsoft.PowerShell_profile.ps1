@@ -4,6 +4,7 @@ Invoke-Expression (& { (zoxide init powershell | Out-String) })
 $pathsToAdd = @(
   "C:\Program Files\7-Zip",
   "C:\Program Files\KeePassXC",
+  "C:\Program Files (x86)\GnuWin32\bin"
   "$env:USERPROFILE\dotfiles\windows\script"
 )
 foreach ($p in $pathsToAdd)

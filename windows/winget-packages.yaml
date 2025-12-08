@@ -25,6 +25,9 @@ packages:
   - astral-sh.uv
   - Microsoft.VisualStudio.2022.BuildTools
   - Microsoft.VisualStudio.2022.Community
+  - Microsoft.VisualStudioCode
+  - GnuWin32.Gzip
+  - Rustlang.Rustup
 
   # System utilities
   - 7zip.7zip
@@ -37,6 +40,7 @@ packages:
   - Cloudflare.Warp
   - ShareX.ShareX
   - NirSoft.NirCmd
+  - OBSProject.OBSStudio
 
   # Browsers
   - Google.Chrome.EXE
