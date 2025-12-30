@@ -2,27 +2,23 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set("n", "gO", "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
-vim.keymap.set("n", "go", "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
-
 vim.keymap.set("n", "<leader>dd", '"_d', { desc = "Delete to blackhole register" })
 vim.keymap.set("v", "<leader>dd", '"_d', { desc = "Delete to blackhole register" })
 vim.keymap.set("n", "<leader>dD", '"_D', { desc = "Delete to blackhole register (to end of line)" })
 
-vim.keymap.set("n", "<leader>k", "<cmd>Format<CR>", { desc = "Format code" })
-vim.keymap.set("v", "<leader>k", "<cmd>Format<CR>", { desc = "Format code" })
+vim.keymap.set("n", "<leader>k", "<cmd>LazyFormat<CR>", { desc = "Format" })
+vim.keymap.set("v", "<leader>k", "<cmd>LazyFormat<CR>", { desc = "Format" })
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" })
 
-vim.keymap.set("t", "<C-x>", "<C-\\><C-N>")
+vim.keymap.set("t", "<C-x>", "<C-\\><C-N>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("i", "<C-o>", "<CR><ESC>kA", { desc = "Insert newline after cursor" })
 
----- Auto indent on empty line.
 vim.keymap.set("n", "i", function()
   return string.match(vim.api.nvim_get_current_line(), "%g") == nil and "cc" or "i"
-end, { expr = true, noremap = true })
+end, { expr = true, noremap = true, desc = "Insert at beginning of line" })
 
 local hostname = vim.g.current_hostname
 pcall(require, "hosts." .. hostname .. ".config.keymaps")

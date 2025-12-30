@@ -71,10 +71,6 @@ return {
       },
       animate = {
         easing = "outExpo",
-        duration = {
-          step = 100, -- ms per step
-          total = 500, -- maximum duration
-        },
       },
     },
     dashboard = {

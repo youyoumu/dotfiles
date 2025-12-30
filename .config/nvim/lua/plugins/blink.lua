@@ -1,7 +1,6 @@
 return {
   "saghen/blink.cmp",
   opts = {
-
     keymap = {
       ["<C-j>"] = {
         function(cmp)

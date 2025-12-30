@@ -41,20 +41,7 @@ return {
       },
       powershell_es = {},
     },
-    -- https://github.com/LazyVim/LazyVim/issues/5861#issuecomment-2816353352
-    -- today is 31 July 2025
     setup = {
-      eslint = function()
-        local formatter = LazyVim.lsp.formatter({
-          name = "eslint: lsp",
-          primary = false,
-          priority = 200,
-          filter = "eslint",
-        })
-
-        -- register the formatter with LazyVim
-        LazyVim.format.register(formatter)
-      end,
       -- https://github.com/neovim/neovim/issues/30908#issuecomment-2657220629
       -- today is 12 August 2025
       denols = function()

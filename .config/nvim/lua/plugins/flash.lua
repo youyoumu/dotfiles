@@ -6,8 +6,7 @@ return {
     },
     modes = {
       treesitter = {
-        labels = "abefhijklmnoqrstuvwxz",
-        label = { before = true, after = false, style = "eol" },
+        label = { before = false, after = false },
       },
     },
   },
