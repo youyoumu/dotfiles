@@ -110,6 +110,14 @@
     difftastic
     statix
     footage
+    zoom-us
+    kdePackages.kdenlive
+    yt-dlp
+    kotlin
+    gradle
+    jetbrains.idea
+    android-studio
+    file-roller
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default

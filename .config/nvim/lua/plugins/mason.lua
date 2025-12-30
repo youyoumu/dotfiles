@@ -1,6 +1,6 @@
 return {
   "mason-org/mason.nvim",
   opts = {
-    ensure_installed = { "xmlformatter" },
+    ensure_installed = { "xmlformatter", "ktfmt" },
   },
 }
