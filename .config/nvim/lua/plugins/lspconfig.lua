@@ -40,6 +40,9 @@ return {
         },
       },
       powershell_es = {},
+      clangd = {
+        mason = false,
+      },
     },
     setup = {
       -- https://github.com/neovim/neovim/issues/30908#issuecomment-2657220629
