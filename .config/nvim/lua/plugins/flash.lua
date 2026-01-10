@@ -6,6 +6,8 @@ return {
     },
     modes = {
       treesitter = {
+        -- remove d, c for motions
+        labels = "abefghijklmnoqrstuvwxz",
         label = { before = false, after = false },
       },
     },

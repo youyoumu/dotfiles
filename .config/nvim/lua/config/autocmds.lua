@@ -32,30 +32,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
 --   end, 0)
 -- end
 
-local function hatch_random_animal()
-  local duck = require("duck")
-
-  -- stylua: ignore
-  local animals = {
-    "🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻",
-    "🐼", "🐨", "🐯", "🦁", "🐮", "🐷", "🐸",
-    "🐵", "🐔", "🐧", "🐦", "🐤", "🦆", "🦉",
-    "🦄", "🐺", "🐗", "🐴", "🐢", "🐍", "🦎",
-    "🦖", "🐙", "🦑", "🦐", "🦞", "🦀", "🐡",
-  }
-
-  math.randomseed(os.time())
-  local emoji = animals[math.random(#animals)]
-  duck.hatch(emoji)
-end
-
 vim.api.nvim_create_autocmd({
   "BufNewFile",
   "BufReadPost",
 }, {
   callback = vim.schedule_wrap(function()
     vim.cmd("Neotree show")
-    hatch_random_animal()
   end),
 })
 
