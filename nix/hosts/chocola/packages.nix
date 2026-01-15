@@ -35,8 +35,8 @@
     go
     ruby
     python3
+    rustup
     unzip
-    cargo
     zulu
     gnumake
     pnpm
