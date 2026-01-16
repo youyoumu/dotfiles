@@ -53,7 +53,7 @@
     openssh
     gcc
     gnumake
-    nixfmt-rfc-style
+    nixfmt
     nixd
     keychain
     curl

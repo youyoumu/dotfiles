@@ -41,7 +41,7 @@
     gnumake
     pnpm
     vscode
-    nixfmt-rfc-style
+    nixfmt
     just
     dpkg
     mission-center
@@ -119,6 +119,11 @@
     android-studio
     file-roller
     clang-tools
+    cloudflare-warp
+    sqlite
+    beekeeper-studio
+    android-tools
+    gpu-screen-recorder
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default

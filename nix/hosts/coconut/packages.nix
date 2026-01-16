@@ -40,7 +40,7 @@
     gnumake
     pnpm
     vscode
-    nixfmt-rfc-style
+    nixfmt
     just
     mission-center
     google-chrome

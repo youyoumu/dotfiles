@@ -40,7 +40,7 @@
     python312Packages.pip
     gnumake
     pnpm
-    nixfmt-rfc-style
+    nixfmt
     just
     keepassxc
     cloudflared

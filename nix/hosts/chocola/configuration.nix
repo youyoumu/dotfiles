@@ -31,6 +31,7 @@
     "yym"
   ];
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.5.3" ];
 
   hardware.keyboard.qmk.enable = true;
   hardware.graphics.extraPackages = with pkgs; [

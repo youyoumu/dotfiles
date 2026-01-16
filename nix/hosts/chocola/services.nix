@@ -38,6 +38,7 @@
     dataDir = "/home/yym"; # default location for new folders
     # openDefaultPorts = true; # Open ports in the firewall for Syncthing
   };
+  services.cloudflare-warp.enable = true;
   services.cloudflared = {
     enable = true;
     tunnels = {
