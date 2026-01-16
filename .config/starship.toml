@@ -3,20 +3,20 @@
 
 palette = "catppuccin_mocha"
 
-[character]
-success_symbol = "[[❄️](green) ❯](peach)"
-error_symbol = "[[❄️](red) ❯](peach)"
-vimcmd_symbol = "[❄️ ❮](subtext1)"
-vimcmd_replace_one_symbol = "[❄️ ❮](bold purple)"
-vimcmd_replace_symbol = "[❄️ ❮](bold purple)"
-vimcmd_visual_symbol = "[❄️ ❮](bold yellow)"
+# [character]
+# success_symbol = "[[❄️](green) ❯](peach)"
+# error_symbol = "[[❄️](red) ❯](peach)"
+# vimcmd_symbol = "[❄️ ❮](subtext1)"
+# vimcmd_replace_one_symbol = "[❄️ ❮](bold purple)"
+# vimcmd_replace_symbol = "[❄️ ❮](bold purple)"
+# vimcmd_visual_symbol = "[❄️ ❮](bold yellow)"
 
 [git_branch]
-style = "bold mauve"
+# style = "bold mauve"
 
 [directory]
 # truncation_length = 4
-style = "bold lavender"
+# style = "bold lavender"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
