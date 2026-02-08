@@ -112,7 +112,6 @@
     footage
     zoom-us
     kdePackages.kdenlive
-    yt-dlp
     kotlin
     gradle
     jetbrains.idea
@@ -124,6 +123,8 @@
     beekeeper-studio
     android-tools
     gpu-screen-recorder
+    opencode
+    tree
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default

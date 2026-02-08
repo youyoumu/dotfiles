@@ -6,6 +6,7 @@ export EDITOR=nvim
 export PATH="$HOME/script:$PATH"
 export PATH=$PATH:~/.cargo/bin/
 export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="/home/yym/.local/bin:$PATH"
 
 export NEOVIDE_FRAMELESS=true
 export NEOVIDE_FRAME=none
