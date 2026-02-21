@@ -100,6 +100,7 @@
     nixd
     kdlfmt
     difftastic
+    statix
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.thorium.packages.${system}.thorium-avx2
