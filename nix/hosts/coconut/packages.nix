@@ -105,5 +105,6 @@
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.thorium.packages.${system}.thorium-avx2
     inputs.fhs.packages.${system}.default
+    inputs.noctalia.packages.${system}.default
   ];
 }

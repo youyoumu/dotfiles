@@ -59,6 +59,9 @@ require("lazy").setup({
       },
     },
   },
+  git = {
+    timeout = 9999,
+  },
   dev = {
     path = "~/repos/",
   },

@@ -1,0 +1,9 @@
+include "base.config.kdl"
+include "shared.config.kdl"
+
+layout {
+  gaps 5
+  focus-ring {
+    width 2
+  }
+}

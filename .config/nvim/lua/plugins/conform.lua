@@ -9,7 +9,7 @@ return {
       typescriptreact = { "biome-check", "prettierd", "prettier", stop_after_first = true },
       html = { "biome-check", "prettierd", "prettier", stop_after_first = true },
       css = { "biome-check", "prettierd", "prettier", stop_after_first = true },
-      kdl = { "kdlfmt" },
+      -- kdl = { "kdlfmt" },
       just = { "just" },
       xml = { "xmlformatter" },
     },

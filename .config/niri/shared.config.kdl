@@ -1,0 +1,99 @@
+input {
+  keyboard {
+    repeat-delay 300
+    repeat-rate 50
+  }
+  mouse {
+    accel-profile "flat"
+  }
+  focus-follows-mouse max-scroll-amount="0%"
+}
+
+layout {
+  gaps 10
+  center-focused-column "on-overflow"
+  preset-column-widths {
+    proportion 0.5
+  }
+  focus-ring {
+      width 2
+      active-color "#7fc8ff"
+      inactive-color "#505050"
+      active-gradient from="#80c8ff" to="#bbddff" angle=45
+      inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+  }
+}
+
+spawn-at-startup "walker" "--gapplication-service"
+spawn-at-startup "noctalia-shell"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "hypridle" "-c" "/home/yym/.config/hypr/hypridle.niri.conf"
+environment {
+    DISPLAY ":0"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORMTHEME "gtk3"
+}
+
+prefer-no-csd
+
+binds {
+  Mod+Q hotkey-overlay-title="Open a Terminal: kitty" {
+    spawn "kitty"
+  }
+  Mod+A hotkey-overlay-title="Applications launcher" {
+    spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"
+  }
+  Mod+M hotkey-overlay-title="Power menu" {
+    spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"
+  }
+  Mod+V hotkey-overlay-title="Clipboard" {
+    spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"
+  }
+  Mod+N hotkey-overlay-title="Emoji" {
+    spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"
+  }
+  Mod+E hotkey-overlay-title="Nautilus" {
+    spawn "nautilus"
+  }
+  Mod+W hotkey-overlay-title="Browser" {
+    spawn "microsoft-edge" "--disable-features=GlobalShortcutsPortal"
+  }
+  Mod+Shift+W hotkey-overlay-title="Run an Application: google-chrome-stable" {
+    spawn "google-chrome-stable" "--disable-features=GlobalShortcutsPortal"
+  }
+  Ctrl+Shift+I {
+    spawn "/home/yym/script/toggle-fcitx5.sh"
+  }
+  Ctrl+Shift+K {
+    spawn "/home/yym/open-keepassxc.sh"
+  }
+
+  Print {
+    spawn "walker" "-m" "screenshots"
+  }
+  Mod+C {
+    close-window
+  }
+}
+
+
+window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+}
+cursor {
+    xcursor-size 24
+    xcursor-theme "Bibata-Modern-Ice"
+}
+hotkey-overlay {
+    skip-at-startup
+}
+// noctalia-shell
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+// Set the overview wallpaper on the backdrop.
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
