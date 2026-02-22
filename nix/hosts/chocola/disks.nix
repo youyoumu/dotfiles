@@ -26,13 +26,13 @@ in
     fsType = "auto";
     options = commonOptions;
   };
-  fileSystems."/mnt/HoneyGlaze872G" = {
+  fileSystems."/mnt/HoneyGlaze685G" = {
     device = "/dev/disk/by-uuid/6C0ACF540ACF19CA";
     fsType = "auto";
     options = commonOptions;
   };
-  fileSystems."/mnt/WarmBrew128G" = {
-    device = "/dev/disk/by-uuid/9947e5d5-57da-4bec-9351-4c56c0745d77";
+  fileSystems."/mnt/WarmBrew265G" = {
+    device = "/dev/disk/by-uuid/5c33ed85-3938-43eb-b5c8-4cc4df3ae060";
     fsType = "auto";
     options = commonOptions;
   };

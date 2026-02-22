@@ -28,7 +28,7 @@
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
-      data-root = "/mnt/WarmBrew128G/chocola/var/lib/docker";
+      data-root = "/mnt/WarmBrew265G/chocola/var/lib/docker";
     };
   };
   programs.gnupg.agent = {
