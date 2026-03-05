@@ -20,9 +20,14 @@ alias lt5="eza --tree --level=5 --icons --all --group-directories-first"
 alias s="sesh connect (sesh list | fzf)"
 alias lg="lazygit"
 alias n="nvim"
-alias nd="neovide &"
 alias p="pnpm"
 alias j="just"
+
+function nd
+    nohup neovide $argv >/dev/null 2>&1 &
+    disown
+    exit
+end
 
 # yazi
 function y

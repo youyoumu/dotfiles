@@ -16,12 +16,13 @@ vim.filetype.add({
 vim.g.lazyvim_python_lsp = "basedpyright"
 
 if vim.g.neovide then
-  vim.o.guifont = "IosevkaTerm Nerd Font:h11"
+  vim.o.guifont = "IosevkaTerm Nerd Font Mono:h11"
   vim.g.neovide_padding_top = 10
   vim.g.neovide_padding_bottom = 10
   vim.g.neovide_padding_right = 10
   vim.g.neovide_padding_left = 10
-  vim.g.neovide_cursor_vfx_mode = "sonicboom"
+
+  vim.g.neovide_scroll_animation_length = 0.2
 
   vim.g.terminal_color_0 = "#45475a"
   vim.g.terminal_color_1 = "#f38ba8"

@@ -57,7 +57,11 @@ return {
           },
         },
       },
-      oxlint = {},
+      oxlint = {
+        settings = {
+          typeAware = true,
+        },
+      },
     },
     setup = {
       -- https://github.com/neovim/neovim/issues/30908#issuecomment-2657220629
