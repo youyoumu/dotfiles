@@ -51,7 +51,26 @@ take_screenshot() {
       niri msg action screenshot
       ;;
     "region-annotate")
-      grim -g "$(slurp -o)" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+      TIMESTAMP=$(date '+%Y%m%d-%H%M%S')
+      FILE_PATH="$HOME/Pictures/Screenshots/region-annotate-${TIMESTAMP}.png"
+
+      niri msg action screenshot --path "$FILE_PATH"
+
+      MAX_TICKS=120
+      ELAPSED_TICKS=0
+
+      while [ ! -f "$FILE_PATH" ] && [ "$ELAPSED_TICKS" -lt "$MAX_TICKS" ]; do
+        sleep 0.5
+        ((ELAPSED_TICKS++))
+      done
+
+      if [ -f "$FILE_PATH" ]; then
+        satty --filename "$FILE_PATH" --output-filename "$HOME/Pictures/Screenshots/satty-${TIMESTAMP}.png"
+        rm "$FILE_PATH"
+      else
+        echo "Screenshot capture timed out or was cancelled."
+        exit 1
+      fi
       ;;
     *)
       echo "Usage: $0 {monitor|region|window|region-delay|region-annotate}"

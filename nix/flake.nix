@@ -21,6 +21,9 @@
     # ================================================================
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia.inputs.noctalia-qs.follows = "noctalia-qs";
+    noctalia-qs.url = "github:noctalia-dev/noctalia-qs";
+    noctalia-qs.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
     oklch-color-picker.url = "path:./packages/oklch-color-picker";
     oklch-color-picker.inputs.nixpkgs.follows = "nixpkgs";
