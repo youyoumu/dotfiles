@@ -43,6 +43,9 @@ binds {
   Mod+A hotkey-overlay-title="Applications launcher" {
     spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"
   }
+  Mod+S hotkey-overlay-title="Applications launcher" {
+    spawn "noctalia-shell" "ipc" "call" "plugin:custom-commands" "toggle"
+  }
   Mod+M hotkey-overlay-title="Power menu" {
     spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"
   }

@@ -1,5 +1,7 @@
 #!/bin/env bash
 
+sleep 0.25
+
 detect_compositor() {
   # Check if we're running under a desktop session (e.g., GNOME, KDE, Cinnamon)
   if [ -n "$DESKTOP_SESSION" ] || pgrep -x "$DESKTOP_SESSION" >/dev/null 2>&1; then
