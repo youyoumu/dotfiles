@@ -18,10 +18,10 @@ return {
         enabled = true,
         root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
       },
-      vtsls = {
-        enabled = false,
-        root_dir = nvim_lsp.util.root_pattern("package.json"),
-      },
+      -- vtsls = {
+      --   enabled = false,
+      --   root_dir = nvim_lsp.util.root_pattern("package.json"),
+      -- },
       nil_ls = {
         enabled = false,
       },
