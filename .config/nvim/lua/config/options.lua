@@ -5,6 +5,9 @@
 vim.diagnostic.config({ virtual_text = false })
 vim.opt.relativenumber = false
 vim.opt.list = false
+-- LSP Server to use for TypeScript.
+---@type "vtsls" | "tsgo"
+vim.g.lazyvim_ts_lsp = "tsgo" -- currently the default
 
 vim.filetype.add({
   extension = {
