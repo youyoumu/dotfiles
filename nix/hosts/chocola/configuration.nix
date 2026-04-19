@@ -20,6 +20,7 @@
     ./fonts.nix
     ./environment.nix
     ./home-manager
+    ./systemd.nix
   ];
 
   nix.settings.experimental-features = [
