@@ -23,10 +23,15 @@
     ./home-manager
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+  };
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Asia/Jakarta";

@@ -29,7 +29,7 @@ return {
           nixd = {
             diagnostic = {
               suppress = {
-                -- "sema-unused-def-lambda-noarg-formal",
+                "sema-unused-def-lambda-noarg-formal",
               },
             },
             formatting = {

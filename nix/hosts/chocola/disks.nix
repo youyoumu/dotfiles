@@ -16,24 +16,26 @@ let
   ];
 in
 {
-  fileSystems."/mnt/ChocolateBox1T" = {
-    device = "/dev/disk/by-uuid/2393FC547EB4A8F5";
-    fsType = "auto";
-    options = commonOptions;
-  };
-  fileSystems."/mnt/SugarCube500G" = {
-    device = "/dev/disk/by-uuid/6F4797EC212CC9C8";
-    fsType = "auto";
-    options = commonOptions;
-  };
-  fileSystems."/mnt/HoneyGlaze685G" = {
-    device = "/dev/disk/by-uuid/6C0ACF540ACF19CA";
-    fsType = "auto";
-    options = commonOptions;
-  };
-  fileSystems."/mnt/WarmBrew265G" = {
-    device = "/dev/disk/by-uuid/5c33ed85-3938-43eb-b5c8-4cc4df3ae060";
-    fsType = "auto";
-    options = commonOptions;
+  fileSystems = {
+    "/mnt/ChocolateBox1T" = {
+      device = "/dev/disk/by-uuid/2393FC547EB4A8F5";
+      fsType = "auto";
+      options = commonOptions;
+    };
+    "/mnt/SugarCube500G" = {
+      device = "/dev/disk/by-uuid/6F4797EC212CC9C8";
+      fsType = "auto";
+      options = commonOptions;
+    };
+    "/mnt/HoneyGlaze685G" = {
+      device = "/dev/disk/by-uuid/6C0ACF540ACF19CA";
+      fsType = "auto";
+      options = commonOptions;
+    };
+    "/mnt/WarmBrew265G" = {
+      device = "/dev/disk/by-uuid/5c33ed85-3938-43eb-b5c8-4cc4df3ae060";
+      fsType = "auto";
+      options = commonOptions;
+    };
   };
 }

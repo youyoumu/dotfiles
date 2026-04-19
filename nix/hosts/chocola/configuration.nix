@@ -23,22 +23,29 @@
     ./systemd.nix
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.trusted-users = [
-    "root"
-    "yym"
-  ];
+  nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [
+        "root"
+        "yym"
+      ];
+    };
+  };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "beekeeper-studio-5.5.7" ];
 
-  hardware.keyboard.qmk.enable = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    rocmPackages.clr.icd
-  ];
-  hardware.uinput.enable = true;
+  hardware = {
+    keyboard.qmk.enable = true;
+    graphics.extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+    uinput.enable = true;
+  };
 
   time.timeZone = "Asia/Jakarta";
   i18n.defaultLocale = "en_US.UTF-8";

@@ -8,50 +8,53 @@
   ...
 }:
 {
-  services.xserver.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+    printing.enable = true;
+    pulseaudio.enable = false;
+    envfs.enable = true;
+    flatpak.enable = true;
 
-  services.printing.enable = true;
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    #jack.enable = true;
-    #media-session.enable = true;
-  };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      #jack.enable = true;
+      #media-session.enable = true;
+    };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-  services.envfs.enable = true;
-  services.syncthing = {
-    enable = true;
-    user = "yym";
-    dataDir = "/home/yym"; # default location for new folders
-    # openDefaultPorts = true; # Open ports in the firewall for Syncthing
-  };
-  services.flatpak.enable = true;
-  services.kmonad = {
-    enable = true;
-    keyboards = {
-      laptop = {
-        device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
-        defcfg = {
-          enable = true;
-          fallthrough = true;
-          allowCommands = false;
+    syncthing = {
+      enable = true;
+      user = "yym";
+      dataDir = "/home/yym";
+    };
+
+    kmonad = {
+      enable = true;
+      keyboards = {
+        laptop = {
+          device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
+          defcfg = {
+            enable = true;
+            fallthrough = true;
+            allowCommands = false;
+          };
+          config = builtins.readFile ./kmonad.config.lisp;
         };
-        config = builtins.readFile ./kmonad.config.lisp;
       };
     };
   };
+
+  security.rtkit.enable = true;
   hardware.uinput.enable = true;
 }

@@ -8,27 +8,26 @@
   ...
 }:
 {
-  programs.nh = {
-    enable = true;
-    flake = "/home/yym/dotfiles/nix";
-    # clean.enable = true;
-    # clean.extraArgs = "--keep-since 4d --keep 3";
+  programs = {
+    nh = {
+      enable = true;
+      flake = "/home/yym/dotfiles/nix";
+    };
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        wayland
+        libxkbcommon
+        libGL
+      ];
+    };
+    gnupg.agent = {
+      enable = true;
+    };
+    firefox.enable = true;
   };
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      wayland
-      libxkbcommon
-      libGL
-    ];
-  };
+
   virtualisation.docker = {
     enable = true;
   };
-  programs.gnupg.agent = {
-    enable = true;
-    # enableSSHSupport = true;
-  };
-
-  programs.firefox.enable = true;
 }

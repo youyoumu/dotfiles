@@ -2,7 +2,7 @@
   description = "Enter FHS env";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs =
-    inputs@{ ... }:
+    inputs:
     let
       forAllSystems = inputs.nixpkgs.lib.genAttrs [
         "x86_64-linux"
