@@ -29,6 +29,12 @@ alias lt3="eza --tree --level=3 --icons --all --group-directories-first"
 alias lt4="eza --tree --level=4 --icons --all --group-directories-first"
 alias lt5="eza --tree --level=5 --icons --all --group-directories-first"
 
+function rm
+    echo "Usage of 'rm' is disabled. Use 'del' instead."
+    return 1
+end
+alias remove="command rm"
+alias del="trash"
 alias s="sesh connect (sesh list | fzf)"
 alias lg="lazygit"
 alias n="nvim"

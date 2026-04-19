@@ -23,6 +23,7 @@
     ripgrep
     sesh
     stow
+    trash-cli
     tree
     tree
     unzip

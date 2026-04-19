@@ -22,6 +22,7 @@
     ripgrep
     sesh
     stow
+    trash-cli
     wget
 
     # Dev
