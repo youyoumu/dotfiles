@@ -34,7 +34,10 @@ in
     zoxide.enable = true;
     navi.enable = true;
     starship.enable = true;
-    ghostty.systemd.enable = true;
+    ghostty = {
+      enable = true;
+      systemd.enable = true;
+    };
   };
 
   home = {
