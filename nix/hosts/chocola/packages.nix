@@ -93,6 +93,9 @@
     walker
     wl-clipboard
     xwayland-satellite
+    ffmpeg-headless
+    ffmpegthumbnailer
+    gdk-pixbuf
 
     # GUI Apps
     anki
