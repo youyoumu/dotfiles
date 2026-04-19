@@ -72,7 +72,7 @@ with lib.hm.gvariant;
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>q";
-      command = "kitty";
+      command = "ghostty +new-window";
       name = "Terminal";
     };
 

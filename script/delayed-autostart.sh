@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sleep 1
-kitty &
+ghostty +new-window &
 microsoft-edge --disable-features=GlobalShortcutsPortal &
 discord --ozone-playform-hint=auto --enable-wayland-ime --wayland-text-input-version=3 &
 antimicrox --hidden &

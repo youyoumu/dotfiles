@@ -37,8 +37,8 @@ environment {
 prefer-no-csd
 
 binds {
-  Mod+Q hotkey-overlay-title="Open a Terminal: kitty" {
-    spawn "kitty"
+  Mod+Q hotkey-overlay-title="Open a Terminal: ghostty" {
+    spawn "ghostty" "+new-window"
   }
   Mod+A hotkey-overlay-title="Applications launcher" {
     spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"

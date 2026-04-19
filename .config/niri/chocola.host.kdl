@@ -49,7 +49,7 @@ window-rule {
   open-focused false
 }
 window-rule {
-  match app-id="kitty" at-startup=true
+  match app-id="ghostty" at-startup=true
   open-on-workspace "1C"
   open-focused false
 }

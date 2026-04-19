@@ -16,6 +16,8 @@ if [[
   ]] || [[
 
   # Or we are launching bash from one these programs
+  $PARENT_PROCESS == "ghostty" ||
+  $PARENT_PROCESS == ".ghostty-wrappe" ||
   $PARENT_PROCESS == "kitty" ||
   $PARENT_PROCESS == ".kitty-wrapped" ||
   $PARENT_PROCESS == "tmux: server" 
