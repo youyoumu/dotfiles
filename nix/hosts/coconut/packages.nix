@@ -6,71 +6,107 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    vim
-    wget
-    neovim
-    git
+    # CLI & Shell
+    age
+    bat
+    btop
+    duf
+    dust
+    eza
     fastfetch
-    kitty
+    fd
+    fish
+    fzf
+    git
+    jq
+    just
+    lazydocker
+    lazygit
+    navi
+    neovim
+    ripgrep
+    sesh
+    starship
     stow
     tmux
-    age
-    fzf
-    lazygit
-    fish
-    starship
+    vim
+    wget
     yazi
-    eza
     zoxide
-    navi
-    sesh
-    bat
-    fd
-    dust
-    duf
-    cronie
-    syncthing
-    gcc
-    nodejs
-    go
-    ruby
-    python3
-    unzip
+
+    # Dev
     cargo
+    difftastic
+    gcc
     gnumake
-    pnpm
-    vscode
+    go
+    kdlfmt
+    neovide
+    nixd
     nixfmt
-    just
-    mission-center
-    google-chrome
-    discord
-    prismlauncher
-    obsidian
-    obs-studio
-    anki
-    antimicrox
-    handbrake
-    qbittorrent
-    keepassxc
-    gimp3-with-plugins
-    papirus-icon-theme
-    shotcut
-    vlc
-    gnome-tweaks
-    bibata-cursors
-    hyprpaper
-    hypridle
-    hyprcursor
-    hyprshot
-    wl-clipboard
+    nodejs
+    pnpm
+    python3
+    ruby
+    statix
+    vscode
+
+    # System
+    cloudflared
+    cronie
+    flatpak
+    ffmpeg
     libsecret
     lssecret
-    neovide
-    cloudflared
-    lazydocker
+    pulseaudioFull
+    syncthing
+    unzip
     xdg-utils
-    flatpak
+
+    # Desktop Environment
+    adw-gtk3
+    bibata-cursors
+    cliphist
+    grim
+    hyprcursor
+    hypridle
+    hyprpaper
+    hyprshot
+    kdePackages.qt6ct
+    kooha
+    libnotify
+    mpv
+    papirus-icon-theme
+    pavucontrol
+    satty
+    slurp
+    walker
+    wl-clipboard
+    xwayland-satellite
+
+    # GUI Apps
+    anki
+    discord
+    gimp3-with-plugins
+    gnome-tweaks
+    google-chrome
+    handbrake
+    keepassxc
+    kitty
+    microsoft-edge
+    mission-center
+    obsidian
+    obs-studio
+    qbittorrent
+    shotcut
+    spotify
+    vlc
+
+    # Gaming
+    antimicrox
+    prismlauncher
+
+    # Inputs and Others
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
@@ -78,29 +114,6 @@
     gst_all_1.gst-plugins-ugly
     gst_all_1.gst-libav
     gst_all_1.gst-vaapi
-    kooha
-    ripgrep
-    pulseaudioFull
-    pavucontrol
-    kdePackages.qt6ct
-    btop
-    jq
-    cliphist
-    mpv
-    walker
-    libnotify
-    xwayland-satellite
-    slurp
-    satty
-    grim
-    adw-gtk3
-    spotify
-    microsoft-edge
-    ffmpeg
-    nixd
-    kdlfmt
-    difftastic
-    statix
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.thorium.packages.${system}.thorium-avx2

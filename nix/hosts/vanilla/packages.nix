@@ -6,55 +6,64 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    wget
-    neovim
-    git
+    # CLI & Shell
+    age
+    bat
+    btop
+    duf
+    dust
+    eza
     fastfetch
-    kitty
+    fd
+    fish
+    fzf
+    git
+    jq
+    just
+    lazygit
+    lazydocker
+    navi
+    neovim
+    ripgrep
+    sesh
+    starship
     stow
     tmux
-    age
-    fzf
-    lazygit
-    fish
-    starship
+    wget
     yazi
-    eza
     zoxide
-    navi
-    sesh
-    bat
-    fd
-    dust
-    duf
+
+    # Dev
+    cargo
+    difftastic
+    gcc
+    gnumake
+    go
+    isd
+    keychain
+    nixd
+    nixfmt
+    nodejs
+    pm2
+    pnpm
+    python3
+    python312Packages.pip
+    ruby
+    rcon-cli
+    systemd-lsp
+    unzip
+    zulu
+
+    # System
+    cloudflared
     cronie
     syncthing
-    gcc
-    nodejs
-    go
-    ruby
-    python3
-    unzip
-    cargo
-    zulu
-    python312Packages.pip
-    gnumake
-    pnpm
-    nixfmt
-    just
+
+    # GUI Apps
     keepassxc
-    cloudflared
-    lazydocker
-    ripgrep
-    btop
-    jq
-    nixd
-    keychain
-    pm2
-    systemd-lsp
-    rcon-cli
-    isd
-    difftastic
+    kitty
+
+    # Inputs and Others
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
     inputs.fhs.packages.${system}.default

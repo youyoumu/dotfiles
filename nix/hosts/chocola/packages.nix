@@ -6,71 +6,135 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    vim
-    wget
-    neovim
-    git
+    # CLI & Shell
+    age
+    bat
+    btop
+    chezmoi
+    duf
+    dust
+    eza
     fastfetch
-    kitty
+    fd
+    fish
+    fzf
+    git
+    jq
+    just
+    lazydocker
+    lazygit
+    navi
+    neovim
+    ripgrep
+    sesh
+    starship
     stow
     tmux
-    age
-    fzf
-    lazygit
-    fish
-    starship
-    yazi
-    eza
-    zoxide
-    navi
-    sesh
-    bat
-    fd
-    dust
-    duf
-    cronie
-    syncthing
-    gcc
-    nodejs
-    go
-    ruby
-    python3
-    rustup
+    tree
+    tree
     unzip
-    zulu
+    vim
+    wget
+    yazi
+    zellij
+    zoxide
+
+    # Dev
+    android-studio
+    android-tools
+    beekeeper-studio
+    clang-tools
+    deno
+    devenv
+    difftastic
+    gcc
     gnumake
-    pnpm
-    vscode
+    go
+    gradle
+    jetbrains.idea
+    kdlfmt
+    kotlin
+    neovide
+    nixd
     nixfmt
-    just
+    nodejs
+    pnpm
+    python3
+    ruby
+    rustup
+    statix
+    tree-sitter
+    uv
+    vscode
+    zulu
+
+    # System
+    amdgpu_top
+    cloudflare-warp
+    cloudflared
+    cronie
     dpkg
-    mission-center
-    google-chrome
-    discord
-    prismlauncher
-    obsidian
-    obs-studio
-    anki
-    antimicrox
-    handbrake
-    qbittorrent
-    keepassxc
-    gimp3-with-plugins
-    papirus-icon-theme
-    shotcut
-    vlc
-    gnome-tweaks
-    bibata-cursors
-    hypridle
-    hyprshot
-    wl-clipboard
+    ffmpeg
+    flatpak
     libsecret
     lssecret
-    neovide
-    cloudflared
-    lazydocker
+    ollama
+    pavucontrol
+    pulseaudioFull
+    sqlite
+    syncthing
     xdg-utils
-    flatpak
+
+    # Desktop Environment
+    adw-gtk3
+    bibata-cursors
+    cliphist
+    file-roller
+    gpu-screen-recorder
+    grim
+    hypridle
+    hyprshot
+    kdePackages.qt6ct
+    libnotify
+    mpv
+    papirus-icon-theme
+    satty
+    slurp
+    walker
+    wl-clipboard
+    xwayland-satellite
+
+    # GUI Apps
+    anki
+    discord
+    footage
+    gimp3-with-plugins
+    gnome-tweaks
+    google-chrome
+    handbrake
+    kdePackages.kdenlive
+    keepassxc
+    kitty
+    microsoft-edge
+    mission-center
+    obs-studio
+    obsidian
+    qbittorrent
+    shotcut
+    spotify
+    vlc
+    zoom-us
+
+    # Gaming
+    antimicrox
+    bottles
+    prismlauncher
+    protonup-qt
+
+    # Unsorted
+    opencode
+
+    # Inputs and Others
     gst_all_1.gstreamer
     gst_all_1.gst-plugins-base
     gst_all_1.gst-plugins-good
@@ -78,54 +142,6 @@
     gst_all_1.gst-plugins-ugly
     gst_all_1.gst-libav
     gst_all_1.gst-vaapi
-    ripgrep
-    pulseaudioFull
-    pavucontrol
-    kdePackages.qt6ct
-    btop
-    jq
-    cliphist
-    mpv
-    walker
-    libnotify
-    xwayland-satellite
-    slurp
-    satty
-    grim
-    adw-gtk3
-    amdgpu_top
-    spotify
-    ollama
-    microsoft-edge
-    ffmpeg
-    nixd
-    kdlfmt
-    devenv
-    chezmoi
-    deno
-    uv
-    protonup-qt
-    bottles
-    tree-sitter
-    difftastic
-    statix
-    footage
-    zoom-us
-    kdePackages.kdenlive
-    kotlin
-    gradle
-    jetbrains.idea
-    android-studio
-    file-roller
-    clang-tools
-    cloudflare-warp
-    sqlite
-    beekeeper-studio
-    android-tools
-    gpu-screen-recorder
-    opencode
-    tree
-    zellij
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
