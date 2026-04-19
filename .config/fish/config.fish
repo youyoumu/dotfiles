@@ -1,9 +1,15 @@
 fish_vi_key_bindings
 set -g fish_greeting
 fish_config theme choose "Catppuccin Mocha"
-starship init fish | source
-zoxide init fish | source
-navi widget fish | source
+if type -q starship
+    starship init fish | source
+end
+if type -q zoxide
+    zoxide init fish | source
+end
+if type -q navi
+    navi widget fish | source
+end
 
 # eza
 alias list="command ls"

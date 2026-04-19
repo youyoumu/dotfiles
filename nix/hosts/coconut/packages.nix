@@ -8,31 +8,21 @@
   environment.systemPackages = with pkgs; [
     # CLI & Shell
     age
-    bat
     btop
     duf
     dust
     eza
     fastfetch
     fd
-    fish
     fzf
-    git
     jq
     just
     lazydocker
-    lazygit
     navi
-    neovim
     ripgrep
     sesh
-    starship
     stow
-    tmux
-    vim
     wget
-    yazi
-    zoxide
 
     # Dev
     cargo
@@ -49,7 +39,6 @@
     python3
     ruby
     statix
-    vscode
 
     # System
     cloudflared
@@ -96,7 +85,6 @@
     microsoft-edge
     mission-center
     obsidian
-    obs-studio
     qbittorrent
     shotcut
     spotify

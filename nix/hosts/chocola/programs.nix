@@ -26,10 +26,20 @@
         icu
       ];
     };
-    gnupg.agent = {
-      enable = true;
-    };
+    gnupg.agent.enable = true;
+    bat.enable = true;
+    fish.enable = true;
+    git.enable = true;
+    lazygit.enable = true;
+    starship.enable = true;
+    tmux.enable = true;
+    zoxide.enable = true;
+    neovim.enable = true;
+    vscode.enable = true;
+    vim.enable = true;
     firefox.enable = true;
+    obs-studio.enable = true;
+    zoom-us.enable = true;
     gpu-screen-recorder.enable = true;
     steam = {
       enable = true;

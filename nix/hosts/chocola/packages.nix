@@ -8,7 +8,6 @@
   environment.systemPackages = with pkgs; [
     # CLI & Shell
     age
-    bat
     btop
     chezmoi
     duf
@@ -16,28 +15,20 @@
     eza
     fastfetch
     fd
-    fish
     fzf
-    git
     jq
     just
     lazydocker
-    lazygit
     navi
-    neovim
     ripgrep
     sesh
-    starship
     stow
-    tmux
     tree
     tree
     unzip
-    vim
     wget
     yazi
     zellij
-    zoxide
 
     # Dev
     android-studio
@@ -65,7 +56,6 @@
     statix
     tree-sitter
     uv
-    vscode
     zulu
 
     # System
@@ -90,7 +80,6 @@
     bibata-cursors
     cliphist
     file-roller
-    gpu-screen-recorder
     grim
     hypridle
     hyprshot
@@ -117,13 +106,11 @@
     kitty
     microsoft-edge
     mission-center
-    obs-studio
     obsidian
     qbittorrent
     shotcut
     spotify
     vlc
-    zoom-us
 
     # Gaming
     antimicrox

@@ -8,30 +8,21 @@
   environment.systemPackages = with pkgs; [
     # CLI & Shell
     age
-    bat
     btop
     duf
     dust
     eza
     fastfetch
     fd
-    fish
     fzf
-    git
     jq
     just
-    lazygit
     lazydocker
     navi
-    neovim
     ripgrep
     sesh
-    starship
     stow
-    tmux
     wget
-    yazi
-    zoxide
 
     # Dev
     cargo

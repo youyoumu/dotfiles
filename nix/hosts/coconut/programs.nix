@@ -9,6 +9,18 @@
 }:
 {
   programs = {
+    bat.enable = true;
+    fish.enable = true;
+    git.enable = true;
+    lazygit.enable = true;
+    neovim.enable = true;
+    starship.enable = true;
+    tmux.enable = true;
+    vim.enable = true;
+    vscode.enable = true;
+    zoxide.enable = true;
+    yazi.enable = true;
+    obs-studio.enable = true;
     niri = {
       enable = true;
       useNautilus = true;
