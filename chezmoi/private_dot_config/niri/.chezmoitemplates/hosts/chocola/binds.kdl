@@ -1,7 +1,0 @@
-Ctrl+Shift+O {
-    spawn "/home/yym/script/audio-device-switch.sh"
-}
-Shift+Print {
-    spawn "/home/yym/script/gpu-screen-recorder.sh"
-}
-
