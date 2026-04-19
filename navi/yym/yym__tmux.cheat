@@ -1,61 +1,71 @@
 % tmux, yym
 
-# Opens the .local customization file copy with the editor defined by the EDITOR environment variable (defaults to vim when empty)
-<prefix> e 
+# Edit config in $EDITOR
+<prefix> e
 
-# Reloads the configuration
-<prefix> r 
+# Reload config
+<prefix> r
 
-# Clears both the screen and the tmux history
-C-l 
+# Clear screen + history
+C-l
 
-# Creates a new session
+# Create new session
 <prefix> C-c
 
-# Lets you switch to another session by name
-<prefix> C-f 
+# Switch session by name
+<prefix> C-f
 
-# Let you navigate windows (default <prefix> n is unbound and <prefix> p is repurposed)
-<prefix> C-h and <prefix> C-l 
+# Navigate to previous window
+<prefix> C-h
 
-# Brings you to the last active window
-<prefix> Tab 
+# Navigate to next window
+<prefix> C-l
 
-# Splits the current pane vertically
-<prefix> - 
+# Last active window
+<prefix> Tab
 
-# Splits the current pane horizontally
-<prefix> _ 
+# Split pane vertically
+<prefix> -
 
-# Let you navigate panes ala Vim
-<prefix> h, <prefix> j, <prefix> k and <prefix> l 
+# Split pane horizontally
+<prefix> _
 
-# Let you resize panes
-<prefix> H, <prefix> J, <prefix> K, <prefix> L 
+# Navigate panes (vim-style)
+<prefix> h
+<prefix> j
+<prefix> k
+<prefix> l
 
-# Let you swap panes
-<prefix> < and <prefix> > 
+# Resize panes
+<prefix> H
+<prefix> J
+<prefix> K
+<prefix> L
 
-# Maximizes the current pane to a new window
-<prefix> + 
+# Swap panes
+<prefix> <
+<prefix> >
 
-# Toggles mouse mode on or off
-<prefix> m 
+# Maximize pane to window
+<prefix> +
 
-# Launches Urlscan (preferred) or Urlview, if available
-<prefix> U 
+# Toggle mouse mode
+<prefix> m
 
-# Launches Facebook PathPicker, if available
-<prefix> F 
+# Launch Urlscan or Urlview
+<prefix> U
 
-# Enters copy-mode
-<prefix> Enter 
+# Launch PathPicker
+<prefix> F
 
-# Lists the paste-buffers
-<prefix> b 
+# Enter copy-mode
+<prefix> Enter
 
-# Pastes from the top paste-buffer
-<prefix> p 
+# List paste-buffers
+<prefix> b
 
-# Lets you choose the paste-buffer to paste from
-<prefix> P 
+# Paste from top buffer
+<prefix> p
+
+# Choose paste-buffer to paste
+<prefix> P
