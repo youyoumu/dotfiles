@@ -104,6 +104,7 @@
     kdePackages.kdenlive
     keepassxc
     kitty
+    ghostty
     microsoft-edge
     mission-center
     obsidian
@@ -122,13 +123,13 @@
     opencode
 
     # Inputs and Others
-    gst_all_1.gstreamer
-    gst_all_1.gst-plugins-base
-    gst_all_1.gst-plugins-good
-    gst_all_1.gst-plugins-bad
-    gst_all_1.gst-plugins-ugly
-    gst_all_1.gst-libav
-    gst_all_1.gst-vaapi
+    # gst_all_1.gstreamer
+    # gst_all_1.gst-plugins-base
+    # gst_all_1.gst-plugins-good
+    # gst_all_1.gst-plugins-bad
+    # gst_all_1.gst-plugins-ugly
+    # gst_all_1.gst-libav
+    # gst_all_1.gst-vaapi
     gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
