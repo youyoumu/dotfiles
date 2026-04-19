@@ -1,4 +1,5 @@
-#!/bin/env bash
+#!/usr/bin/env bash
+
 wf-recorder_check() {
   if pgrep -x "wf-recorder" >/dev/null; then
     pkill -INT -x wf-recorder

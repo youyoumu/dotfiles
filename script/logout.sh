@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # This script provides a simple way to log out from different Wayland desktop environments.
 # It checks the XDG_CURRENT_DESKTOP environment variable and executes the appropriate logout command.

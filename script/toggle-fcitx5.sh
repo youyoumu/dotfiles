@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # Check if fcitx5 is running
 if pgrep "fcitx5" >/dev/null; then

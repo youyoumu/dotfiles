@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # File to store toggle state
 STATE_FILE="$HOME/.config/hypr/workspace_toggle_state"

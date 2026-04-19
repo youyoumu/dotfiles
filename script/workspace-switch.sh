@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # Ensure arguments were provided
 if [ $# -lt 1 ] || [ $# -gt 2 ]; then
   echo "Usage: $0 <workspace_number> [move]"
