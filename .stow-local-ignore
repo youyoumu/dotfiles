@@ -27,5 +27,6 @@ nixos
 nix
 navi
 submodules
+windows
 /chezmoi
 statix.toml

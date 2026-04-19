@@ -13,7 +13,7 @@ default:
     if [[ "{{ hostname }}" == "azuki" ]]; then
       nix-on-droid switch --flake ./nix?submodules=1#azuki;
     else
-      nh os switch ./nix?submodules=1#;
+      nh os switch ./nix?submodules=1#
     fi
 
 update one:
@@ -35,7 +35,12 @@ meta:
     nix flake metadata ./nix?submodules=1#
 
 stow:
-    stow .
+    #!/usr/bin/env bash
+    if [[ "{{ hostname }}" == "chocola" ]]; then
+      stow . --ignore=".config/fish/*"
+    else
+      stow .
+    fi
 
 submodules:
     git submodule update --init --recursive

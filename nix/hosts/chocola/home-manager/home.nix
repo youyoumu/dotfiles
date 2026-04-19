@@ -4,10 +4,46 @@
   shared,
   ...
 }:
+let
+  DOTFILES = "/home/yym/dotfiles";
+  FISH = "${DOTFILES}/.config/fish";
+  symLink = config.lib.file.mkOutOfStoreSymlink;
+in
 {
   imports = [ shared.dconf ];
-  home.packages = with pkgs; [
-  ];
+  programs = {
+    fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set is_home_manager true
+        source ~/.config/fish/init.fish
+      '';
+      plugins = [
+        {
+          name = "z";
+          src = pkgs.fetchFromGitHub {
+            owner = "PatrickF1";
+            repo = "fzf.fish";
+            rev = "0069dbbe06cc05482bfb13063b4b4eac26318992";
+            sha256 = "sha256-H7HgYT+okuVXo2SinrSs+hxAKCn4Q4su7oMbebKd/7s=";
+          };
+        }
+      ];
+    };
+    fzf.enable = true;
+    zoxide.enable = true;
+    navi.enable = true;
+    starship.enable = true;
+    ghostty.systemd.enable = true;
+  };
+
+  home = {
+    file = {
+      ".config/fish/init.fish".source = symLink "${FISH}/init.fish";
+      ".config/fish/hosts".source = symLink "${FISH}/hosts";
+    };
+    # packages = with pkgs; [ ];
+  };
 
   xdg.desktopEntries.discord = {
     name = "Discord";
