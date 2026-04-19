@@ -1,0 +1,226 @@
+% docker, container, system
+
+# List containers
+docker ps -a
+
+# List running containers
+docker ps
+
+# List images
+docker images
+
+# List volumes
+docker volume ls
+
+# List networks
+docker network ls
+
+# List logs
+docker logs <container>
+
+# Follow logs
+docker logs -f <container>
+
+# Inspect container
+docker inspect <container>
+
+# Inspect image
+docker inspect <image>
+
+# Run container
+docker run -d <image>
+
+# Run with name
+docker run -d --name <name> <image>
+
+# Run with port
+docker run -d -p <host_port>:<container_port> <image>
+
+# Run with volume
+docker run -d -v <host_path>:<container_path> <image>
+
+# Run interactively
+docker run -it <image>
+
+# Run and remove on exit
+docker run --rm <image>
+
+# Run with environment
+docker run -d -e <VAR>=<value> <image>
+
+# Run with network
+docker run -d --network <network> <image>
+
+# Run with hostname
+docker run -d --hostname <name> <image>
+
+# Run as user
+docker run -d -u <user> <image>
+
+# Start container
+docker start <container>
+
+# Stop container
+docker stop <container>
+
+# Restart container
+docker restart <container>
+
+# Pause container
+docker pause <container>
+
+# Unpause container
+docker unpause <container>
+
+# Kill container
+docker kill <container>
+
+# Remove container
+docker rm <container>
+
+# Remove container (force)
+docker rm -f <container>
+
+# Remove all stopped
+docker container prune -f
+
+# Remove image
+docker rmi <image>
+
+# Remove image (force)
+docker rmi -f <image>
+
+# Remove unused images
+docker image prune -a -f
+
+# Remove unused volumes
+docker volume prune -f
+
+# Remove build cache
+docker builder prune -f
+
+# Pull image
+docker pull <image>
+
+# Pull latest
+docker pull <image>:latest
+
+# Push image
+docker push <image>
+
+# Tag image
+docker tag <source> <target>
+
+# Build image
+docker build -t <name> <path>
+
+# Build no cache
+docker build --no-cache -t <name> <path>
+
+# Build with file
+docker build -f <file> -t <name> <path>
+
+# Login to registry
+docker login
+
+# Logout from registry
+docker logout
+
+# Search registry
+docker search <term>
+
+# Exec into container
+docker exec -it <container> /bin/sh
+
+# Copy from container
+docker cp <container>:<path> <dest>
+
+# Copy to container
+docker cp <source> <container>:<path>
+
+# Create volume
+docker volume create <name>
+
+# Create network
+docker network create <name>
+
+# Inspect network
+docker network inspect <network>
+
+# Connect to network
+docker network connect <network> <container>
+
+# Disconnect from network
+docker network disconnect <network> <container>
+
+# Show stats
+docker stats
+
+# Show stats (no stream)
+docker stats --no-stream
+
+# Show top
+docker top <container>
+
+# Show processes
+docker diff <container>
+
+# Commit changes
+docker commit <container> <image>
+
+# Export container
+docker export -o <file>.tar <container>
+
+# Import container
+docker import <file>.tar
+
+# Save image
+docker save -o <file>.tar <image>
+
+# Load image
+docker load -i <file>.tar
+
+# System prune
+docker system prune -a -f
+
+# Show disk usage
+docker system df
+
+# Show events
+docker events
+
+# Show history
+docker history <image>
+
+# Show logs (since)
+docker logs --since <time> <container>
+
+# Show logs (tail)
+docker docker logs --tail <n> <container>
+
+# Update container
+docker update --<option> <value> <container>
+
+# Compose up
+docker compose up -d
+
+# Compose down
+docker compose down
+
+# Compose build
+docker compose build
+
+# Compose logs
+docker compose logs
+
+# Compose ps
+docker compose ps
+
+# Compose exec
+docker compose exec <service> <command>
+
+# Scan image
+docker scan <image>
+
+# Trust image
+docker trust <image>

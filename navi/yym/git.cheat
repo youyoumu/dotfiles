@@ -1,0 +1,130 @@
+% git
+
+# Show working tree status
+git status
+
+# Show staged changes
+git diff --staged
+
+# Show file history
+git log --oneline -n <n>
+
+# Show file commits
+git log --oneline -n <n> -- <file>
+
+# Show commit details
+git show <commit>
+
+# Show branch list
+git branch -a
+
+# Create new branch
+git checkout -b <branch>
+
+# Switch branch
+git checkout <branch>
+
+# Delete local branch
+git branch -d <branch>
+
+# Delete remote branch
+git push origin --delete <branch>
+
+# Show stash list
+git stash list
+
+# Save changes to stash
+git stash push -m "<message>"
+
+# Apply stash
+git stash apply stash@<n>
+
+# Drop stash
+git stash drop stash@<n>
+
+# Show remotes
+git remote -v
+
+# Fetch from remote
+git fetch <remote>
+
+# Pull from remote
+git pull <remote> <branch>
+
+# Push to remote
+git push <remote> <branch>
+
+# Force push
+git push --force-with-lease <remote> <branch>
+
+# Add all changes
+git add -A
+
+# Commit staged changes
+git commit -m "<message>"
+
+# Amend last commit
+git commit --amend --no-edit
+
+# Unstage file
+git restore --staged <file>
+
+# Discard file changes
+git checkout -- <file>
+
+# Reset to commit
+git reset --hard <commit>
+
+# Cherry-pick commit
+git cherry-pick <commit>
+
+# Show blame
+git blame <file>
+
+# Show short status
+git status -s
+
+# Show changed files
+git diff --name-only
+
+# Show staged files
+git diff --staged --name-only
+
+# Create tag
+git tag -a <tag> -m "<message>"
+
+# Push tag
+git push <remote> <tag>
+
+# Delete tag locally
+git tag -d <tag>
+
+# Delete tag remotely
+git push origin --delete <tag>
+
+# Show contributors
+git shortlog -sne
+
+# Staged changes summary
+git diff --stat --staged
+
+# Show alias
+git config --list --local | grep alias
+
+# Undo last commit (keep changes)
+git reset --soft HEAD~1
+
+# Show current branch
+git branch --show-current
+
+# Show diff between branches
+git diff <branch1>..<branch2>
+
+# Show log for file
+git log --follow -p -- <file>
+
+# Clean untracked files
+git clean -fd
+
+# Interactive rebase
+git rebase -i HEAD~<n>

@@ -1,0 +1,73 @@
+% ssh
+
+# Connect to host
+ssh <user>@<host>
+
+# Connect with port
+ssh -p <port> <user>@<host>
+
+# Connect with key
+ssh -i ~/.ssh/<key> <user>@<host>
+
+# Connect with specific identity
+ssh -i ~/.ssh/<key> -o "IdentitiesOnly=yes" <user>@<host>
+
+# Connect to specific port and key
+ssh -p <port> -i ~/.ssh/<key> <user>@<host>
+
+# Add key to agent
+ssh-add ~/.ssh/<key>
+
+# List keys in agent
+ssh-add -l
+
+# Remove key from agent
+ssh-add -d ~/.ssh/<key>
+
+# Remove all keys from agent
+ssh-add -D
+
+# Generate key
+ssh-keygen -t ed25519 -C "<comment>"
+
+# Generate key with comment
+ssh-keygen -t ed25519 -f ~/.ssh/<key> -C "<comment>"
+
+# Copy public key to server
+ssh-copy-id <user>@<host>
+
+# Copy public key with port
+ssh-copy-id -p <port> <user>@<host>
+
+# Test connection
+ssh -o BatchMode=yes -o ConnectTimeout=5 <user>@<host> "echo ok"
+
+# Forward local port
+ssh -L <local_port>:<dest_host>:<dest_port> <user>@<host>
+
+# Forward remote port
+ssh -R <remote_port>:<dest_host>:<dest_port> <user>@<host>
+
+# Dynamic SOCKS proxy
+ssh -D <port> <user>@<host>
+
+# Jump through bastion
+ssh -J <bastion_user>@<bastion_host> <user>@<dest_host>
+
+# Keep alive connection
+ssh -o ServerAliveInterval=60 <user>@<host>
+
+# Disable strict host key checking (first connect only)
+ssh -o StrictHostKeyChecking=no <user>@<host>
+
+# Use specific SSH config
+ssh -F ~/.ssh/config_<host> <user>@<host>
+
+# Add host to known_hosts
+ssh-keyscan <host> >> ~/.ssh/known_hosts
+
+# Add host and port to known_hosts
+ssh-keyscan -p <port> <host> >> ~/.ssh/known_hosts
+
+# Check fingerprint
+ssh-keygen -l -f ~/.ssh/<key>

@@ -1,0 +1,174 @@
+% adb, android, device, system, yym
+
+# List devices
+adb devices
+
+# List devices (verbose)
+adb devices -l
+
+# Connect via IP
+adb connect <ip>:<port>
+
+# Disconnect device
+adb disconnect
+
+# Disconnect specific device
+adb disconnect <ip>:<port>
+
+# Install app
+adb install <app>.apk
+
+# Install and keep data
+adb install -r <app>.apk
+
+# Install as new package
+adb install -t <app>.apk
+
+# Uninstall package
+adb uninstall <package>
+
+# Uninstall (keep data)
+adb shell pm uninstall -k <package>
+
+# Start shell
+adb shell
+
+# Shell command
+adb shell <command>
+
+# Push file to device
+adb push <local> <remote>
+
+# Pull file from device
+adb pull <remote>
+
+# Pull to directory
+adb pull <remote> <local_dir>
+
+# Reboot device
+adb reboot
+
+# Reboot to bootloader
+adb reboot bootloader
+
+# Reboot to recovery
+adb reboot recovery
+
+# Reboot to sideload
+adb reboot sideload
+
+# Sideload package
+adb sideload <update>.zip
+
+# Root access
+adb root
+
+# Unroot access
+adb unroot
+
+# Remount system
+adb remount
+
+# Sync directory
+adb sync <directory>
+
+# Forward port
+adb forward tcp:<local_port> tcp:<remote_port>
+
+# Forward specific
+adb forward --list
+
+# Remove forward
+adb forward --remove tcp:<local_port>
+
+# Reverse port
+adb reverse tcp:<remote_port> tcp:<local_port>
+
+# Remove reverse
+adb reverse --remove tcp:<remote_port>
+
+# Wait for device
+adb wait-for-device
+
+# Get device info
+adb shell getprop ro.product.model
+
+# Get Android version
+adb shell getprop ro.build.version.release
+
+# Get serial
+adb get-serialno
+
+# Get state
+adb get-state
+
+# Screenshot
+adb shell screencap -p /sdcard/screen.png
+adb pull /sdcard/screen.png
+
+# Screen record
+adb shell screenrecord /sdcard/video.mp4
+adb pull /sdcard/video.mp4
+
+# Install APK on SD Card
+adb shell pm set-install-location 2
+
+# Package list
+adb shell pm list packages
+
+# Package list (third-party)
+adb shell pm list packages -3
+
+# Package path
+adb shell pm path <package>
+
+# Clear app data
+adb shell pm clear <package>
+
+# Grant permission
+adb shell pm grant <package> <permission>
+
+# Revoke permission
+adb shell pm revoke <package> <permission>
+
+# Start activity
+adb shell am start -n <package>/<activity>
+
+# Force stop
+adb shell am force-stop <package>
+
+# Kill background
+adb shell am kill <package>
+
+# Send broadcast
+adb shell am broadcast -a <action>
+
+# IPC dump
+adb shell dumpsys
+
+# Battery
+adb shell dumpsys battery
+
+# Input tap
+adb shell input tap <x> <y>
+
+# Input text
+adb shell input text "<text>"
+
+# Input keyevent
+adb shell input keyevent <keycode>
+
+# Input swipe
+adb shell input swipe <x1> <y1> <x2> <y2>
+
+# Text input
+adb shell input text "<text>"
+
+# Keyhome
+adb shell input keyevent 3
+
+# Keyback
+adb shell input keyevent 4
+
+# Keypower
+adb shell input keyevent 26

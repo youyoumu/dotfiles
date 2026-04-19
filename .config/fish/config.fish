@@ -3,6 +3,7 @@ set -g fish_greeting
 fish_config theme choose "Catppuccin Mocha"
 starship init fish | source
 zoxide init fish | source
+navi widget fish | source
 
 # eza
 alias list="command ls"

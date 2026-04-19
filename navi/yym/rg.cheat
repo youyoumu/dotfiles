@@ -1,0 +1,187 @@
+% rg, grep, search, code, yym
+
+# Search recursively
+rg "<pattern>"
+
+# Search case-insensitive
+rg -i "<pattern>"
+
+# Search whole words
+rg -w "<pattern>"
+
+# Search exact pattern
+rg -F "<literal>"
+
+# Invert match
+rg -v "<pattern>"
+
+# Show line numbers
+rg -n "<pattern>"
+
+# Show line numbers (relative)
+rg -n --relative "<pattern>"
+
+# Show column numbers
+rg -c "<pattern>"
+
+# Show filenames only
+rg -l "<pattern>"
+
+# Show filenames without match
+rg -L "<pattern>"
+
+# Show matches only
+rg -o "<pattern>"
+
+# Show context before
+rg -B <n> "<pattern>"
+
+# Show context after
+rg -A <n> "<pattern>"
+
+# Show context around
+rg -C <n> "<pattern>"
+
+# Show matching files count
+rg -c "<pattern>" .
+
+# Ignore case
+rg -i "<pattern>"
+
+# Ignore case (smart)
+rg -is "<pattern>"
+
+# Case sensitive
+rg -s "<pattern>"
+
+# Use regex (default)
+rg "<pattern>"
+
+# No regex (literal)
+rg -F "<pattern>" -w
+
+# Extended regex
+rg -E "<pattern>"
+
+# Search in directory
+rg "<pattern>" <dir>
+
+# Search specific files
+rg "<pattern>" -g "<glob>"
+
+# Search specific extension
+rg "<pattern>" -g "*.<ext>"
+
+# Search multiple patterns
+rg -e "<pattern1>" -e "<pattern2>"
+
+# OR search
+rg "<p1>|<p2>"
+
+# AND search
+rg "<p1>" | rg "<p2>"
+
+# Negate pattern
+rg -v "<pattern>"
+
+# Search hidden files
+rg -u "<pattern>"
+
+# No hidden
+rg -U "<pattern>"
+
+# Binary files
+rg -a "<pattern>"
+
+# No binary
+rg -I "<pattern>"
+
+# Follow symlinks
+rg -L "<pattern>"
+
+# Max count per file
+rg -m <n> "<pattern>"
+
+# Max count total
+rg --max-count <n> "<pattern>"
+
+# Quiet (exit code only)
+rg -q "<pattern>"
+
+# Quiet (no match = 1)
+rg -qs "<pattern>"
+
+# Files with match
+rg -l "<pattern>"
+
+# Files without match
+rg -L "<pattern>"
+
+# Show groups
+rg -g "(<pattern>)" <file>
+
+# Named groups
+rg -g "(?P<name><pattern>)" <file>
+
+# Replace in files
+rg -w "<pattern>" -r "<replacement>"
+
+# Replace in place
+rg -w "<pattern>" -r "<replacement>" --files
+
+# Replace with case
+rg -w "<pattern>" -r "<replacement>" -i
+
+# Count matches
+rg -o "<pattern>" | wc -l
+
+# Show stats
+rg --stats "<pattern>"
+
+# Show files
+rg --files
+
+# Show files with match
+rg -l "<pattern>"
+
+# Fixed string
+rg -F "<string>"
+
+# Perl regex
+rg -P "<pattern>"
+
+# Trim context lines
+rg --trim "<pattern>"
+
+# Color
+rg --color=always "<pattern>"
+
+# No color
+rg --color=never "<pattern>"
+
+# Heading
+rg --heading "<pattern>"
+
+# Line number width
+rg -n --line-number-width <n> "<pattern>"
+
+# Only matching
+rg -o "<pattern>"
+
+#pasthru
+rg --pasthru "<pattern>"
+
+# Type (ripgrep aliases)
+rg -t js "<pattern>"
+
+# Type not
+rg -T js "<pattern>"
+
+# Auto type
+rg --type-add 'ext:*.{js,ts}' -t ext "<pattern>"
+
+# List types
+rg --types
+
+# List files types
+rg --file-types

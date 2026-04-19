@@ -1,0 +1,208 @@
+% file, cp, mv, ln, system
+
+# Copy file
+cp <source> <dest>
+
+# Copy recursively
+cp -r <source> <dest>
+
+# Copy with archive
+cp -a <source> <dest>
+
+# Copy and overwrite
+\cp -f <source> <dest>
+
+# Copy with verbose
+cp -v <source> <dest>
+
+# Move file
+mv <source> <dest>
+
+# Move and overwrite
+mv -f <source> <dest>
+
+# Move with verbose
+mv -v <source> <dest>
+
+# Move multiple files
+mv <file1> <file2> <dest_dir>
+
+# Rename file
+mv <old_name> <new_name>
+
+# Create hard link
+ln <source> <link>
+
+# Create symbolic link
+ln -s <source> <link>
+
+# Create symbolic link (relative)
+ln -sr <source> <link>
+
+# Remove link (not file)
+rm <link>
+
+# Remove file
+rm <file>
+
+# Remove directory
+rm -r <dir>
+
+# Remove directory (force)
+rm -rf <dir>
+
+# Remove empty directory
+rmdir <dir>
+
+# Create directory
+mkdir <dir>
+
+# Create directory (parents)
+mkdir -p <path>
+
+# Create directory with permissions
+mkdir -m <mode> <dir>
+
+# Change directory permissions
+chmod <mode> <file>
+
+# Change directory recursively
+chmod -R <mode> <dir>
+
+# Add execute for user
+chmod u+x <file>
+
+# Remove write for group
+chmod g-w <file>
+
+# Change owner
+chown <user> <file>
+
+# Change owner recursively
+chown -R <user> <dir>
+
+# Change group
+chgrp <group> <file>
+
+# Create archive
+tar -cvf <archive>.tar <dir>
+
+# Extract archive
+tar -xvf <archive>.tar
+
+# Extract to directory
+tar -xvf <archive>.tar -C <dir>
+
+# Extract gz archive
+tar -xzvf <archive>.tar.gz
+
+# Create gz archive
+tar -czvf <archive>.tar.gz <dir>
+
+# List archive contents
+tar -tvf <archive>.tar
+
+# Copy with rsync
+rsync -avz <source>/ <dest>/
+
+# Rsync delete
+rsync -avz --delete <source>/ <dest>/
+
+# Rsync exclude
+rsync -avz --exclude=<pattern> <source>/ <dest>/
+
+# List file type
+file <file>
+
+# Show inode
+ls -i <file>
+
+# List directory
+ls -l
+
+# List all (including hidden)
+ls -la
+
+# List sorted by time
+ls -lt
+
+# List sorted by size
+ls -lS
+
+# Follow symlinks
+ls -L
+
+# List directories only
+ls -d */
+
+# List files only
+ls -p | grep -v /
+
+# Show duplicate files
+fdupes <dir>
+
+# Touch file
+touch <file>
+
+# Create file
+touch <file>
+
+# Create file with content
+echo "<content>" > <file>
+
+# Append to file
+echo "<content>" >> <file>
+
+# Read file
+cat <file>
+
+# Read file with line numbers
+cat -n <file>
+
+# Split file by lines
+split -l <n> <file>
+
+# Split file by size
+split -b <size> <file>
+
+# Count lines
+wc -l <file>
+
+# Count words
+wc -w <file>
+
+# Count bytes
+wc -c <file>
+
+# Gzip compress
+gzip <file>
+
+# Gzip decompress
+gzip -d <file>.gz
+
+# Gzip keep original
+gzip -k <file>
+
+# Gzip to stdout
+gzip -dc <file>.gz
+
+# Gunzip
+gunzip <file>.gz
+
+# Zip compress
+zip <archive>.zip <file>
+
+# Zip compress directory
+zip -r <archive>.zip <dir>/
+
+# Unzip
+unzip <archive>.zip
+
+# Unzip to directory
+unzip <archive>.zip -d <dir>
+
+# List zip contents
+unzip -l <archive>.zip
+
+# Show gzip ratio
+gzip -l <file>.gz

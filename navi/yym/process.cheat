@@ -1,0 +1,82 @@
+% process, port, system
+
+# Kill process by name
+pkill -f <name>
+
+# Kill process by PID
+kill <pid>
+
+# Force kill process
+kill -9 <pid>
+
+# Kill all by name
+killall <name>
+
+# Force kill all by name
+killall -9 <name>
+
+# Find process by name
+ps aux | grep <name>
+
+# Findprocess in specific port
+lsof -i :<port>
+
+# Find process on port
+ss -tlnp | grep :<port>
+
+# List all listening ports
+ss -tlnp
+
+# Show process using port
+netstat -tlnp | grep :<port>
+
+# Show process using port (alternative)
+netstat -anp | grep <port>
+
+# Check if port is open
+nc -zv <host> <port>
+
+# Check if port is open (verbose)
+nc -zvv <host> <port>
+
+# Listen on port
+nc -lvp <port>
+
+# Send data to port
+nc <host> <port> < <file>
+
+# Kill by port
+fuser -k <port>/tcp
+
+# Kill process on port
+fuser -k <port>/tcp
+
+# Zombie process
+ps aux | grep defunct
+
+# Top memory usage
+ps aux --sort=-%mem | head -n <n>
+
+# Top CPU usage
+ps aux --sort=-%cpu | head -n <n>
+
+# Process tree
+pstree -p
+
+# Show all processes
+ps -ef
+
+# Show user processes
+ps -U <user>
+
+# Interactive kill (htop alternative)
+btop
+
+# Disk usage by directory
+du -sh <directory>
+
+# Directory size
+du -sh ./*
+
+# Find biggest files
+find . -type f -size +<size>

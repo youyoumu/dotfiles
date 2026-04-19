@@ -1,0 +1,136 @@
+% curl, http, network
+
+# GET request
+curl <url>
+
+# GET with headers
+curl -H "<header>" <url>
+
+# POST form data
+curl -d "<param1>=<value1>&<param2>=<value2>" <url>
+
+# POST JSON
+curl -H "Content-Type: application/json" -d '{"<key>": "<value>"}' <url>
+
+# POST raw data
+curl -d '<data>' <url>
+
+# POST file
+curl -F "file=@<file>" <url>
+
+# Download file
+curl -O <url>
+
+# Download with name
+curl -o <output> <url>
+
+# Download with resume
+curl -C - -o <output> <url>
+
+# Download with progress
+curl -# -O <url>
+
+# Follow redirects
+curl -L <url>
+
+# Silent mode
+curl -s <url>
+
+# Silent + show error
+curl -S <url>
+
+# Verbose
+curl -v <url>
+
+# Show response headers
+curl -i <url>
+
+# Show request headers
+curl -I <url>
+
+# Download multiple files
+curl -O <url1> -O <url2>
+
+# Download from list
+curl -O <url>/[001-100].jpg
+
+# Basic auth
+curl -u <user>:<password> <url>
+
+# Bearer token
+curl -H "Authorization: Bearer <token>" <url>
+
+# Custom method
+curl -X <METHOD> <url>
+
+# PUT request
+curl -X PUT -d '<data>' <url>
+
+# DELETE request
+curl -X DELETE <url>
+
+# Send cookies
+curl -b "<cookie>" <url>
+
+# Save cookies
+curl -c <cookie_file> <url>
+
+# Use cookie file
+curl -b <cookie_file> <url>
+
+# Send Referer
+curl -e "<referer>" <url>
+
+# User agent
+curl -A "<user_agent>" <url>
+
+# Limit speed
+curl --limit-rate <speed> <url>
+
+# Max time
+curl -m <seconds> <url>
+
+# Connect timeout
+curl --connect-timeout <seconds> <url>
+
+# Ignore SSL errors
+curl -k <url>
+
+# SSL certificate
+curl --cert <cert> <url>
+
+# Proxy
+curl -x <proxy> <url>
+
+# SOCKS proxy
+curl --socks5 <proxy> <url>
+
+# FTP download
+curl -u <user>:<password> -O ftp://<host>/<file>
+
+# FTP upload
+curl -u <user>:<password> -T <file> ftp://<host>/<path>
+
+# Upload file
+curl -T <file> <url>
+
+# Download with username
+curl -u <user> <url>
+
+# HEAD request
+curl -head <url>
+
+# Show HTTP code
+curl -w "%{http_code}" -s -o /dev/null <url>
+
+# Show size
+curl -w "%{size_download}" -s -o /dev/null <url>
+
+# Show time
+curl -w "%{time_total}" -s -o /dev/null <url>
+
+# Write output
+curl -w "<format>" <url>
+
+# JSON pretty print
+curl -s <url> | python -m json.tool

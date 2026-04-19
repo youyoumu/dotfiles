@@ -1,0 +1,130 @@
+% eza, ls, file, system
+
+# List files
+eza
+
+# List all (including hidden)
+eza -a
+
+# List long format
+eza -l
+
+# List long with icons
+eza -l --icons
+
+# List with permissions
+eza -l --octal-permissions
+
+# List with numeric IDs
+eza -l -n
+
+# List with headers
+eza -l --header
+
+# List with git status
+eza -l --git
+
+# List with git dry run
+eza -l --git-verbose
+
+# List directories only
+eza -d
+
+# List files only
+eza -f
+
+# List level deep
+eza -l --level <n>
+
+# List with icons (all)
+eza -a --icons
+
+# List sorted by name
+eza -l --sort=name
+
+# List sorted by size
+eza -l --sort=size
+
+# List sorted by modified
+eza -l --sort=modified
+
+# List sorted by created
+eza -l --sort=created
+
+# List sorted by accessed
+eza -l --sort=accessed
+
+# List reverse sort
+eza -l --sort=modified --reverse
+
+# List with date
+eza -l --time-style=long-iso
+
+# List with relative date
+eza -l --time-style=relative
+
+# List with grid
+eza --grid
+
+# List with tree
+eza --tree
+
+# List tree level
+eza --tree --level <n>
+
+# List without color
+eza --color=never
+
+# List with fixed width
+eza --color=always
+
+# List with total size
+eza -l --total-size
+
+# List with blocks
+eza -l --blocks
+
+# List binary byte
+eza -sb
+
+# List binary kilo
+eza -sk
+
+# List binary mega
+eza -sm
+
+# List with sizes (SI units)
+eza --si
+
+# List extended attributes
+eza -l --extended
+
+# List inode
+eza -l --inode
+
+# List links
+eza -l --links
+
+# List device
+eza -l --device
+
+# List with width
+eza --width=<n>
+
+# List binary (powers of 1024)
+eza -b
+
+# List no files
+eza --no-files
+
+# List no directories
+eza --no-dirs
+
+# List ignore patterns
+eza --ignore-glob <pattern>
+
+# List dereference
+eza -l -L
+
+# List broken symlink
+eza -l --include=<regex>
