@@ -39,6 +39,7 @@
     };
     firewall.allowedTCPPorts = [
       56789
+      11435
       8800
     ];
   };

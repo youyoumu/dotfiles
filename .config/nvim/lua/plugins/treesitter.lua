@@ -5,6 +5,7 @@ return {
       "hurl",
       "just",
       "kdl",
+      "caddy",
     },
   },
 }
