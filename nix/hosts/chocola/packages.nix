@@ -32,11 +32,11 @@
     zellij
 
     # Dev
-    android-studio
-    android-tools
+    # android-studio
+    # android-tools
     beekeeper-studio
     clang-tools
-    deno
+    # deno
     devenv
     difftastic
     gcc
@@ -86,7 +86,7 @@
     hyprshot
     kdePackages.qt6ct
     libnotify
-    mpv
+    # mpv
     papirus-icon-theme
     satty
     slurp
@@ -119,7 +119,7 @@
 
     # Gaming
     antimicrox
-    bottles
+    # bottles
     prismlauncher
     protonup-qt
 
