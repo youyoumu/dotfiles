@@ -33,7 +33,7 @@
 
     # Dev
     # android-studio
-    # android-tools
+    android-tools
     beekeeper-studio
     clang-tools
     # deno
