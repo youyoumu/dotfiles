@@ -33,6 +33,9 @@
     oklch-color-picker.url = "path:./packages/oklch-color-picker";
     oklch-color-picker.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+    # ================================================================
     fhs.url = "path:./packages/fhs";
     fhs.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
@@ -59,6 +62,7 @@
             inputs.nix-secrets.nixosModules.chocola
             inputs.nix-index-database.nixosModules.default
             { programs.nix-index-database.comma.enable = true; }
+            inputs.spicetify-nix.nixosModules.spicetify
           ];
         };
         vanilla = inputs.nixpkgs.lib.nixosSystem rec {

@@ -7,6 +7,9 @@
   system,
   ...
 }:
+let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+in
 {
   programs = {
     niri = {
@@ -47,6 +50,15 @@
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
     };
+    spicetify = {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblockify
+        hidePodcasts
+        shuffle
+      ];
+    };
+    adb.enable = true;
   };
 
   virtualisation.docker = {

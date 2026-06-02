@@ -114,7 +114,6 @@
     obsidian
     qbittorrent
     shotcut
-    spotify
     vlc
 
     # Gaming
