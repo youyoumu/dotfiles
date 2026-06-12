@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
     # ================================================================
     nix-on-droid.url = "github:nix-community/nix-on-droid";
     nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +64,15 @@
             inputs.nix-index-database.nixosModules.default
             { programs.nix-index-database.comma.enable = true; }
             inputs.spicetify-nix.nixosModules.spicetify
+            {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  latest = import inputs.nixpkgs-latest {
+                    inherit (final) system config;
+                  };
+                })
+              ];
+            }
           ];
         };
         vanilla = inputs.nixpkgs.lib.nixosSystem rec {

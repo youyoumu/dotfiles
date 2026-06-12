@@ -25,7 +25,6 @@
     stow
     trash-cli
     tree
-    tree
     unzip
     wget
     yazi
@@ -103,7 +102,8 @@
     footage
     gimp3-with-plugins
     gnome-tweaks
-    google-chrome
+    # google-chrome
+    pkgs.latest.google-chrome
     handbrake
     kdePackages.kdenlive
     keepassxc

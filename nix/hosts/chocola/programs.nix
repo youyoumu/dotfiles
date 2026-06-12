@@ -58,7 +58,6 @@ in
         shuffle
       ];
     };
-    adb.enable = true;
   };
 
   virtualisation.docker = {
