@@ -81,6 +81,15 @@ window-rule {
   open-floating true
 }
 
+// microsoft-edge bug
+// https://github.com/pop-os/cosmic-comp/issues/2301
+window-rule {
+  match app-id="^$" title="^$"
+  open-floating true
+  open-focused false
+  opacity 0.0
+}
+
 spawn-at-startup "/home/yym/script/delayed-autostart.sh"
 
 binds {
