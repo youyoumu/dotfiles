@@ -32,14 +32,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 --   end, 0)
 -- end
 
-vim.api.nvim_create_autocmd({
-  "BufNewFile",
-  "BufReadPost",
-}, {
-  callback = vim.schedule_wrap(function()
-    vim.cmd("Neotree show")
-  end),
-})
+-- vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
+--   callback = vim.schedule_wrap(function()
+--     vim.cmd("Neotree show")
+--   end),
+-- })
 
 local lsp_hacks = vim.api.nvim_create_augroup("LspHacks", { clear = true })
 

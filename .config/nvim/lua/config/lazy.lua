@@ -14,12 +14,18 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 -- Detect hostname
 local hostname = vim.g.current_hostname
-local host_path = "hosts." .. hostname
+--
 local host_spec = {}
 if vim.loop.fs_stat(vim.fn.stdpath("config") .. "/lua/hosts/" .. hostname) then
-  table.insert(host_spec, { import = host_path .. ".plugins" })
+  table.insert(host_spec, { import = "hosts." .. hostname .. ".plugins" })
 end
 
 require("lazy").setup({
@@ -39,26 +45,12 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
+  -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
   }, -- automatically check for plugin updates
-  performance = {
-    rtp = {
-      -- disable some rtp plugins
-      disabled_plugins = {
-        "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-      },
-    },
-  },
   git = {
     timeout = 9999,
   },

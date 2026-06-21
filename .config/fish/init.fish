@@ -38,6 +38,7 @@ alias del="trash"
 alias s="sesh connect (sesh list | fzf)"
 alias lg="lazygit"
 alias n="nvim"
+alias zvim="NVIM_APPNAME=zvim nvim"
 alias p="pnpm"
 alias j="just"
 
