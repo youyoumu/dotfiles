@@ -33,7 +33,7 @@
     # Dev
     # android-studio
     android-tools
-    beekeeper-studio
+    # beekeeper-studio
     clang-tools
     # deno
     devenv
@@ -42,9 +42,9 @@
     gnumake
     go
     gradle
-    jetbrains.idea
+    # jetbrains.idea
     kdlfmt
-    kotlin
+    # kotlin
     neovide
     nixd
     nixfmt
@@ -56,16 +56,16 @@
     statix
     tree-sitter
     uv
-    zulu
+    # zulu
 
     # System
     amdgpu_top
     cloudflare-warp
     cloudflared
     cronie
-    dpkg
+    # dpkg
     ffmpeg
-    flatpak
+    # flatpak
     libsecret
     lssecret
     ollama
@@ -102,15 +102,15 @@
     footage
     gimp3-with-plugins
     gnome-tweaks
-    # google-chrome
-    pkgs.latest.google-chrome
+    google-chrome
+    # pkgs.latest.google-chrome
     handbrake
-    kdePackages.kdenlive
+    # kdePackages.kdenlive
     keepassxc
     kitty
     ghostty
     microsoft-edge
-    mission-center
+    # mission-center
     obsidian
     qbittorrent
     shotcut
@@ -120,7 +120,7 @@
     antimicrox
     # bottles
     prismlauncher
-    protonup-qt
+    # protonup-qt
 
     # Unsorted
     opencode
@@ -133,10 +133,10 @@
     # gst_all_1.gst-plugins-ugly
     # gst_all_1.gst-libav
     # gst_all_1.gst-vaapi
-    gnomeExtensions.vitals
+    # gnomeExtensions.vitals
     inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
-    inputs.thorium.packages.${system}.thorium-avx2
+    inputs.custom-packages.packages.${system}.thorium-avx2
     inputs.fhs.packages.${system}.default
     inputs.noctalia.packages.${system}.default
   ];
