@@ -47,13 +47,13 @@
     # kotlin
     neovide
     nixd
-    nixfmt
+    # nixfmt
     nodejs
     pnpm
     python3
     ruby
     rustup
-    statix
+    # statix
     tree-sitter
     uv
     # zulu
