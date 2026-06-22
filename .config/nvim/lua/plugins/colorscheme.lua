@@ -1,6 +1,15 @@
 return {
-  "LazyVim/LazyVim",
-  opts = {
-    colorscheme = "jellybeans",
+
+  {
+    "wtfox/jellybeans.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {}, -- Optional
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "jellybeans",
+    },
   },
 }

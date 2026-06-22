@@ -5,8 +5,6 @@ local js_like = {
   right_var = ")",
 }
 
-vim.api.nvim_set_hl(0, "DebugPrintLine", { bg = "#313244" })
-
 return {
   "andrewferrier/debugprint.nvim",
   opts = {
@@ -18,9 +16,11 @@ return {
     },
     keymaps = {
       normal = {
-        variable_below = "<leader>v",
+        variable_below = "<leader>dv",
+        plain_below = "<leader>dr",
       },
     },
+    move_to_debugline = true,
     display_location = false,
     print_tag = "DEBUG",
   },

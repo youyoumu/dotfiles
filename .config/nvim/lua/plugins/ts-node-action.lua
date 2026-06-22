@@ -98,27 +98,24 @@ end
 
 return {
   "ckolkey/ts-node-action",
-  enabled = true,
-  config = function()
-    require("ts-node-action").setup({
-      javascript = {
-        ["function_declaration"] = toggle_function,
-        ["lexical_declaration"] = toggle_function,
-      },
-      typescript = {
-        ["function_declaration"] = toggle_function,
-        ["lexical_declaration"] = toggle_function,
-      },
-      jsx = {
-        ["function_declaration"] = toggle_function,
-        ["lexical_declaration"] = toggle_function,
-      },
-      tsx = {
-        ["function_declaration"] = toggle_function,
-        ["lexical_declaration"] = toggle_function,
-      },
-    })
-  end,
+  opts = {
+    javascript = {
+      ["function_declaration"] = toggle_function,
+      ["lexical_declaration"] = toggle_function,
+    },
+    typescript = {
+      ["function_declaration"] = toggle_function,
+      ["lexical_declaration"] = toggle_function,
+    },
+    jsx = {
+      ["function_declaration"] = toggle_function,
+      ["lexical_declaration"] = toggle_function,
+    },
+    tsx = {
+      ["function_declaration"] = toggle_function,
+      ["lexical_declaration"] = toggle_function,
+    },
+  },
   keys = {
     {
       "<leader>tk",

@@ -20,9 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Detect hostname
+-- Load hostname-specific plugins
 local hostname = vim.g.current_hostname
---
 local host_spec = {}
 if vim.loop.fs_stat(vim.fn.stdpath("config") .. "/lua/hosts/" .. hostname) then
   table.insert(host_spec, { import = "hosts." .. hostname .. ".plugins" })

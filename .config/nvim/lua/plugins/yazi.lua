@@ -1,6 +1,13 @@
 return {
   "mikavilpas/yazi.nvim",
   event = "VeryLazy",
+  opts = {
+    -- if you want to open yazi instead of netrw, see below for more info
+    open_for_directories = false,
+    keymaps = {
+      show_help = "<f1>",
+    },
+  },
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {
@@ -20,13 +27,6 @@ return {
       "<leader>y",
       "<cmd>Yazi toggle<cr>",
       desc = "Resume the last yazi session",
-    },
-  },
-  opts = {
-    -- if you want to open yazi instead of netrw, see below for more info
-    open_for_directories = false,
-    keymaps = {
-      show_help = "<f1>",
     },
   },
 }

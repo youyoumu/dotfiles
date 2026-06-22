@@ -42,7 +42,6 @@
     python312Packages.pip
     ruby
     rcon-cli
-    systemd-lsp
     unzip
     zulu
 

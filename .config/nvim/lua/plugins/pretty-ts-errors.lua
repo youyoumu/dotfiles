@@ -5,7 +5,6 @@ return {
   dev = false,
   opts = {
     -- your configuration options
-
     auto_open = false,
   },
   keys = {
