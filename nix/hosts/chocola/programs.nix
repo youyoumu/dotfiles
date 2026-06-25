@@ -63,7 +63,7 @@ in
   virtualisation.docker = {
     enable = true;
     daemon.settings = {
-      data-root = "/mnt/WarmBrew265G/chocola/var/lib/docker";
+      data-root = "/mnt/n1t-usagi2/chocola/var/lib/docker";
     };
   };
 }
