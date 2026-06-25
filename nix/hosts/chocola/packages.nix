@@ -52,7 +52,8 @@
     pnpm
     python3
     ruby
-    rustup
+    cargo
+    rustc
     # statix
     tree-sitter
     uv
