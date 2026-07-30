@@ -42,22 +42,22 @@ in
     vim.enable = true;
     firefox.enable = true;
     obs-studio.enable = true;
-    zoom-us.enable = true;
+    # zoom-us.enable = true;
     gpu-screen-recorder.enable = true;
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      localNetworkGameTransfers.openFirewall = true;
-    };
-    spicetify = {
-      enable = true;
-      enabledExtensions = with spicePkgs.extensions; [
-        adblockify
-        hidePodcasts
-        shuffle
-      ];
-    };
+    # steam = {
+    #   enable = true;
+    #   remotePlay.openFirewall = true;
+    #   dedicatedServer.openFirewall = true;
+    #   localNetworkGameTransfers.openFirewall = true;
+    # };
+    # spicetify = {
+    #   enable = true;
+    #   enabledExtensions = with spicePkgs.extensions; [
+    #     adblockify
+    #     hidePodcasts
+    #     shuffle
+    #   ];
+    # };
   };
 
   virtualisation.docker = {

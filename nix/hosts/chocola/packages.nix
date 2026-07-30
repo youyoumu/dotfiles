@@ -28,7 +28,7 @@
     unzip
     wget
     yazi
-    zellij
+    # zellij
 
     # Dev
     # android-studio
@@ -41,11 +41,11 @@
     gcc
     gnumake
     go
-    gradle
+    # gradle
     # jetbrains.idea
     kdlfmt
     # kotlin
-    neovide
+    # neovide
     nixd
     # nixfmt
     nodejs
@@ -77,20 +77,20 @@
     xdg-utils
 
     # Desktop Environment
-    adw-gtk3
-    bibata-cursors
+    # adw-gtk3
+    # bibata-cursors
     cliphist
     file-roller
-    grim
+    # grim
     hypridle
-    hyprshot
-    kdePackages.qt6ct
+    # hyprshot
+    # kdePackages.qt6ct
     libnotify
     # mpv
     papirus-icon-theme
     satty
-    slurp
-    walker
+    # slurp
+    # walker
     wl-clipboard
     xwayland-satellite
     ffmpeg-headless
@@ -101,14 +101,14 @@
     anki
     discord
     footage
-    gimp3-with-plugins
+    # gimp3-with-plugins
     gnome-tweaks
     google-chrome
     # pkgs.latest.google-chrome
-    handbrake
+    # handbrake
     # kdePackages.kdenlive
     keepassxc
-    kitty
+    # kitty
     ghostty
     microsoft-edge
     # mission-center
@@ -120,7 +120,7 @@
     # Gaming
     antimicrox
     # bottles
-    prismlauncher
+    # prismlauncher
     # protonup-qt
 
     # Unsorted
@@ -135,7 +135,8 @@
     # gst_all_1.gst-libav
     # gst_all_1.gst-vaapi
     # gnomeExtensions.vitals
-    inputs.nix-alien.packages.${system}.nix-alien
+    # TODO: remove nix-alien stuff
+    # inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
     inputs.custom-packages.packages.${system}.thorium-avx2
     inputs.fhs.packages.${system}.default
