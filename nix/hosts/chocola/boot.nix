@@ -23,6 +23,7 @@
         configurationName = "yym";
         extraEntries = ''
           menuentry "Windows 11" {
+            savedefault
             search --no-floppy --fs-uuid --set=root 58B1-0C54
             chainloader /EFI/Microsoft/Boot/bootmgfw.efi
           }

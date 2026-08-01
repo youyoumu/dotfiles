@@ -75,6 +75,7 @@
     sqlite
     syncthing
     xdg-utils
+    grub2
 
     # Desktop Environment
     # adw-gtk3
