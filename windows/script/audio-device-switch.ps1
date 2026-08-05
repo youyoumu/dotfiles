@@ -1,6 +1,6 @@
 # Define audio device mappings per host
 $devices = @{
-  "chocola-swimsuit" = @(
+  "cacao" = @(
     "Digital Audio (S/PDIF) (2- High Definition Audio Device)",
     "Headphones (Arctis 5 Game)",
     "1 - Mi Monitor (2- AMD High Definition Audio Device)"
