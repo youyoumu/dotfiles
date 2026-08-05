@@ -88,11 +88,5 @@ with lib.hm.gvariant;
       name = "File Manager";
     };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
-      binding = "<Super>k";
-      command = "/home/yym/open-keepassxc.sh";
-      name = "KeepassXC";
-    };
-
   };
 }

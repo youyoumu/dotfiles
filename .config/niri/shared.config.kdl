@@ -67,9 +67,6 @@ binds {
   Ctrl+Shift+I {
     spawn "/home/yym/script/toggle-fcitx5.sh"
   }
-  Ctrl+Shift+K {
-    spawn "/home/yym/open-keepassxc.sh"
-  }
   Print {
     spawn "walker" "-m" "screenshots"
   }

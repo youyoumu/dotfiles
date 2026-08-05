@@ -80,7 +80,6 @@
     gnome-tweaks
     google-chrome
     handbrake
-    keepassxc
     kitty
     microsoft-edge
     mission-center

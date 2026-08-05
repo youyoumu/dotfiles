@@ -107,7 +107,6 @@
     # pkgs.latest.google-chrome
     # handbrake
     # kdePackages.kdenlive
-    keepassxc
     # kitty
     ghostty
     microsoft-edge

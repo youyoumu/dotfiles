@@ -47,7 +47,6 @@ packages:
   - Mozilla.Firefox
 
   # Productivity
-  - KeePassXCTeam.KeePassXC
   - Microsoft.PowerToys
   - Anki.Anki
   - LGUG2Z.komorebi

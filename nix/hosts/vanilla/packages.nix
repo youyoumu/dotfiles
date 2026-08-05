@@ -51,7 +51,6 @@
     ollama-cpu
 
     # GUI Apps
-    keepassxc
     kitty
 
     # Inputs and Others
