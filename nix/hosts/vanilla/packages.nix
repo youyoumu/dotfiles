@@ -54,7 +54,6 @@
     kitty
 
     # Inputs and Others
-    inputs.nix-alien.packages.${system}.nix-alien
     inputs.agenix.packages.${system}.default
     inputs.fhs.packages.${system}.default
   ];

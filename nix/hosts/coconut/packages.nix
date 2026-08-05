@@ -101,7 +101,6 @@
     gst_all_1.gst-libav
     gst_all_1.gst-vaapi
     gnomeExtensions.vitals
-    inputs.nix-alien.packages.${system}.nix-alien
     inputs.thorium.packages.${system}.thorium-avx2
     inputs.fhs.packages.${system}.default
     inputs.noctalia.packages.${system}.default
