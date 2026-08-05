@@ -49,7 +49,6 @@
     libsecret
     lssecret
     pulseaudioFull
-    syncthing
     unzip
     xdg-utils
 

@@ -33,12 +33,6 @@
       #media-session.enable = true;
     };
 
-    syncthing = {
-      enable = true;
-      user = "yym";
-      dataDir = "/home/yym";
-    };
-
     kmonad = {
       enable = true;
       keyboards = {

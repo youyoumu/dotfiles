@@ -32,12 +32,6 @@
       pulse.enable = true;
     };
 
-    syncthing = {
-      enable = true;
-      user = "yym";
-      dataDir = "/home/yym";
-    };
-
     cloudflared = {
       enable = true;
       tunnels = {

@@ -73,7 +73,6 @@
     pavucontrol
     pulseaudioFull
     sqlite
-    syncthing
     xdg-utils
     grub2
 

@@ -68,6 +68,4 @@ packages:
   # Communication
   - Discord.Discord
 
-  # Syncing
-  - BillStewart.SyncthingWindowsSetup
-  - Martchus.syncthingtray
+

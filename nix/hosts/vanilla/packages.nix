@@ -48,7 +48,6 @@
     # System
     cloudflared
     cronie
-    syncthing
     ollama-cpu
 
     # GUI Apps
