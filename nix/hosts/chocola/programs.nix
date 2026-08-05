@@ -7,9 +7,6 @@
   system,
   ...
 }:
-let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
-in
 {
   programs = {
     niri = {
@@ -49,14 +46,6 @@ in
     #   remotePlay.openFirewall = true;
     #   dedicatedServer.openFirewall = true;
     #   localNetworkGameTransfers.openFirewall = true;
-    # };
-    # spicetify = {
-    #   enable = true;
-    #   enabledExtensions = with spicePkgs.extensions; [
-    #     adblockify
-    #     hidePodcasts
-    #     shuffle
-    #   ];
     # };
   };
 
