@@ -26,6 +26,10 @@
         icu
       ];
     };
+    noctalia = {
+      enable = true;
+      recommendedServices.enable = true;
+    };
     gnupg.agent.enable = true;
     bat.enable = true;
     fish.enable = true;

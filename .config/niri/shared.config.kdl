@@ -16,80 +16,71 @@ layout {
     proportion 0.5
   }
   focus-ring {
-      width 2
-      active-gradient from="#d9bd6c" to="#bfe4c3" angle=45
+    width 2
+    active-gradient from="#d9bd6c" to="#ccd7fe" angle=45
   }
 }
 
 spawn-at-startup "walker" "--gapplication-service"
-spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "hypridle" "-c" "/home/yym/.config/hypr/hypridle.niri.conf"
 environment {
-    DISPLAY ":0"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    QT_QPA_PLATFORMTHEME "gtk3"
+  DISPLAY ":0"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
 }
 
 prefer-no-csd
 
 binds {
-  Mod+T hotkey-overlay-title="Open a Terminal: ghostty" {
-    spawn "ghostty" "+new-window"
-  }
-  Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" {
-    spawn "ghostty" "+new-window"
-  }
-  Mod+A hotkey-overlay-title="Applications launcher" {
-    spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"
-  }
-  Mod+S hotkey-overlay-title="Applications launcher" {
-    spawn "noctalia-shell" "ipc" "call" "plugin:custom-commands" "toggle"
-  }
-  Mod+M hotkey-overlay-title="Power menu" {
-    spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"
-  }
-  Mod+V hotkey-overlay-title="Clipboard" {
-    spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"
-  }
-  Mod+N hotkey-overlay-title="Emoji" {
-    spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"
-  }
-  Mod+E hotkey-overlay-title="Nautilus" {
-    spawn "nautilus"
-  }
-  Mod+W hotkey-overlay-title="Browser" {
-    spawn "microsoft-edge" "--disable-features=GlobalShortcutsPortal"
-  }
-  Mod+Shift+W hotkey-overlay-title="Run an Application: google-chrome-stable" {
-    spawn "google-chrome-stable" "--disable-features=GlobalShortcutsPortal"
-  }
-  Ctrl+Shift+I {
-    spawn "/home/yym/script/toggle-fcitx5.sh"
-  }
-  Print {
-    spawn "walker" "-m" "screenshots"
-  }
+  Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty" "+new-window"; }
+  Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty" "+new-window"; }
+  Mod+A hotkey-overlay-title="Applications launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+  // TODO: change to custom launcher
+  Mod+S hotkey-overlay-title="Control center" { spawn-sh "noctalia msg panel-toggle control-center"; }
+  Mod+M hotkey-overlay-title="Session menu" { spawn-sh "noctalia msg panel-toggle session"; }
+  Mod+V hotkey-overlay-title="Clipboard" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+  // Audio & Brightness
+  XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+  XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+  XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+  XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+  XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+
+  Mod+E hotkey-overlay-title="Nautilus" { spawn "nautilus"; }
+  Mod+W hotkey-overlay-title="Browser" { spawn "microsoft-edge" "--disable-features=GlobalShortcutsPortal"; }
+  Mod+Shift+W hotkey-overlay-title="Run an Application: google-chrome-stable" { spawn "google-chrome-stable" "--disable-features=GlobalShortcutsPortal"; }
+  Ctrl+Shift+I { spawn "/home/yym/script/toggle-fcitx5.sh"; }
+  Print { spawn "walker" "-m" "screenshots"; }
 }
 
 
 window-rule {
-    geometry-corner-radius 5
-    clip-to-geometry true
+  geometry-corner-radius 5
+  clip-to-geometry true
 }
 cursor {
-    xcursor-size 24
-    xcursor-theme "Ju Fufu"
+  xcursor-size 24
+  xcursor-theme "Ju Fufu"
 }
 hotkey-overlay {
-    skip-at-startup
+  skip-at-startup
 }
-// noctalia-shell
+
 debug {
-    honor-xdg-activation-with-invalid-serial
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
 }
 // Set the overview wallpaper on the backdrop.
 layer-rule {
-    match namespace="^noctalia-overview*"
-    place-within-backdrop true
+  match namespace="^noctalia-backdrop*"
+  place-within-backdrop true
+}
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
 }

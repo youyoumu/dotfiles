@@ -137,6 +137,5 @@
     inputs.agenix.packages.${system}.default
     inputs.custom-packages.packages.${system}.thorium-avx2
     inputs.fhs.packages.${system}.default
-    inputs.noctalia.packages.${system}.default
   ];
 }

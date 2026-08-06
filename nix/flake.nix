@@ -19,11 +19,6 @@
     custom-packages.url = "github:Rishabh5321/custom-packages-flake";
     custom-packages.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/legacy-v4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # ================================================================
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
@@ -101,10 +96,4 @@
         };
       };
     };
-  nixConfig = {
-    extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-    ];
-  };
 }

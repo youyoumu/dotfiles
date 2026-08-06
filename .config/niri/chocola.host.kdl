@@ -93,10 +93,5 @@ window-rule {
 spawn-at-startup "/home/yym/script/delayed-autostart.sh"
 
 binds {
-  Ctrl+Shift+O {
-    spawn "/home/yym/script/audio-device-switch.sh"
-  }
-  Shift+Print {
-    spawn "/home/yym/script/gpu-screen-recorder.sh"
-  }
+  Ctrl+Shift+O { spawn "/home/yym/script/audio-device-switch.sh"; }
 }
