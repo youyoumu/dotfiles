@@ -5,6 +5,7 @@
   pkgs,
   inputs,
   system,
+  shared,
   ...
 }:
 
@@ -21,6 +22,7 @@
     ./environment.nix
     ./home-manager
     ./systemd.nix
+    shared.gstreamer
   ];
 
   nix = {

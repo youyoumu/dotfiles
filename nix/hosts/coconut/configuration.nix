@@ -7,6 +7,7 @@
   lib,
   config,
   pkgs,
+  shared,
   ...
 }:
 
@@ -23,6 +24,7 @@
     ./services.nix
     ./environment.nix
     ./home-manager
+    shared.gstreamer
   ];
 
   nix = {
