@@ -4,6 +4,11 @@ return {
   ---@class PluginLspOpts
   opts = {
     servers = {
+      luau_lsp = {
+        -- prevent mason-lspconfig from automatic_enabled, we use luau-lsp.nvim instead
+        enabled = false,
+      },
+
       -- ruby_lsp = {
       --   enabled = true,
       --   init_options = {
