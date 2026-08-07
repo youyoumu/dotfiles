@@ -25,6 +25,8 @@ return {
       -- kdl = { "kdlfmt" },
       just = { "just" },
       xml = { "xmlformatter" },
+
+      luau = { "stylua" },
     },
   },
 }

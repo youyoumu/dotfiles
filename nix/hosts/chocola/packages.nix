@@ -57,6 +57,11 @@
     # statix
     tree-sitter
     uv
+    lua
+    luau
+    luau-lsp
+    lune
+    stylua
     # zulu
 
     # System
@@ -130,5 +135,6 @@
     inputs.agenix.packages.${system}.default
     inputs.custom-packages.packages.${system}.thorium-avx2
     inputs.fhs.packages.${system}.default
+    inputs.lute.packages.${system}.default
   ];
 }

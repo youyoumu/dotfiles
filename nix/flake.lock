@@ -143,6 +143,22 @@
         "type": "github"
       }
     },
+    "lute": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "path": "./packages/lute",
+        "type": "path"
+      },
+      "original": {
+        "path": "./packages/lute",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nix-formatter-pack": {
       "inputs": {
         "nixpkgs": [
@@ -289,6 +305,19 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1785571196,
+        "narHash": "sha256-xwSqxTsama0YTtS78+4YyCm6jJg09v78QWfP1cAyoVA=",
+        "rev": "148bab9c1c3c53136ecb44a6ea356a0ed5b39b06",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1045728.148bab9c1c3c/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+      }
+    },
     "nmd": {
       "inputs": {
         "nixpkgs": [
@@ -327,6 +356,25 @@
         "type": "gitlab"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1786013897,
+        "narHash": "sha256-u14Iaus6ROW6IWQUNGZ/IZJ3TcIUs1ngxn5sUMNnwMM=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "0247e4c5e5268f8c2a5658b60b97cb5f2eca7766",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "ref": "cachix",
+        "repo": "noctalia",
+        "type": "github"
+      }
+    },
     "oklch-color-picker": {
       "inputs": {
         "nixpkgs": [
@@ -349,11 +397,13 @@
         "custom-packages": "custom-packages",
         "fhs": "fhs",
         "home-manager": "home-manager_2",
+        "lute": "lute",
         "nix-index-database": "nix-index-database",
         "nix-on-droid": "nix-on-droid",
         "nix-secrets": "nix-secrets",
         "nixpkgs": "nixpkgs",
         "nixpkgs-latest": "nixpkgs-latest",
+        "noctalia": "noctalia",
         "oklch-color-picker": "oklch-color-picker"
       }
     },

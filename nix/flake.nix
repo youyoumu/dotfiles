@@ -19,6 +19,8 @@
     custom-packages.url = "github:Rishabh5321/custom-packages-flake";
     custom-packages.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    # ================================================================
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
@@ -27,6 +29,9 @@
     # ================================================================
     fhs.url = "path:./packages/fhs";
     fhs.inputs.nixpkgs.follows = "nixpkgs";
+    # ================================================================
+    lute.url = "path:./packages/lute";
+    lute.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
     nix-secrets.url = "path:./nix-secrets";
   };
@@ -50,6 +55,7 @@
             inputs.agenix.nixosModules.default
             inputs.nix-secrets.nixosModules.chocola
             inputs.nix-index-database.nixosModules.default
+            inputs.noctalia.nixosModules.default
             { programs.nix-index-database.comma.enable = true; }
             {
               nixpkgs.overlays = [
@@ -96,4 +102,10 @@
         };
       };
     };
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
 }
