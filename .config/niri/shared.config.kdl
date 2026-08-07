@@ -37,8 +37,7 @@ binds {
   Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty" "+new-window"; }
   Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty" "+new-window"; }
   Mod+A hotkey-overlay-title="Applications launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
-  // TODO: change to custom launcher
-  Mod+S hotkey-overlay-title="Control center" { spawn-sh "noctalia msg panel-toggle control-center"; }
+  Mod+S hotkey-overlay-title="Custom Launcher" { spawn-sh "noctalia msg panel-toggle launcher '/run'"; }
   Mod+M hotkey-overlay-title="Session menu" { spawn-sh "noctalia msg panel-toggle session"; }
   Mod+V hotkey-overlay-title="Clipboard" { spawn-sh "noctalia msg panel-toggle clipboard"; }
   // Audio & Brightness

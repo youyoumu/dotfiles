@@ -1,6 +1,6 @@
 return {
   "lopi-py/luau-lsp.nvim",
-  enabled = true,
+  enabled = false,
   opts = {
     platform = {
       type = "standard",
@@ -10,7 +10,7 @@ return {
     },
     types = {
       definition_files = {
-        noctalia = "noctalia.d.luau",
+        -- noctalia = "noctalia.d.luau",
       },
     },
     ignoreGlobs = { "**/*.d.luau" },
