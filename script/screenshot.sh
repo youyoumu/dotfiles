@@ -34,7 +34,8 @@ detect_compositor() {
 # Main screenshot function
 take_screenshot() {
   local mode="$1"
-  local compositor=$(detect_compositor)
+  local compositor
+  compositor="$(detect_compositor)"
 
   case "$compositor" in
   "niri")
@@ -52,7 +53,8 @@ take_screenshot() {
       sleep 3
       niri msg action screenshot
       ;;
-    "region-annotate")
+    "region-delay-annotate")
+      sleep 3
       TIMESTAMP=$(date '+%Y%m%d-%H%M%S')
       FILE_PATH="$HOME/Pictures/Screenshots/region-annotate-${TIMESTAMP}.png"
 
@@ -94,8 +96,8 @@ take_screenshot() {
     "region-delay")
       sleep 3 && hyprshot -m region --freeze
       ;;
-    "region-annotate")
-      grim -g "$(slurp -o)" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+%Y%m%d-%H:%M:%S').png
+    "region-delay-annotate")
+      sleep 3 && grim -g "$(slurp -o)" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-"$(date '+%Y%m%d-%H:%M:%S')".png
       ;;
     *)
       echo "Usage: $0 {monitor|region|window|region-delay|region-annotate}"
