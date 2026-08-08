@@ -1,60 +1,10 @@
-{
-  pkgs,
-  inputs,
-  system,
-  ...
-}:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # CLI & Shell
-    age
-    btop
-    duf
-    dust
-    eza
-    fastfetch
-    fd
-    fzf
-    jq
-    just
-    lazydocker
-    navi
-    ripgrep
-    sesh
-    stow
-    trash-cli
-    wget
-
-    # Dev
-    cargo
-    difftastic
-    gcc
-    gnumake
-    go
     isd
     keychain
-    nixd
-    nixfmt
-    nodejs
-    pm2
-    pnpm
-    python3
-    python312Packages.pip
-    ruby
     rcon-cli
-    unzip
-    zulu
-
-    # System
-    cloudflared
-    cronie
     ollama-cpu
-
-    # GUI Apps
-    kitty
-
-    # Inputs and Others
-    inputs.agenix.packages.${system}.default
-    inputs.fhs.packages.${system}.default
   ];
+  virtualisation.docker.enable = true;
 }

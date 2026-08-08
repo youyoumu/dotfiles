@@ -1,12 +1,4 @@
-{
-  lib,
-  config,
-  options,
-  pkgs,
-  inputs,
-  system,
-  ...
-}:
+{ ... }:
 {
   # fileSystems."/mnt/HDD-1TB" = {
   #   device = "/dev/disk/by-uuid/4E2C1B592C1B3C01";

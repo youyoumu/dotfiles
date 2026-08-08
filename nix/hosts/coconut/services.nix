@@ -1,38 +1,6 @@
-{
-  lib,
-  config,
-  options,
-  pkgs,
-  inputs,
-  system,
-  ...
-}:
+{ ... }:
 {
   services = {
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
-    printing.enable = true;
-    pulseaudio.enable = false;
-    envfs.enable = true;
-    flatpak.enable = true;
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      #jack.enable = true;
-      #media-session.enable = true;
-    };
-
     kmonad = {
       enable = true;
       keyboards = {
@@ -48,7 +16,4 @@
       };
     };
   };
-
-  security.rtkit.enable = true;
-  hardware.uinput.enable = true;
 }

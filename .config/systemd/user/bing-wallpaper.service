@@ -1,6 +1,0 @@
-[Unit]
-Description=Fetch Bing daily wallpaper
-
-[Service]
-Type=oneshot
-ExecStart=/run/current-system/sw/bin/bash -c 'fetch-wallpaper.sh'

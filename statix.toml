@@ -1,1 +1,1 @@
-disabled = []
+disabled = ["empty_pattern"]

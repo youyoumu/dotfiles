@@ -1,32 +1,32 @@
 #!/bin/env bash
 
-if [ -r ~/.private.sh ]; then . ~/.private.sh; fi
+if [ -r "$HOME/.private.sh" ]; then . "$HOME/.private.sh"; fi
 
 export EDITOR=nvim
-export PATH="$HOME/script:$PATH"
-export PATH=$PATH:~/.cargo/bin/
+export PATH="$HOME/scripts:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin/"
 export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="/home/yym/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export NEOVIDE_FRAMELESS=true
 export NEOVIDE_FRAME=none
 
-export NAVI_PATH="~/dotfiles/navi"
+export NAVI_PATH="$HOME/dotfiles/navi"
 
 case "$(hostname)" in
 chocola)
-  source ~/hosts/chocola/.bash_profile
+  source "$HOME/hosts/chocola/.bash_profile"
   ;;
 vanilla)
-  source ~/hosts/vanilla/.bash_profile
+  source "$HOME/hosts/vanilla/.bash_profile"
   ;;
 coconut)
-  source ~/hosts/coconut/.bash_profile
+  source "$HOME/hosts/coconut/.bash_profile"
   ;;
 localhost)
   case "$HOSTNAME" in
   azuki)
-    source ~/hosts/azuki/.bash_profile
+    source "$HOME/hosts/azuki/.bash_profile"
     ;;
   esac
   ;;

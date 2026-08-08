@@ -90,8 +90,8 @@ window-rule {
   opacity 0.0
 }
 
-spawn-at-startup "/home/yym/script/delayed-autostart.sh"
+spawn-sh-at-startup "~/scripts/delayed-autostart.sh"
 
 binds {
-  Ctrl+Shift+O { spawn "/home/yym/script/audio-device-switch.sh"; }
+  Ctrl+Shift+O { spawn-sh "~/scripts/audio-device-switch.sh"; }
 }

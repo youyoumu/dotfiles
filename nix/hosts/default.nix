@@ -1,6 +1,10 @@
 {
-  chocola = ./chocola/configuration.nix;
-  vanilla = ./vanilla/configuration.nix;
-  azuki = ./azuki/nix-on-droid.nix;
-  coconut = ./coconut/configuration.nix;
+  nixosModules = {
+    chocola = ./chocola;
+    vanilla = ./vanilla;
+    coconut = ./coconut;
+  };
+  nixOnDroidModules = {
+    azuki = ./azuki/nix-on-droid.nix;
+  };
 }

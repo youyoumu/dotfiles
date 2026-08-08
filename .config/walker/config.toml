@@ -278,7 +278,7 @@ icon = "system-lock-screen"
 
 [[plugins.entries]]
 label = "Logout"
-exec = "~/script/logout.sh"
+exec = "~/scripts/logout.sh"
 icon = "system-log-out"
 
 [[plugins.entries]]
@@ -293,20 +293,20 @@ show_icon_when_single = true
 
 [[plugins.entries]]
 label = "Screenshot Monitor"
-exec = "~/script/screenshot.sh monitor"
+exec = "~/scripts/screenshot.sh monitor"
 
 [[plugins.entries]]
 label = "Screenshot Region"
-exec = "~/script/screenshot.sh region"
+exec = "~/scripts/screenshot.sh region"
 
 [[plugins.entries]]
 label = "Screenshot Window"
-exec = "~/script/screenshot.sh window"
+exec = "~/scripts/screenshot.sh window"
 
 [[plugins.entries]]
 label = "Screenshot Region Delay 3s"
-exec = "~/script/screenshot.sh region-delay"
+exec = "~/scripts/screenshot.sh region-delay"
 
 [[plugins.entries]]
 label = "Screenshot Region Annotate"
-exec = "~/script/screenshot.sh region-annotate"
+exec = "~/scripts/screenshot.sh region-annotate"

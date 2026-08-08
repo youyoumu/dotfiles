@@ -1,67 +1,20 @@
+{ inputs, ... }:
 {
-  lib,
-  config,
-  options,
-  pkgs,
-  inputs,
-  system,
-  ...
-}:
-{
+  imports = [
+    inputs.nix-secrets.nixosModules.vanilla
+  ];
+
+  # https://github.com/NixOS/nixpkgs/issues/479809
   specialisation = {
     withGnome.configuration = {
       services = {
-        xserver.enable = true;
-        displayManager.gdm.enable = true;
         desktopManager.gnome.enable = true;
       };
     };
   };
 
   services = {
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-    };
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    printing.enable = true;
-    pulseaudio.enable = false;
-    envfs.enable = true;
-
-    pipewire = {
-      # enable = true;
-      # alsa.enable = true;
-      # alsa.support32Bit = true;
-      # pulse.enable = true;
-    };
-
-    cloudflared = {
-      enable = true;
-      tunnels = {
-        "f14135e3-03af-4f23-9493-e4d0a169a232" = {
-          credentialsFile = config.age.secrets."cloudflared.vanilla-tunnel.json".path;
-          default = "http_status:404";
-        };
-      };
-    };
-
-    openssh = {
-      enable = true;
-      ports = [ 56789 ];
-      settings = {
-        PasswordAuthentication = false;
-        AllowUsers = null;
-        UseDns = true;
-        X11Forwarding = false;
-        PermitRootLogin = "prohibit-password";
-        AcceptEnv = [ "SSH_PREFER_FISH" ];
-      };
-    };
+    desktopManager.gnome.enable = false;
+    cloudflared.tunnelNames = [ "vanilla-tunnel" ];
   };
-
-  security.rtkit.enable = true;
 }

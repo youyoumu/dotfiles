@@ -134,9 +134,9 @@
       "format-disconnected": "Disconnected ⚠"
     },
     "custom/audio-output": {
-      "exec": "~/script/get-audio-device.sh",
+      "exec": "~/scripts/get-audio-device.sh",
       "interval": 5,
-      "on-click": "~/script/audio-device-switch.sh"
+      "on-click": "~/scripts/audio-device-switch.sh"
     },
     "pulseaudio": {
       "scroll-step": 2,
@@ -159,10 +159,10 @@
     "custom/gpu-screen-recorder": {
       "format": "{}",
       "return-type": "json",
-      "exec": "~/script/gpu-screen-recorder-status.sh",
+      "exec": "~/scripts/gpu-screen-recorder-status.sh",
       "interval": 1,
-      "on-click": "~/script/gpu-screen-recorder.sh",
-      "on-click-right": "~/script/gpu-screen-recorder.sh --audio"
+      "on-click": "~/scripts/gpu-screen-recorder.sh",
+      "on-click-right": "~/scripts/gpu-screen-recorder.sh --audio"
     }
   },
   {

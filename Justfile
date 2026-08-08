@@ -7,35 +7,43 @@ hostname := `
     hostname; 
   fi
 `
+default: rebuild-nh
 
-default:
-    #!/usr/bin/env bash
-    if [[ "{{ hostname }}" == "azuki" ]]; then
-      nix-on-droid switch --flake ./nix?submodules=1#azuki;
-    else
-      nh os switch ./nix?submodules=1#
-    fi
-
-update one:
-    nix flake update {{ one }} --flake ./nix?submodules=1#
-
-update-all:
-    nix flake update --flake ./nix?submodules=1#
-
-update-lock input commit:
-    nix flake lock --override-input {{ input }} {{ commit }}
+update input="":
+    nix flake update {{ input }} --flake ./nix
 
 rebuild:
-    sudo nixos-rebuild switch --flake ./nix?submodules=1#
+    sudo nixos-rebuild switch --flake ./nix
+
+rebuild-nh:
+    #!/usr/bin/env bash
+    if [[ "{{ hostname }}" == "azuki" ]]; then
+      nix-on-droid switch --flake ./nix#azuki;
+    else
+      nh os switch ./nix
+    fi
 
 clean:
     sudo nh clean all
 
 meta:
-    nix flake metadata ./nix?submodules=1#
+    nix flake metadata ./nix
+
+history:
+    nix profile history --profile /nix/var/nix/profiles/system
+
+repl:
+    nix repl ./nix
+
+check:
+    nix flake check ./nix
+
+test:
+    nix-unit --flake ./nix#tests
 
 stow:
     #!/usr/bin/env bash
+    mkdir -p ~/.config/fish
     if [[ "{{ hostname }}" == "chocola" ]]; then
       stow . --ignore=".config/fish/*"
     else

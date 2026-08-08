@@ -10,7 +10,7 @@ input {
 }
 
 layout {
-  gaps 10
+  gaps 6
   center-focused-column "on-overflow"
   preset-column-widths {
     proportion 0.5
@@ -24,7 +24,7 @@ layout {
 spawn-at-startup "walker" "--gapplication-service"
 spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "hypridle" "-c" "/home/yym/.config/hypr/hypridle.niri.conf"
+spawn-sh-at-startup "hypridle -c ~/.config/hypr/hypridle.niri.conf"
 environment {
   DISPLAY ":0"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
@@ -50,7 +50,7 @@ binds {
   Mod+E hotkey-overlay-title="Nautilus" { spawn "nautilus"; }
   Mod+W hotkey-overlay-title="Browser" { spawn "microsoft-edge" "--disable-features=GlobalShortcutsPortal"; }
   Mod+Shift+W hotkey-overlay-title="Run an Application: google-chrome-stable" { spawn "google-chrome-stable" "--disable-features=GlobalShortcutsPortal"; }
-  Ctrl+Shift+I { spawn "/home/yym/script/toggle-fcitx5.sh"; }
+  Ctrl+Shift+I { spawn-sh "~/scripts/toggle-fcitx5.sh"; }
   Print { spawn "walker" "-m" "screenshots"; }
 }
 

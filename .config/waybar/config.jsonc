@@ -137,12 +137,12 @@
       "exec": "cat ~/.config/hypr/workspace_toggle_state | awk '{print toupper(substr($0,1,1)) substr($0,2)}'",
       "interval": 1,
       "format": "{} 󰕰 ",
-      "on-click": "~/script/workspace-toggle.sh"
+      "on-click": "~/scripts/workspace-toggle.sh"
     },
     "custom/audio-output": {
-      "exec": "~/script/get-audio-device.sh",
+      "exec": "~/scripts/get-audio-device.sh",
       "interval": 5,
-      "on-click": "~/script/audio-device-switch.sh"
+      "on-click": "~/scripts/audio-device-switch.sh"
     },
     "pulseaudio": {
       "scroll-step": 2,

@@ -16,6 +16,29 @@ else
     # 
 end
 
+function run --description "Run local run.fish file"
+    if test -f ./run.fish
+        if test (count $argv) -eq 0
+            ./run.fish default
+        else
+            ./run.fish $argv
+        end
+    else
+        echo "Error: No ./run.fish found in $(pwd)" >&2
+        return 1
+    end
+end
+
+function __fish_run_get_functions
+    set -l script_path "./run.fish"
+    if test -f $script_path
+        # TODO: unit-test this
+        string match -rg '^\s*function\s+([^\s]+)' <$script_path
+    end
+end
+
+complete -c run -f -a "(__fish_run_get_functions)"
+
 # eza
 alias list="command ls"
 alias ls="eza --long --icons --git --all --header --binary --no-permissions \

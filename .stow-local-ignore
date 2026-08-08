@@ -30,3 +30,4 @@ submodules
 windows
 /chezmoi
 statix.toml
+run.fish

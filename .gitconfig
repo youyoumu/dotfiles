@@ -28,8 +28,6 @@
 [merge]
   conflictstyle = zdiff3
 
-[diff]
-  external = difft
 [alias]
   # `git log` with patches shown with difftastic.
   dl = -c diff.external=difft log -p --ext-diff
@@ -55,7 +53,7 @@
 [includeIf "gitdir:C:/Users/yym/"]
   path = ~/.gitconfig.windows
 
-[includeIf "gitdir:/home/yym/"]
+[includeIf "gitdir:~/"]
   path = ~/.gitconfig.linux
-	path = /home/yym/.config/delta/themes/catppuccin.gitconfig
+	path = ~/.config/delta/themes/catppuccin.gitconfig
 

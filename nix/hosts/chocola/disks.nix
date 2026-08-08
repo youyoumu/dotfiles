@@ -1,12 +1,4 @@
-{
-  lib,
-  config,
-  options,
-  pkgs,
-  inputs,
-  system,
-  ...
-}:
+{ ... }:
 let
   commonOptions = [
     "nosuid" # Prevents execution of set-user-identifier (SUID) or set-group-identifier (SGID) binaries.

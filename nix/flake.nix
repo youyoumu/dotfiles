@@ -34,6 +34,9 @@
     lute.inputs.nixpkgs.follows = "nixpkgs";
     # ================================================================
     nix-secrets.url = "path:./nix-secrets";
+    # ================================================================
+    nix-unit.url = "github:nix-community/nix-unit";
+    nix-unit.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -41,67 +44,58 @@
     let
       shared = import ./shared;
       hosts = import ./hosts;
+      nixosSystem =
+        modules:
+        inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit shared inputs; };
+          inherit modules;
+        };
     in
     {
-      nixosConfigurations = {
-        chocola = inputs.nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs system shared;
-          };
-          modules = [
-            hosts.chocola
-            inputs.home-manager.nixosModules.home-manager
-            inputs.agenix.nixosModules.default
-            inputs.nix-secrets.nixosModules.chocola
-            inputs.nix-index-database.nixosModules.default
-            inputs.noctalia.nixosModules.default
-            { programs.nix-index-database.comma.enable = true; }
-            {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  latest = import inputs.nixpkgs-latest {
-                    inherit (final) system config;
-                  };
-                })
-              ];
-            }
-          ];
-        };
-        vanilla = inputs.nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs system shared;
-          };
-          modules = [
-            hosts.vanilla
-            inputs.home-manager.nixosModules.home-manager
-            inputs.agenix.nixosModules.default
-            inputs.nix-secrets.nixosModules.vanilla
-          ];
-        };
-        coconut = inputs.nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs system shared;
-          };
-          modules = [
-            hosts.coconut
-            inputs.home-manager.nixosModules.home-manager
-          ];
-        };
 
+      nixosConfigurations = {
+        chocola = nixosSystem [ hosts.nixosModules.chocola ];
+        vanilla = nixosSystem [ hosts.nixosModules.vanilla ];
+        coconut = nixosSystem [ hosts.nixosModules.coconut ];
       };
       nixOnDroidConfigurations = {
         azuki = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
           pkgs = import inputs.nixpkgs { system = "aarch64-linux"; };
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-          modules = [ hosts.azuki ];
+          extraSpecialArgs = { inherit inputs; };
+          modules = [ hosts.nixOnDroidModules.azuki ];
         };
       };
+
+      tests = import ./tests { inherit inputs; };
+      checks =
+        let
+          forAllSystems = inputs.nixpkgs.lib.genAttrs [ "x86_64-linux" ];
+          overrideInputs = builtins.filter (
+            name: name != "self" && (builtins.substring 0 5 (inputs.${name}.url or "") != "path:")
+          ) (builtins.attrNames inputs);
+          overrideFlags = builtins.concatStringsSep " " (
+            builtins.map (name: "--override-input ${name} ${inputs.${name}}") overrideInputs
+          );
+        in
+        forAllSystems (system: {
+          default =
+            inputs.nixpkgs.legacyPackages.${system}.runCommand "nix-unit-tests"
+              {
+                nativeBuildInputs = [ inputs.nix-unit.packages.${system}.default ];
+              }
+              ''
+                export HOME="$(realpath .)"
+                nix-unit \
+                  --eval-store "$HOME" \
+                  --accept-flake-config \
+                  --extra-experimental-features flakes \
+                  ${overrideFlags} \
+                  --flake ${inputs.self}#tests
+                touch $out
+              '';
+        });
     };
+
   nixConfig = {
     extra-substituters = [ "https://noctalia.cachix.org" ];
     extra-trusted-public-keys = [
