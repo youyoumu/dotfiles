@@ -36,6 +36,7 @@
     go
     kdlfmt
     lua
+    lua-language-server
     luau
     luau-lsp
     lune

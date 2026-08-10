@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# TODO: remove
+export LUA_PATH="$HOME/dotfiles/?.lua;$HOME/dotfiles/?/init.lua;;"
+
 PARENT_PROCESS=$(ps --no-header --pid=$PPID --format=comm)
 
 started_by_fish() { [[ "$PARENT_PROCESS" == "fish" ]]; }
@@ -40,6 +43,6 @@ if (! in_script_mode && ! no_fish); then
 fi
 
 # XDG Ninja
-alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias wget='wget --hsts-file="$XDG_DATA_HOME"/wget-hsts'
 alias keychain='keychain --absolute --dir "$XDG_RUNTIME_DIR"/keychain'
 alias adb='HOME="$XDG_DATA_HOME"/android adb'

@@ -1,12 +1,13 @@
 #!/bin/env bash
 
+export LUA_PATH="$HOME/dotfiles/?.lua;$HOME/dotfiles/?/init.lua;;"
+
 if [ -r "$HOME/.private.sh" ]; then . "$HOME/.private.sh"; fi
 
 # --- Import environment.d/session.conf ---
-if [ -r "$HOME/scripts/import-session-conf.sh" ]; then
-    source "$HOME/scripts/import-session-conf.sh"
-    import_session_conf
-    unset -f import_session_conf
+if command -v lua >/dev/null 2>&1; then
+  _env="$(lua "$HOME/dotfiles/scripts/import_session_conf.lua" 2>/dev/null)" && eval "$_env"
+  unset _env
 fi
 
 case "$(hostname)" in

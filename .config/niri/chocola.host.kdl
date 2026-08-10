@@ -93,5 +93,5 @@ window-rule {
 spawn-sh-at-startup "~/scripts/delayed-autostart.sh"
 
 binds {
-  Ctrl+Shift+O { spawn-sh "~/scripts/audio-device-switch.sh"; }
+  Ctrl+Shift+O { spawn-sh "lua ~/scripts/audio.lua switch"; }
 }

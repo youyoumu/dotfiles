@@ -43,6 +43,23 @@ test:
 
 format:
     treefmt
+    stylua ./
+
+test-lua:
+    #!/usr/bin/env lua
+    local T = require("lib.test")
+    local dotfiles = os.getenv("HOME") .. "/dotfiles"
+    local handle = io.popen("find " .. dotfiles .. " -name '*_spec.lua' -type f -not -path '*/.git/*'")
+    if handle then
+      for file in handle:lines() do
+        local rel = file:match(dotfiles .. "/(.+)%.lua$")
+        local mod = rel:gsub("/", ".")
+        local spec = require(mod)
+        spec(T)
+      end
+      handle:close()
+    end
+    T.run()
 
 stow:
     #!/usr/bin/env bash
