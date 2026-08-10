@@ -51,9 +51,9 @@
   tool = difftastic
 
 [includeIf "gitdir:C:/Users/yym/"]
-  path = ~/.gitconfig.windows
+  path = ~/.config/git/gitconfig.windows
 
 [includeIf "gitdir:~/"]
-  path = ~/.gitconfig.linux
+  path = ~/.config/git/gitconfig.linux
 	path = ~/.config/delta/themes/catppuccin.gitconfig
 

@@ -66,6 +66,11 @@ alias zvim="NVIM_APPNAME=zvim nvim"
 alias p="pnpm"
 alias j="just"
 
+# XDG Ninja
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias keychain='keychain --absolute --dir "$XDG_RUNTIME_DIR"/keychain'
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
+
 function nd
     nohup neovide $argv >/dev/null 2>&1 &
     disown

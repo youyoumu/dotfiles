@@ -38,3 +38,8 @@ if (! in_script_mode && ! no_fish); then
     exec fish "${LOGIN_OPTION[@]}"
   fi
 fi
+
+# XDG Ninja
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias keychain='keychain --absolute --dir "$XDG_RUNTIME_DIR"/keychain'
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
