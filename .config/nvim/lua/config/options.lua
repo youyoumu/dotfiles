@@ -18,6 +18,9 @@ vim.filetype.add({
   filename = {
     Caddyfile = "caddy",
   },
+  pattern = {
+    [".*/environment%.d/.*%.conf"] = "ini",
+  },
 })
 
 vim.g.lazyvim_python_lsp = "basedpyright"

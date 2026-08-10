@@ -2,7 +2,7 @@ fish_vi_key_bindings
 set -g fish_greeting
 fish_config theme choose catppuccin-mocha
 
-if not test is_home_manager
+if not test __is_home_manager_config
     if type -q starship
         starship init fish | source
     end
@@ -12,8 +12,6 @@ if not test is_home_manager
     if type -q navi
         navi widget fish | source
     end
-else
-    # 
 end
 
 function run --description "Run local run.fish file"
@@ -41,16 +39,19 @@ complete -c run -f -a "(__fish_run_get_functions)"
 
 # eza
 alias list="command ls"
-alias ls="eza --long --icons --git --all --header --binary --no-permissions \
+alias ls="eza --long --icons --git --all --header --no-permissions \
           --no-user --mounts --grid --group-directories-first"
 alias lsl="eza --long --icons --header --all --binary --mounts \
           --group-directories-first --group"
-alias lt="eza --tree --icons --all --group-directories-first"
-alias lt1="eza --tree --level=2 --icons --all --group-directories-first"
-alias lt2="eza --tree --level=2 --icons --all --group-directories-first"
-alias lt3="eza --tree --level=3 --icons --all --group-directories-first"
-alias lt4="eza --tree --level=4 --icons --all --group-directories-first"
-alias lt5="eza --tree --level=5 --icons --all --group-directories-first"
+function lt --argument-names level
+    if not test -n "$level"
+        command eza --tree --level=1 --icons --all --group-directories-first
+    else if test "$level" -eq 0
+        command eza --tree --icons --all --group-directories-first
+    else
+        command eza --tree --level=$level --icons --all --group-directories-first
+    end
+end
 
 function rm
     echo "Usage of 'rm' is disabled. Use 'del' instead."

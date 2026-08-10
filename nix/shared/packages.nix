@@ -41,6 +41,7 @@
     lune
     nixd
     nixfmt
+    nixfmt-tree
     nodejs
     pnpm
     python3

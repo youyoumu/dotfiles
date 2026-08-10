@@ -1,4 +1,9 @@
-{ config, pkgs, shared, ... }:
+{
+  config,
+  pkgs,
+  shared,
+  ...
+}:
 
 {
   hardware.graphics.extraPackages = with pkgs; [

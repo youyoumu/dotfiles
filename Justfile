@@ -41,8 +41,12 @@ check:
 test:
     nix-unit --flake ./nix#tests
 
+format:
+    treefmt
+
 stow:
     #!/usr/bin/env bash
+    # TODO: skip if nix 
     mkdir -p ~/.config/fish
     if [[ "{{ hostname }}" == "chocola" ]]; then
       stow . --ignore=".config/fish/*"

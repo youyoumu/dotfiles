@@ -16,7 +16,7 @@ in
     fish = {
       enable = true;
       interactiveShellInit = ''
-        set is_home_manager true
+        set __is_home_manager_config true
         source ~/.config/fish/init.fish
       '';
       plugins = [
@@ -60,6 +60,7 @@ in
   };
 
   xdg.configFile = {
+    "environment.d/session.conf".source = symlink "${CONFIG}/environment.d/session.conf";
     "bat".source = symlink "${CONFIG}/bat";
     "chezmoi".source = symlink "${CONFIG}/chezmoi";
     "delta".source = symlink "${CONFIG}/delta";
