@@ -15,7 +15,7 @@ if ! [[ "$1" =~ ^[1-9]$ ]]; then
 fi
 
 # Check the toggle state
-STATE_FILE="$HOME/.config/hypr/workspace_toggle_state"
+STATE_FILE="${XDG_RUNTIME_DIR:-/tmp}/workspace-toggle-state"
 if [ ! -f "$STATE_FILE" ]; then
   echo "normal" >"$STATE_FILE"
 fi

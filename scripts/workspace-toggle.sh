@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # File to store toggle state
-STATE_FILE="$HOME/.config/hypr/workspace_toggle_state"
+STATE_FILE="${XDG_RUNTIME_DIR:-/tmp}/workspace-toggle-state"
 
 # Initialize the file if it doesn't exist (default to normal mode)
 if [ ! -f "$STATE_FILE" ]; then

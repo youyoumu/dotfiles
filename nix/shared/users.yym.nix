@@ -75,7 +75,6 @@ in
     "swaync".source = symlink "${CONFIG}/swaync";
     "tmux".source = symlink "${CONFIG}/tmux";
     "walker".source = symlink "${CONFIG}/walker";
-    "waybar".source = symlink "${CONFIG}/waybar";
     "wireplumber".source = symlink "${CONFIG}/wireplumber";
     "wpaperd".source = symlink "${CONFIG}/wpaperd";
     "yazi".source = symlink "${CONFIG}/yazi";
