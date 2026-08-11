@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   environment = {
@@ -39,7 +34,6 @@
       age
       fzf
       lazygit
-      fish
       starship
       yazi
       navi

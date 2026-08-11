@@ -30,4 +30,5 @@ submodules
 windows
 /chezmoi
 statix.toml
-run.fish
+.luarc.json
+.TODO.md
