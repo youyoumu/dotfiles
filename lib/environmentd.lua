@@ -20,7 +20,7 @@ function M.parse_conf(content)
 			if key then
 				key = key:match("^%s*(.-)%s*$")
 				value = value:match("^%s*(.-)%s*$")
-			result[key] = value
+				result[key] = value
 			end
 		end
 	end
@@ -47,7 +47,7 @@ end
 function M.to_env(conf)
 	local lines = {}
 	for key, value in pairs(conf) do
-		value = value:gsub('\\', '\\\\'):gsub('"', '\\"')
+		value = value:gsub("\\", "\\\\"):gsub('"', '\\"')
 		lines[#lines + 1] = string.format('export %s="%s"', key, value)
 	end
 	return table.concat(lines, "\n")

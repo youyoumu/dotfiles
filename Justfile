@@ -38,12 +38,15 @@ repl:
 check:
     nix flake check ./nix
 
-test:
+test-nix:
     nix-unit --flake ./nix#tests
 
 format:
     treefmt
-    stylua ./
+    stylua --allow-hidden ./
+
+typecheck-lua:
+    lua-language-server --check=./
 
 test-lua:
     #!/usr/bin/env lua
