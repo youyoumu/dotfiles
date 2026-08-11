@@ -1,5 +1,3 @@
-local Snacks = require("folke/snacks.nvim")
-
 return {
 	"folke/snacks.nvim",
 	priority = 1000,

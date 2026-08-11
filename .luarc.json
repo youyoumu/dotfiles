@@ -1,7 +1,7 @@
 {
-  "runtime.version": "LuaJIT",
-  "runtime.special": {
-    "vim": "vim"
-  },
-  "diagnostics.globals": ["vim"]
+  "workspace.library": [
+    "$VIMRUNTIME/lua",
+    "$HOME/.local/share/nvim/lazy/oklch-color-picker.nvim",
+    "$HOME/.local/share/nvim/lazy/snacks.nvim"
+  ]
 }

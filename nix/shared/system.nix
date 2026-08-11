@@ -39,6 +39,7 @@
 
   environment = {
     variables.EDITOR = "nvim";
+    variables.VIMRUNTIME = "${pkgs.neovim-unwrapped}/share/nvim/runtime";
     # https://github.com/NixOS/nixpkgs/issues/149812
     sessionVariables.XDG_DATA_DIRS = [ "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}" ];
   };

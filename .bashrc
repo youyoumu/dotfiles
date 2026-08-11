@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: remove
-export LUA_PATH="$HOME/dotfiles/?.lua;$HOME/dotfiles/?/init.lua;;"
-
 PARENT_PROCESS=$(ps --no-header --pid=$PPID --format=comm)
 
 started_by_fish() { [[ "$PARENT_PROCESS" == "fish" ]]; }

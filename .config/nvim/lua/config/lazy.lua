@@ -53,6 +53,7 @@ require("lazy").setup({
   git = {
     timeout = 9999,
   },
+  --- @diagnostic disable-next-line: assign-type-mismatch
   dev = {
     path = "~/repos/",
   },
