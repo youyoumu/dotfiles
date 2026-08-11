@@ -64,6 +64,12 @@ test-lua:
     end
     T.run()
 
+test-fish:
+    #!/usr/bin/env bash
+    for f in $(find .config/fish/lib -name '*.test.fish' -type f -not -path '*/.git/*'); do
+      fish "$f" || exit 1
+    done
+
 stow apply="":
     #!/usr/bin/env bash
     if [[ 
