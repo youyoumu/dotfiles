@@ -39,6 +39,7 @@ if (! in_script_mode && ! no_fish); then
   fi
 fi
 
+alias stow='stow --simulate'
 # XDG Ninja
 alias wget='wget --hsts-file="$XDG_DATA_HOME"/wget-hsts'
 alias keychain='keychain --absolute --dir "$XDG_RUNTIME_DIR"/keychain'

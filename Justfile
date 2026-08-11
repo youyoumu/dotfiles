@@ -64,14 +64,21 @@ test-lua:
     end
     T.run()
 
-stow:
+stow apply="":
     #!/usr/bin/env bash
-    # TODO: skip if nix 
-    mkdir -p ~/.config/fish
-    if [[ "{{ hostname }}" == "chocola" ]]; then
-      stow . --ignore=".config/fish/*"
-    else
+    if [[ 
+      "{{ hostname }}" == "chocola" || 
+      "{{ hostname }}" == "vanilla" || 
+      "{{ hostname }}" == "coconut" 
+    ]]; 
+    then
+      echo "Please use home-manager instead of stow"
+    elif [[ "{{ apply }}" == "apply" ]]; then
+      echo "Stowing..."
       stow .
+    else
+      echo "Simulating stow..."
+      stow --simulate .
     fi
 
 submodules:

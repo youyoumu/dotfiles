@@ -59,6 +59,7 @@ function rm
 end
 alias remove="command rm"
 alias del="trash"
+alias stow='stow --simulate'
 alias s="sesh connect (sesh list | fzf)"
 alias lg="lazygit"
 alias n="nvim"
