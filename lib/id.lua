@@ -17,8 +17,12 @@ end
 
 --- Generate a nanoid (random hex string).
 ---@param len? number Length of the id (default 21).
+---@param seed? number Optional seed for deterministic output.
 ---@return string
-function M.nanoid(len)
+function M.nanoid(len, seed)
+	if seed then
+		math.randomseed(seed)
+	end
 	return random_hex(len or 21)
 end
 

@@ -12,6 +12,19 @@ return function(T)
 		T.assert_eq(out:match("^3"), "3")
 	end)
 
+	T.test("run passes args as argv without a shell", function()
+		local out, status = shell.run("printf", "[%s]", "a b")
+		T.assert_eq(out:match("^%[(.-)%]"), "a b")
+		T.assert_eq(status, 0)
+		local literal = shell.run("echo", "$HOME")
+		T.assert_eq(literal:match("^$HOME"), "$HOME")
+	end)
+
+	T.test("read_file returns file contents", function()
+		local out = shell.read_file("lib/shell.lua")
+		T.assert_truthy(out:match("function M%.read_file"))
+	end)
+
 	T.test("dispatch calls matching command", function()
 		local called = false
 		local old_arg = arg

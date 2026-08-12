@@ -49,6 +49,14 @@ let
   };
 
   duplicates = list: lib.unique (builtins.filter (name: lib.count (n: n == name) list > 1) list);
+
+  excludedMasonPackages = builtins.fromJSON (
+    builtins.readFile ../../.config/nvim/lua/config/excluded-mason-packages.json
+  );
+  nixpkgsToReplaceMason = map (pkg: builtins.elemAt pkg 1) excludedMasonPackages;
+  nixpkgsMissingFromToolchain = lib.filter (
+    pkg: !(builtins.elem pkg packages.toolchain)
+  ) nixpkgsToReplaceMason;
 in
 {
   "test: No duplicate packages between default, toolchain, and desktop" = {
@@ -70,6 +78,11 @@ in
   };
   "test: No duplicate packages on azuki" = {
     expr = duplicates hostPackages.azuki;
+    expected = [ ];
+  };
+
+  "test: excluded Mason packages nixpkgs exist in toolchain" = {
+    expr = nixpkgsMissingFromToolchain;
     expected = [ ];
   };
 }

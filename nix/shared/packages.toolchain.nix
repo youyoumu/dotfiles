@@ -25,7 +25,11 @@
     kotlin-language-server
     ktfmt
     ktlint
-    lua
+    (lua.withPackages (ps: [
+      ps.cjson
+      ps.luaposix
+      ps.lyaml
+    ]))
     lua-language-server
     luau
     luau-lsp
