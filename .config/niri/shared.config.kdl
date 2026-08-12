@@ -24,7 +24,6 @@ layout {
 spawn-at-startup "walker" "--gapplication-service"
 spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
-spawn-sh-at-startup "hypridle -c ~/.config/hypr/hypridle.niri.conf"
 environment {
   DISPLAY ":0"
   ELECTRON_OZONE_PLATFORM_HINT "auto"

@@ -19,7 +19,6 @@
     ffmpegthumbnailer
     file-roller
     gdk-pixbuf
-    hypridle
     libnotify
     papirus-icon-theme
     pavucontrol
