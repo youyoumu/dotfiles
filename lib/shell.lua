@@ -40,6 +40,7 @@ end
 --- Sleep for a number of seconds.
 ---@param seconds number
 function M.sleep(seconds)
+	-- TODO: use posix
 	os.execute(string.format("sleep %s", seconds))
 end
 

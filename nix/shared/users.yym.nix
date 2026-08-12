@@ -41,7 +41,6 @@ in
   home = {
     stateVersion = "25.05";
     file = {
-      ".bash_logout".source = symlink "${DOTFILES}/.bash_logout";
       ".bash_profile".source = symlink "${DOTFILES}/.bash_profile";
       ".bashrc".source = symlink "${DOTFILES}/.bashrc";
       ".profile".source = symlink "${DOTFILES}/.profile";
