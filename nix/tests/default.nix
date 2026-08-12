@@ -6,6 +6,7 @@ let
     packages = import ./packages.test.nix { inherit pkgs inputs; };
     services = import ./services.test.nix { inherit pkgs inputs; };
     cloudflared = import ./cloudflared.test.nix { inherit pkgs inputs; };
+    home-manager = import ./home-manager.test.nix { inherit pkgs inputs; };
   };
 in
-tests.packages // tests.services // tests.cloudflared
+tests.packages // tests.services // tests.cloudflared // tests.home-manager

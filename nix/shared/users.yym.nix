@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  shared,
   ...
 }:
 let
@@ -10,8 +9,6 @@ let
   symlink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
-  imports = [ shared.nixosModules.dconf ];
-
   programs = {
     fish = {
       enable = true;
@@ -82,6 +79,7 @@ in
     "zvim".source = symlink "${CONFIG}/zvim";
     # partially managed by home-manager
     "fish/hosts".source = symlink "${CONFIG}/fish/hosts";
+    "fish/lib".source = symlink "${CONFIG}/fish/lib";
     "fish/init.fish".source = symlink "${CONFIG}/fish/init.fish";
     "environment.d/session.conf".source = symlink "${CONFIG}/environment.d/session.conf";
   };

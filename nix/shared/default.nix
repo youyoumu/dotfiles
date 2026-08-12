@@ -11,7 +11,10 @@
       openssh = ./services.openssh.nix;
       cloudflared = ./cloudflared.nix;
     };
-    home-manager = ./home-manager.nix;
+    home-manager = {
+      default = ./home-manager.nix;
+      desktop = ./home-manager.desktop.nix;
+    };
     user.yym = ./users.yym.nix;
     fonts = ./fonts.nix;
     ime = ./ime.nix;

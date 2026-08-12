@@ -14,7 +14,6 @@
   };
 
   services = {
-    desktopManager.gnome.enable = false;
     cloudflared.tunnelNames = [ "vanilla-tunnel" ];
   };
 }

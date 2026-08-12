@@ -2,7 +2,8 @@
 {
   imports = [
     shared.nixosModules.system
-    shared.nixosModules.home-manager
+    shared.nixosModules.home-manager.default
+    shared.nixosModules.home-manager.desktop
     shared.nixosModules.fonts
     shared.nixosModules.ime
     shared.nixosModules.gstreamer

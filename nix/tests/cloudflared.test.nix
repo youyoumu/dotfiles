@@ -7,8 +7,9 @@ let
   hostModules = lib.mapAttrs (_: path: import path { inherit shared; }) hosts.nixosModules;
   cloudflared = shared.nixosModules.services.cloudflared;
 
-  hostServices =
-    lib.mapAttrs (name: _: import ../hosts/${name}/services.nix { inherit inputs; }) hosts.nixosModules;
+  hostServices = lib.mapAttrs (
+    name: _: import ../hosts/${name}/services.nix { inherit inputs; }
+  ) hosts.nixosModules;
   tunnelNames = name: hostServices.${name}.services.cloudflared.tunnelNames or [ ];
 in
 {
