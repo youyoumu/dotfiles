@@ -1,4 +1,8 @@
 #!/bin/env bash
 
-# [ -s "/home/yym/.jabba/jabba.sh" ] && source "/home/yym/.jabba/jabba.sh"
-eval "$(keychain --eval --quiet --noask)"
+# Only initialize keychain if SSH Agent Forwarding isn't actively providing a socket
+if [ -z "$SSH_AUTH_SOCK" ] || [ ! -S "$SSH_AUTH_SOCK" ]; then
+  eval "$(keychain --eval --quiet --noask)"
+fi
+
+echo "Current SSH_AUTH_SOCK: $SSH_AUTH_SOCK"
