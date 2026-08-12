@@ -91,4 +91,4 @@ submodules:
     git submodule update --init --recursive
 
 keychain:
-    keychain ~/.ssh/{{ hostname }}
+    keychain --absolute --dir "$XDG_RUNTIME_DIR"/keychain ~/.ssh/{{ hostname }}:
