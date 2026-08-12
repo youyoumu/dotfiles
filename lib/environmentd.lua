@@ -3,10 +3,11 @@ local M = {}
 
 --- Parse a .conf file (environment.d style).
 --- Handles comments, blank lines, and backslash continuations.
+--- Returns entries in file order, preserving duplicate keys.
 ---@param content string
----@return table<string, string>
+---@return { key: string, value: string }[]
 function M.parse_conf(content)
-	---@type table<string, string>
+	---@type { key: string, value: string }[]
 	local result = {}
 
 	-- Join continuation lines
@@ -20,7 +21,7 @@ function M.parse_conf(content)
 			if key then
 				key = key:match("^%s*(.-)%s*$")
 				value = value:match("^%s*(.-)%s*$")
-				result[key] = value
+				result[#result + 1] = { key = key, value = value }
 			end
 		end
 	end
@@ -30,7 +31,7 @@ end
 
 --- Parse a .conf file from disk.
 ---@param path string
----@return table<string, string>
+---@return { key: string, value: string }[]
 function M.load_conf(path)
 	local f = io.open(path, "r")
 	if not f then
@@ -41,14 +42,14 @@ function M.load_conf(path)
 	return M.parse_conf(content)
 end
 
---- Convert a conf table to bash export statements.
----@param conf table<string, string>
+--- Convert conf entries to bash export statements.
+---@param conf { key: string, value: string }[]
 ---@return string
 function M.to_env(conf)
 	local lines = {}
-	for key, value in pairs(conf) do
-		value = value:gsub("\\", "\\\\"):gsub('"', '\\"')
-		lines[#lines + 1] = string.format('export %s="%s"', key, value)
+	for _, entry in ipairs(conf) do
+		local value = entry.value:gsub("\\", "\\\\"):gsub('"', '\\"')
+		lines[#lines + 1] = string.format('export %s="%s"', entry.key, value)
 	end
 	return table.concat(lines, "\n")
 end
