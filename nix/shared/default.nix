@@ -4,6 +4,7 @@
     packages = {
       default = ./packages.nix;
       desktop = ./packages.desktop.nix;
+      toolchain = ./packages.toolchain.nix;
     };
     services = {
       default = ./services.nix;

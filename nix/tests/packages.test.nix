@@ -5,6 +5,7 @@ let
 
   packageConfigs = {
     default = import ../shared/packages.nix { inherit pkgs inputs; };
+    toolchain = import ../shared/packages.toolchain.nix { inherit pkgs; };
     desktop = import ../shared/packages.desktop.nix { inherit pkgs inputs; };
   };
 
@@ -25,27 +26,33 @@ let
 
   packages = {
     default = extractPackages packageConfigs.default;
+    toolchain = extractPackages packageConfigs.toolchain;
     desktop = extractPackages packageConfigs.desktop;
   };
 
   hostPackages = {
     chocola =
       extractPackages packageConfigs.default
+      ++ extractPackages packageConfigs.toolchain
       ++ extractPackages packageConfigs.desktop
       ++ extractPackages hostPackageConfigs.chocola;
     coconut =
       extractPackages packageConfigs.default
+      ++ extractPackages packageConfigs.toolchain
       ++ extractPackages packageConfigs.desktop
       ++ extractPackages hostPackageConfigs.coconut;
-    vanilla = extractPackages packageConfigs.default ++ extractPackages hostPackageConfigs.vanilla;
+    vanilla =
+      extractPackages packageConfigs.default
+      ++ extractPackages packageConfigs.toolchain
+      ++ extractPackages hostPackageConfigs.vanilla;
     azuki = extractPackages hostPackageConfigs.azuki;
   };
 
   duplicates = list: lib.unique (builtins.filter (name: lib.count (n: n == name) list > 1) list);
 in
 {
-  "test: No duplicate packages between default and desktop" = {
-    expr = duplicates (packages.default ++ packages.desktop);
+  "test: No duplicate packages between default, toolchain, and desktop" = {
+    expr = duplicates (packages.default ++ packages.toolchain ++ packages.desktop);
     expected = [ ];
   };
 

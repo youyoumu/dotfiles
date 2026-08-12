@@ -9,6 +9,7 @@
     shared.nixosModules.gstreamer
     shared.nixosModules.boot.grub
     shared.nixosModules.packages.default
+    shared.nixosModules.packages.toolchain
     shared.nixosModules.packages.desktop
     shared.nixosModules.services.default
     shared.nixosModules.services.desktop

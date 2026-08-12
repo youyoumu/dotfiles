@@ -26,33 +26,6 @@
     unzip
     wget
 
-    # Dev
-    cargo
-    clang-tools
-    devenv
-    difftastic
-    gcc
-    gnumake
-    go
-    kdlfmt
-    lua
-    lua-language-server
-    luau
-    luau-lsp
-    lune
-    nixd
-    nixfmt
-    nixfmt-tree
-    nodejs
-    pnpm
-    python3
-    ruby
-    rustc
-    stylua
-    tree-sitter
-    uv
-    sqlite
-
     # System
     cloudflared
     cronie

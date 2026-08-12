@@ -4,6 +4,7 @@
     shared.nixosModules.system
     shared.nixosModules.home-manager.default
     shared.nixosModules.packages.default
+    shared.nixosModules.packages.toolchain
     shared.nixosModules.services.default
     shared.nixosModules.services.openssh
     shared.nixosModules.services.cloudflared
