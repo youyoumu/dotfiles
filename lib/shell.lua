@@ -41,6 +41,27 @@ function M.sleep(seconds)
 	M.run("sleep", seconds)
 end
 
+--- Launch a command in the background without waiting for it to finish.
+---@param ... string Command and arguments to execute, passed as argv (no shell).
+---@return integer pid PID of the spawned process.
+function M.background(...)
+	local argv = { ... }
+	local path = table.remove(argv, 1)
+	local pid = posix.fork()
+	if pid == nil then
+		error("failed to fork")
+	elseif pid == 0 then
+		local devnull = posix.open("/dev/null", posix.O_RDWR)
+		posix.dup2(devnull, posix.STDIN_FILENO)
+		posix.dup2(devnull, posix.STDERR_FILENO)
+		posix.dup2(devnull, posix.STDOUT_FILENO)
+		posix.close(devnull)
+		posix.execp(path, argv)
+		os.exit(1)
+	end
+	return pid
+end
+
 --- Dispatch a subcommand from arg[1].
 ---@param commands table<string, fun(): unknown?>
 ---@param usage string Usage message for unknown commands.

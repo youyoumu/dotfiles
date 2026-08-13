@@ -90,7 +90,7 @@ window-rule {
   opacity 0.0
 }
 
-spawn-sh-at-startup "~/scripts/delayed-autostart.sh"
+spawn-sh-at-startup "lua ~/scripts/delayed-autostart.lua"
 
 binds {
   Ctrl+Shift+O { spawn-sh "lua ~/scripts/audio.lua switch"; }

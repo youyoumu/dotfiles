@@ -25,6 +25,11 @@ return function(T)
 		T.assert_truthy(out:match("function M%.read_file"))
 	end)
 
+	T.test("background launches a process and returns its pid", function()
+		local pid = shell.background("sleep", "0.2")
+		T.assert_truthy(pid and pid > 0)
+	end)
+
 	T.test("dispatch calls matching command", function()
 		local called = false
 		local old_arg = arg
