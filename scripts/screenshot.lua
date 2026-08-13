@@ -28,18 +28,15 @@ end
 local function screenshot_region_delay_annotate()
 	sleep(3)
 	local ts = timestamp()
-	local tmp_path = "/tmp/screenshot-" .. ts .. "-" .. id.nanoid(8) .. ".png"
-	local out_path = os.getenv("HOME") .. "/Pictures/Screenshots/satty-" .. ts .. ".png"
-
-	run("niri", "msg", "action", "screenshot", "--path", tmp_path)
+	local out_path = os.getenv("HOME") .. "/Pictures/Screenshots/swash-" .. ts .. ".png"
+	run("niri", "msg", "action", "screenshot", "--path", out_path)
 
 	local max_ticks = 120
 	for _ = 1, max_ticks do
-		local f = io.open(tmp_path, "r")
+		local f = io.open(out_path, "r")
 		if f then
 			f:close()
-			run("satty", "--filename", tmp_path, "--output-filename", out_path)
-			os.remove(tmp_path)
+			run("swash", out_path)
 			return
 		end
 		sleep(0.5)

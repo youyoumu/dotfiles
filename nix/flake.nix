@@ -2,41 +2,36 @@
   description = "youyoumu's flake.nix";
 
   inputs = {
+    /*nixfmt:disable*/
     self.submodules = true;
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # ================================================================
+
     nix-on-droid.url = "github:nix-community/nix-on-droid";
-    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
-    # ================================================================
+      nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # ================================================================
+      home-manager.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
-    # ================================================================
+      agenix.inputs.nixpkgs.follows = "nixpkgs";
     custom-packages.url = "github:Rishabh5321/custom-packages-flake";
-    custom-packages.inputs.nixpkgs.follows = "nixpkgs";
-    # ================================================================
+      custom-packages.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
-    # ================================================================
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    # ================================================================
-    oklch-color-picker.url = "path:./packages/oklch-color-picker";
-    oklch-color-picker.inputs.nixpkgs.follows = "nixpkgs";
-    # ================================================================
-    fhs.url = "path:./packages/fhs";
-    fhs.inputs.nixpkgs.follows = "nixpkgs";
-    # ================================================================
-    lute.url = "path:./packages/lute";
-    lute.inputs.nixpkgs.follows = "nixpkgs";
-    # ================================================================
-    nix-secrets.url = "path:./nix-secrets";
-    # ================================================================
+      nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-unit.url = "github:nix-community/nix-unit";
-    nix-unit.inputs.nixpkgs.follows = "nixpkgs";
+      nix-unit.inputs.nixpkgs.follows = "nixpkgs";
+    swash.url = "github:ItsLemmy/swash";
+      swash.inputs.nixpkgs.follows = "nixpkgs";
+    oklch-color-picker.url = "path:./packages/oklch-color-picker";
+      oklch-color-picker.inputs.nixpkgs.follows = "nixpkgs";
+    fhs.url = "path:./packages/fhs";
+      fhs.inputs.nixpkgs.follows = "nixpkgs";
+    lute.url = "path:./packages/lute";
+      lute.inputs.nixpkgs.follows = "nixpkgs";
+    nix-secrets.url = "path:./nix-secrets";
+
+    /*nixfmt:enable*/
   };
 
   outputs =
@@ -80,9 +75,7 @@
         forAllSystems (system: {
           default =
             inputs.nixpkgs.legacyPackages.${system}.runCommand "nix-unit-tests"
-              {
-                nativeBuildInputs = [ inputs.nix-unit.packages.${system}.default ];
-              }
+              { nativeBuildInputs = [ inputs.nix-unit.packages.${system}.default ]; } # bash
               ''
                 export HOME="$(realpath .)"
                 nix-unit \

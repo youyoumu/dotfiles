@@ -23,7 +23,6 @@
     papirus-icon-theme
     pavucontrol
     pulseaudioFull
-    satty
     wl-clipboard
     xwayland-satellite
 
@@ -44,6 +43,7 @@
 
     # Inputs and Others
     inputs.custom-packages.packages.${pkgs.stdenv.hostPlatform.system}.thorium-avx2
+    inputs.swash.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   programs = {
     niri = {
