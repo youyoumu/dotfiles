@@ -54,4 +54,11 @@ function M.to_env(conf)
 	return table.concat(lines, "\n")
 end
 
+--- Print environment.d conf as bash export statements.
+---@param path string Path to the conf file.
+function M.print_env(path)
+	local conf = M.load_conf(path)
+	io.write(M.to_env(conf) .. "\n")
+end
+
 return M

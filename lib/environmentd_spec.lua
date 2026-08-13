@@ -105,4 +105,28 @@ MY_PATH=/a\
 		})
 		T.assert_eq(result, 'export PATH="/a"\nexport PATH="/b"')
 	end)
+
+	T.test("print_env writes export statements from file", function()
+		local input = os.tmpname()
+		local output = os.tmpname()
+		local f = assert(io.open(input, "w"))
+		f:write("FOO=bar\n")
+		f:close()
+
+		local prev = io.output()
+		local out = assert(io.open(output, "w"))
+		io.output(out)
+		environmentd.print_env(input)
+		io.output(prev)
+		out:flush()
+		out:close()
+
+		local r = assert(io.open(output, "r"))
+		local content = r:read("*a")
+		r:close()
+		os.remove(input)
+		os.remove(output)
+
+		T.assert_eq(content, 'export FOO="bar"\n')
+	end)
 end

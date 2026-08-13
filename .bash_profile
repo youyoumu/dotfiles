@@ -4,9 +4,10 @@ if [[ -r "$HOME/.private.sh" ]]; then . "$HOME/.private.sh"; fi
 
 if command -v lua >/dev/null 2>&1; then
   export LUA_PATH="$HOME/dotfiles/?.lua;$HOME/dotfiles/?/init.lua;;"
-  _env="$(lua "$HOME/dotfiles/scripts/import_session_conf.lua" 2>/dev/null)"
+  _lua='require("lib.environmentd").print_env(arg[1])'
+  _env="$(lua - "$HOME/.config/environment.d/session.conf" 2>/dev/null <<<"$_lua")"
   eval "$_env"
-  unset _env
+  unset _env _lua
 fi
 
 case "$(hostname)" in

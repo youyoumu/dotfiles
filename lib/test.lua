@@ -15,9 +15,10 @@ end
 --- Assert two values are equal.
 ---@param actual unknown
 ---@param expected unknown
-function M.assert_eq(actual, expected)
+---@param msg string|nil Optional message on failure.
+function M.assert_eq(actual, expected, msg)
 	if actual ~= expected then
-		error(string.format("expected %s, got %s", tostring(expected), tostring(actual)), 2)
+		error(msg or string.format("expected %s, got %s", tostring(expected), tostring(actual)), 2)
 	end
 end
 
