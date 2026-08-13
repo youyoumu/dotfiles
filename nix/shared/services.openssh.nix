@@ -10,7 +10,7 @@
         UseDns = true;
         X11Forwarding = false;
         PermitRootLogin = "prohibit-password";
-        AcceptEnv = [ "SSH_PREFER_FISH" ];
+        PermitUserEnvironment = "SSH_PREFER_FISH";
       };
     };
   };

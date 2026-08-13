@@ -1,12 +1,11 @@
 #!/bin/env bash
 
-export LUA_PATH="$HOME/dotfiles/?.lua;$HOME/dotfiles/?/init.lua;;"
+if [[ -r "$HOME/.private.sh" ]]; then . "$HOME/.private.sh"; fi
 
-if [ -r "$HOME/.private.sh" ]; then . "$HOME/.private.sh"; fi
-
-# --- Import environment.d/session.conf ---
 if command -v lua >/dev/null 2>&1; then
-  _env="$(lua "$HOME/dotfiles/scripts/import_session_conf.lua" 2>/dev/null)" && eval "$_env"
+  export LUA_PATH="$HOME/dotfiles/?.lua;$HOME/dotfiles/?/init.lua;;"
+  _env="$(lua "$HOME/dotfiles/scripts/import_session_conf.lua" 2>/dev/null)"
+  eval "$_env"
   unset _env
 fi
 
@@ -21,7 +20,10 @@ localhost)
   ;;
 esac
 
-# --- Shell switch ---
-if [ "$SSH_PREFER_FISH" = "1" ] && command -v fish >/dev/null 2>&1; then
-  exec fish -li
+if [[ "$SSH_PREFER_FISH" = "1" ]]; then
+  export __EXEC_FISH=1
+fi
+
+if [[ -f "$HOME/.bashrc" ]]; then
+  source "$HOME/.bashrc"
 fi
