@@ -1,6 +1,7 @@
 ---@class shell
-local posix = require("posix")
 local M = {}
+
+local posix = require("posix")
 
 --- Run a command with individual arguments and return its output.
 ---@param ... string Command and arguments to execute, passed as argv (no shell).
@@ -8,21 +9,18 @@ local M = {}
 ---@return integer status Exit status of the command.
 function M.run(...)
 	local argv = { ... }
-	---@diagnostic disable-next-line: undefined-field
 	local pipe = posix.popen(argv, "r")
 	if not pipe then
 		error("failed to run: " .. table.concat(argv, " "))
 	end
 	local chunks = {}
 	while true do
-		---@diagnostic disable-next-line: undefined-field
 		local chunk = posix.read(pipe.fd, 4096)
 		if not chunk or chunk == "" then
 			break
 		end
 		chunks[#chunks + 1] = chunk
 	end
-	---@diagnostic disable-next-line: undefined-field
 	local _, status = posix.pclose(pipe)
 	return table.concat(chunks), status
 end
@@ -40,8 +38,7 @@ end
 --- Sleep for a number of seconds.
 ---@param seconds number
 function M.sleep(seconds)
-	-- TODO: use posix
-	os.execute(string.format("sleep %s", seconds))
+	M.run("sleep", seconds)
 end
 
 --- Dispatch a subcommand from arg[1].

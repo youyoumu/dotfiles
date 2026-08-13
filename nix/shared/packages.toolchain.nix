@@ -1,4 +1,11 @@
 { pkgs, ... }:
+let
+  lua-with-modules = pkgs.lua.withPackages (ps: [
+    ps.cjson
+    ps.luaposix
+    ps.lyaml
+  ]);
+in
 {
   environment.systemPackages = with pkgs; [
     basedpyright
@@ -25,11 +32,7 @@
     kotlin-language-server
     ktfmt
     ktlint
-    (lua.withPackages (ps: [
-      ps.cjson
-      ps.luaposix
-      ps.lyaml
-    ]))
+    lua-with-modules
     lua-language-server
     luau
     luau-lsp
@@ -68,4 +71,6 @@
     vue-language-server
     yaml-language-server
   ];
+
+  environment.variables.LUA_MODULES = "${lua-with-modules}/share/lua/${pkgs.lua.luaversion}";
 }
