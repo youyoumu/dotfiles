@@ -11,12 +11,12 @@ if command -v lua >/dev/null 2>&1; then
 fi
 
 case "$(hostname)" in
-chocola) source "$HOME/hosts/chocola/.bash_profile" ;;
-vanilla) source "$HOME/hosts/vanilla/.bash_profile" ;;
-coconut) source "$HOME/hosts/coconut/.bash_profile" ;;
+chocola) source "$HOME/.config/bash/chocola.bash_profile" ;;
+vanilla) source "$HOME/.config/bash/vanilla.bash_profile" ;;
+coconut) source "$HOME/.config/bash/coconut.bash_profile" ;;
 localhost)
   case "$HOSTNAME" in
-  azuki) source "$HOME/hosts/azuki/.bash_profile" ;;
+  azuki) source "$HOME/.config/bash/azuki.bash_profile" ;;
   esac
   ;;
 esac

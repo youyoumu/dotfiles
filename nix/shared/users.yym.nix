@@ -45,12 +45,12 @@ in
       ".bashrc".source = symlink "${DOTFILES}/.bashrc";
       ".profile".source = symlink "${DOTFILES}/.profile";
       ".tmux.conf.local".source = symlink "${DOTFILES}/.tmux.conf.local";
-      "hosts".source = symlink "${DOTFILES}/hosts";
       "scripts".source = symlink "${DOTFILES}/scripts";
     };
   };
 
   xdg.configFile = {
+    "bash".source = symlink "${CONFIG}/bash";
     "git".source = symlink "${CONFIG}/git";
     "ideavim".source = symlink "${CONFIG}/ideavim";
     "npm".source = symlink "${CONFIG}/npm";
