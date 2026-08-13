@@ -58,7 +58,6 @@ in
     "chezmoi".source = symlink "${CONFIG}/chezmoi";
     "delta".source = symlink "${CONFIG}/delta";
     "ghostty".source = symlink "${CONFIG}/ghostty";
-    "hypr".source = symlink "${CONFIG}/hypr";
     "kitty".source = symlink "${CONFIG}/kitty";
     "lazygit".source = symlink "${CONFIG}/lazygit";
     "nano".source = symlink "${CONFIG}/nano";
@@ -66,15 +65,11 @@ in
     "nvim".source = symlink "${CONFIG}/nvim";
     "vim".source = symlink "${CONFIG}/vim";
     "powershell".source = symlink "${CONFIG}/powershell";
-    "rofi".source = symlink "${CONFIG}/rofi";
     "starship.toml".source = symlink "${CONFIG}/starship.toml";
-    "swaync".source = symlink "${CONFIG}/swaync";
     "tmux".source = symlink "${CONFIG}/tmux";
-    "walker".source = symlink "${CONFIG}/walker";
     "wireplumber".source = symlink "${CONFIG}/wireplumber";
     "wpaperd".source = symlink "${CONFIG}/wpaperd";
     "yazi".source = symlink "${CONFIG}/yazi";
-    "zellij".source = symlink "${CONFIG}/zellij";
     "zvim".source = symlink "${CONFIG}/zvim";
     # partially managed by home-manager
     "fish/hosts".source = symlink "${CONFIG}/fish/hosts";

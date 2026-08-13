@@ -21,7 +21,6 @@ layout {
   }
 }
 
-spawn-at-startup "walker" "--gapplication-service"
 spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
 environment {
