@@ -1,18 +1,13 @@
+-- Package name changed from `fff.nvim` to `fff`. If you installed fff.nvim before, clean with `:Lazy clean`
 return {
-  "dmtrKovalenko/fff.nvim",
-  enabled = true,
-  -- build = function()
-  --   -- this will download prebuild binary or try to use existing rustup toolchain to build from source
-  --   -- (if you are using lazy you can use gb for rebuilding a plugin if needed)
-  --   require("fff.download").download_or_build_binary()
-  -- end,
-  --
-  -- if you are using nixos
-  build = "nix run .#release",
-  opts = { -- (optional)
-    debug = {
-      show_scores = true, -- to help us optimize the scoring system, feel free to share your scores!
-    },
+  "dmtrKovalenko/fff",
+  build = function()
+    -- downloads a prebuilt binary or falls back to cargo build
+    require("fff.download").download_or_build_binary()
+  end,
+  -- for nixos:
+  -- build = "nix run .#release",
+  opts = {
     hl = {
       winhl = {
         prompt = "Normal:SnacksPickerList,FloatBorder:SnacksPickerList",
@@ -21,12 +16,10 @@ return {
       },
     },
   },
-  -- No need to lazy-load with lazy.nvim.
-  -- This plugin initializes itself lazily.
-  lazy = false,
+  lazy = false, -- the plugin lazy-initialises itself
   keys = {
     {
-      "ff", -- try it if you didn't it is a banger keybinding for a picker
+      "ff",
       function()
         require("fff").find_files()
       end,
@@ -42,20 +35,17 @@ return {
     {
       "fz",
       function()
-        require("fff").live_grep({
-          grep = {
-            modes = { "fuzzy", "plain" },
-          },
-        })
+        require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
       end,
       desc = "Live fffuzy grep",
     },
     {
-      "fc",
+      "fw",
       function()
-        require("fff").live_grep({ query = vim.fn.expand("<cword>") })
+        require("fff").live_grep_under_cursor()
       end,
-      desc = "Search current word",
+      mode = { "n", "x" },
+      desc = "Search current word / selection",
     },
   },
 }
