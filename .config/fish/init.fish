@@ -38,6 +38,9 @@ function rm
 end
 alias remove="command rm"
 alias del="trash"
+function su
+    command su --shell=/usr/bin/fish $argv
+end
 alias stow='stow --simulate'
 alias s="sesh connect (sesh list | fzf)"
 alias lg="lazygit"

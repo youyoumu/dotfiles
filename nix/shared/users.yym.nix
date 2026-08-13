@@ -14,7 +14,7 @@ in
       enable = true;
       interactiveShellInit = ''
         set __is_home_manager_config true
-        source ~/.config/fish/init.fish
+        test -f ~/.config/fish/init.fish; and source ~/.config/fish/init.fish
       '';
       plugins = [
         {
