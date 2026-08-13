@@ -1,0 +1,42 @@
+[
+  {
+    "id": "screenshot-region",
+    "title": "Screenshot Region",
+    "subtitle": "Capture a selected region",
+    "glyph": "crop",
+    "category": "Screenshot",
+    "command": "~/scripts/screenshot.lua region"
+  },
+  {
+    "id": "screenshot-window",
+    "title": "Screenshot Window",
+    "subtitle": "Capture a specific window",
+    "glyph": "app-window",
+    "category": "Screenshot",
+    "command": "~/scripts/screenshot.lua window"
+  },
+  {
+    "id": "screenshot-screen",
+    "title": "Screenshot Screen",
+    "subtitle": "Capture the current monitor",
+    "glyph": "device-desktop",
+    "category": "Screenshot",
+    "command": "~/scripts/screenshot.lua monitor"
+  },
+  {
+    "id": "screenshot-region-delay",
+    "title": "Screenshot Region (Delay)",
+    "subtitle": "3 second delay, then select region",
+    "glyph": "clock",
+    "category": "Screenshot",
+    "command": "~/scripts/screenshot.lua region-delay"
+  },
+  {
+    "id": "screenshot-region-delay-annotate",
+    "title": "Screenshot Region (Annotate)",
+    "subtitle": "Select region, annotate in Swash",
+    "glyph": "pencil",
+    "category": "Screenshot",
+    "command": "~/scripts/screenshot.lua region-delay-annotate"
+  }
+]
