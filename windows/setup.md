@@ -25,8 +25,14 @@ restart computer
 
 # Module
 
-```
+```ps1
 Install-Module -Name AudioDeviceCmdlets
 Install-Module PSReadLine -Repository PSGallery -Scope CurrentUser -AllowPrerelease -Force
 Install-Module -Name PSFzf
+```
+
+# Environment Variable
+
+```ps1
+[Environment]::SetEnvironmentVariable("XDG_CONFIG_HOME", "$env:USERPROFILE\.config", "User")
 ```

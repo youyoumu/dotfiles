@@ -1,4 +1,5 @@
 $dotfiles = "$env:USERPROFILE\dotfiles"
+$env:XDG_CONFIG_HOME = "C:\Users\yym\.config"
 
 $links = @(
   @{
@@ -6,48 +7,20 @@ $links = @(
     Target = "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
   },
   @{
+    Source = "$dotfiles\windows\windows-terminal\settings.json"
+    Target = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+  },
+  @{
     Source = "$dotfiles\.config\nvim"
-    Target = "$env:LOCALAPPDATA\nvim"
+    Target = "$env:XDG_CONFIG_HOME\nvim"
   },
   @{
     Source = "$dotfiles\.config\lazygit"
-    Target = "$env:LOCALAPPDATA\lazygit"
+    Target = "$env:XDG_CONFIG_HOME\lazygit"
   },
   @{
-    Source = "$dotfiles\.gitconfig"
-    Target = "$env:USERPROFILE\.gitconfig"
-  }
-  @{
-    Source = "$dotfiles\windows\windows-terminal\settings.json"
-    Target = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
-  }
-  @{
-    Source = "$dotfiles\.gitconfig.windows"
-    Target = "$env:USERPROFILE\.gitconfig.windows"
-  }
-  @{
-    Source = "$dotfiles\.gitconfig.linux"
-    Target = "$env:USERPROFILE\.gitconfig.linux"
-  }
-  @{
-    Source = "$dotfiles\windows\chezmoi\chezmoi.toml"
-    Target = "$env:USERPROFILE\.config\chezmoi\chezmoi.toml"
-  }
-  @{
-    Source = "$dotfiles\windows\komorebi\komorebi.json"
-    Target = "$env:USERPROFILE\komorebi.json"
-  }
-  @{
-    Source = "$dotfiles\windows\komorebi\komorebi.bar.json"
-    Target = "$env:USERPROFILE\komorebi.bar.json"
-  }
-  @{
-    Source = "$dotfiles\windows\whkdrc\whkdrc"
-    Target = "$env:USERPROFILE\.config\whkdrc"
-  }
-  @{
-    Source = "$dotfiles\windows\yasb"
-    Target = "$env:USERPROFILE\.config\yasb"
+    Source = "$dotfiles\.config\git"
+    Target = "$env:XDG_CONFIG_HOME\git"
   }
 )
 

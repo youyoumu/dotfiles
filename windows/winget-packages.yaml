@@ -1,4 +1,4 @@
-packages:
+Packages:
   # Essential CLI tools
   - eza-community.eza
   - sharkdp.fd
@@ -8,14 +8,13 @@ packages:
   - Starship.Starship
   - sxyazi.yazi
   - Casey.Just
-  - twpayne.chezmoi
+  - Wilfred.difftastic
 
   # Development tools
   - Git.Git
-  - dandavison.delta
   - GoLang.Go
   - OpenJS.NodeJS.LTS
-  - Python.Python.3.9
+  - Python.Python.3.11
   - Rustlang.Rust.GNU
   - JesseDuffield.lazygit
   - Neovim.Neovim
@@ -38,20 +37,16 @@ packages:
   - Fastfetch-cli.Fastfetch
   - Rufus.Rufus
   - Cloudflare.Warp
-  - ShareX.ShareX
-  - NirSoft.NirCmd
   - OBSProject.OBSStudio
 
   # Browsers
   - Google.Chrome.EXE
   - Mozilla.Firefox
+  - EDRLab.Thorium
 
   # Productivity
   - Microsoft.PowerToys
   - Anki.Anki
-  - LGUG2Z.komorebi
-  - LGUG2Z.whkd
-  - AmN.yasb
 
   # Multimedia
   - VideoLAN.VLC
