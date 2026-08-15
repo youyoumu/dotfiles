@@ -3,10 +3,10 @@
 local shell = require("lib.shell")
 local sleep, background = shell.sleep, shell.background
 
-sleep(5)
+sleep(1)
 background("ghostty", "+new-window")
 
-sleep(5)
+sleep(1)
 background("microsoft-edge", "--disable-features=GlobalShortcutsPortal")
 
 sleep(5)

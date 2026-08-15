@@ -30,7 +30,7 @@ in
       options = ntfsOptions;
     };
     "/mnt/n1t-usagi" = {
-      device = "/dev/disk/by-uuid/6C0ACF540ACF19CA";
+      device = "/dev/disk/by-uuid/B0EA810AEA80CDD2";
       fsType = "auto";
       options = ntfsOptions;
     };

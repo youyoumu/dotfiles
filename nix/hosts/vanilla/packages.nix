@@ -6,5 +6,4 @@
     rcon-cli
     ollama-cpu
   ];
-  virtualisation.docker.enable = true;
 }

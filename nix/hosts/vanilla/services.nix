@@ -13,7 +13,7 @@
     };
   };
 
-  services = {
-    cloudflared.tunnelNames = [ "vanilla-tunnel" ];
-  };
+  services.cloudflared.tunnelNames = [ "vanilla-tunnel" ];
+
+  virtualisation.docker.enable = true;
 }
