@@ -8,4 +8,7 @@ window-padding-balance = true
 background-opacity = 0.975
 custom-shader = shaders/cursor_blaze.glsl
 quit-after-last-window-closed = false
+selection-clear-on-copy = true
+keybind = performable:ctrl+c=copy_to_clipboard
+keybind = ctrl+v=paste_from_clipboard  
 

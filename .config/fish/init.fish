@@ -48,6 +48,7 @@ alias n="nvim"
 alias zvim="NVIM_APPNAME=zvim nvim"
 alias p="pnpm"
 alias j="just"
+alias var="_fzf_search_variables (set --show | psub) (set --names | psub)"
 
 # XDG Ninja
 alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
