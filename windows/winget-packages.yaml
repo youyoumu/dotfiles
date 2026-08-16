@@ -1,65 +1,55 @@
 Packages:
-  # Essential CLI tools
-  - eza-community.eza
-  - sharkdp.fd
+  # Default
+  - 7zip.7zip
   - BurntSushi.ripgrep.MSVC
-  - ajeetdsouza.zoxide
-  - junegunn.fzf
-  - Starship.Starship
-  - sxyazi.yazi
   - Casey.Just
-  - Wilfred.difftastic
-
-  # Development tools
   - Git.Git
-  - GoLang.Go
-  - OpenJS.NodeJS.LTS
-  - Python.Python.3.11
-  - Rustlang.Rust.GNU
   - JesseDuffield.lazygit
-  - Neovim.Neovim
   - Neovide.Neovide
+  - Neovim.Neovim
+  - Starship.Starship
+  - Wilfred.difftastic
+  - ajeetdsouza.zoxide
+  - eza-community.eza
+  - junegunn.fzf
+  - sharkdp.fd
+  - sxyazi.yazi
+
+  # Toolchain
+  - GnuWin32.Gzip
+  - GoLang.Go
   - MartinStorsjo.LLVM-MinGW.MSVCRT
-  - pnpm.pnpm
-  - astral-sh.uv
   - Microsoft.VisualStudio.2022.BuildTools
   - Microsoft.VisualStudio.2022.Community
   - Microsoft.VisualStudioCode
-  - GnuWin32.Gzip
+  - OpenJS.NodeJS.LTS
+  - Python.Python.3.11
+  - Rustlang.Rust.GNU
   - Rustlang.Rustup
+  - astral-sh.uv
+  - pnpm.pnpm
 
-  # System utilities
-  - 7zip.7zip
-  - CPUID.CPU-Z
-  - Microsoft.PowerShell
-  - Microsoft.WindowsTerminal
-  - Google.JapaneseIME
-  - Fastfetch-cli.Fastfetch
-  - Rufus.Rufus
-  - Cloudflare.Warp
-  - OBSProject.OBSStudio
-
-  # Browsers
-  - Google.Chrome.EXE
-  - Mozilla.Firefox
-  - EDRLab.Thorium
-
-  # Productivity
-  - Microsoft.PowerToys
+  # Dekstop
+  - Alex313031.Thorium
   - Anki.Anki
-
-  # Multimedia
-  - VideoLAN.VLC
-  - HandBrake.HandBrake
   - Audacity.Audacity
-  - qBittorrent.qBittorrent
-
-  # Gaming / streaming
-  - Valve.Steam
-  - LizardByte.Sunshine
   - Blinue.Magpie
-
-  # Communication
+  - CPUID.CPU-Z
+  - Cloudflare.Warp
   - Discord.Discord
+  - Fastfetch-cli.Fastfetch
+  - Google.Chrome.EXE
+  - Google.JapaneseIME
+  - HandBrake.HandBrake
+  - LizardByte.Sunshine
+  - Microsoft.PowerShell
+  - Microsoft.PowerToys
+  - Microsoft.WindowsTerminal
+  - Mozilla.Firefox
+  - OBSProject.OBSStudio
+  - Rufus.Rufus
+  - Valve.Steam
+  - VideoLAN.VLC
+  - qBittorrent.qBittorrent
 
 
