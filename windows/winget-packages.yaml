@@ -28,6 +28,7 @@ Packages:
   - Rustlang.Rustup
   - astral-sh.uv
   - pnpm.pnpm
+  - Google.PlatformTools
 
   # Dekstop
   - Alex313031.Thorium
@@ -51,6 +52,7 @@ Packages:
   - Valve.Steam
   - VideoLAN.VLC
   - qBittorrent.qBittorrent
+  - Notepad++.Notepad++
 
 UnsortedPackages:
 

@@ -51,6 +51,7 @@ Set-Alias lg lazygit.exe
 Set-Alias n nvim.exe
 Set-Alias j just.exe
 Set-Alias p pnpm.exe
+Set-Alias winget-add add-winget-package.ps1
 
 function realpath
 {
