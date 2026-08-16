@@ -4,7 +4,7 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$packageFile = Join-Path $PSScriptRoot "winget-packages.yaml"
+$packageFile = Join-Path (Split-Path $PSScriptRoot -Parent) "winget-packages.yaml"
 
 if (!(Test-Path $packageFile)) {
   Write-Host "🔴 Package file not found: $packageFile" -ForegroundColor Red

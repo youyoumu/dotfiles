@@ -308,4 +308,4 @@ widgets:
         return_format: "string"
         hide_empty: false
       callbacks:
-        on_left: "exec pwsh.exe -c audio-device-switch.ps1"
+        on_left: "exec pwsh.exe -c switch-audio-device.ps1"
