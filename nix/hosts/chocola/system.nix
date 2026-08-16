@@ -3,9 +3,7 @@
   pkgs,
   shared,
   ...
-}:
-
-{
+}: {
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
   ];
