@@ -18,6 +18,7 @@
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Asia/Jakarta";
+  time.hardwareClockInLocalTime = true;
   i18n.defaultLocale = "en_US.UTF-8";
 
   users.users.yym = {
