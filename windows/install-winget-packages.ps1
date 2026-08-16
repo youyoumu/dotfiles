@@ -3,7 +3,9 @@ Install-Module -Name Microsoft.WinGet.Client -Scope CurrentUser
 
 $packageFile = "$PSScriptRoot\winget-packages.yaml"
 $yamlContent = Get-Content $packageFile -Raw | ConvertFrom-Yaml
-$packages = $yamlContent.packages
+$packages = @()
+if ($null -ne $yamlContent.packages) { $packages += $yamlContent.packages }
+if ($null -ne $yamlContent.UnsortedPackages) { $packages += $yamlContent.UnsortedPackages }
 
 Write-Host "📄 Fetching installed Winget packages..."
 $installedPackages = Get-WinGetPackage -ErrorAction SilentlyContinue
