@@ -64,6 +64,7 @@
     };
     gnupg.agent.enable = true;
     firefox.enable = true;
+    localsend.enable = true;
     nix-index-database.comma.enable = true;
   };
 }
